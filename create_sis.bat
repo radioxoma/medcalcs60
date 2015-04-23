@@ -1,4 +1,4 @@
-REM 
+REM
 REM DO NOT TRY TO GENERATE THE SIS FILE IF YOUR PATH CONTAINS SPACES.
 REM ENSYMBLE DOES NOT SUPPORT THEM ! COPY THIS PROJECT TO C:\
 REM BEFORE RUNNING THIS SCRIPT.
@@ -33,4 +33,3 @@ if not exist ensymble.py    xcopy /E "%PYS60DIR%\ensymble.py" .
 if not exist openssl.exe    xcopy /E "%PYS60DIR%\openssl.exe" .
 
 %PYTHON% ensymble.py py2sis %OPTS% "%TMPDIR%" "%APPNAME%-%MEDCALCVER%.sis"
-

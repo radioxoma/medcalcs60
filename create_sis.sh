@@ -5,7 +5,7 @@ PYS60DIR="${HOME}/build/pys60/PythonForS60"
 CERPATH="${HOME}/Документы/Dropbox/Документы/doc/Python/PythonForS60/signing/cer"
 PROJECTDIR=`pwd`
 APPNAME=Medcalc
-VERSION=0.6.1
+VERSION=0.6.3
 CAPBLS=LocalServices+ReadUserData+WriteUserData+UserEnvironment
 SRCDIR=src
 TMPDIR=src.tmp
@@ -20,11 +20,11 @@ OPTS="--verbose
       --privkey=${CERPATH}/2009-11-18.key
       --passphrase=''
       --lang=PO,EN,RU
+      --extrasdir=extras
       --icon=${PROJECTDIR}/${ICON}
       --textfile=${PROJECTDIR}/disclaimer.txt
-      --extrasdir=extras
       --heapsize=4k,5M
-	"
+      "
 # --extrasdir=     - Name of dir. tree placed under drive root
 # --extra-modules= - Additional dependency modules that should be packaged with the application
 
@@ -32,7 +32,7 @@ echo "Populating temp dir"
 rm -r ${TMPDIR}/*
 mkdir -p ${TMPDIR}/extras/data/python/medcalc
 
-cp -r ${SRCDIR}/lib/* ${TMPDIR}/extras/data/python/medcalc/
+cp -r ${SRCDIR}/medcalc ${TMPDIR}
 cp -r ${SRCDIR}/img/* ${TMPDIR}/extras/data/python/medcalc/
 cp -r ${SRCDIR}/default.py ${TMPDIR}/
 

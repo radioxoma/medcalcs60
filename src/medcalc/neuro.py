@@ -6,7 +6,7 @@ from __future__ import with_statement
 # ###########################################################
 #                     Teste Neuro                           #
 # ###########################################################
-from geralclass import *
+from medcalc.geralclass import *
 '''
 The Abbreviated Mental Test can be used to quickly test the cognitive function in elderly patients. This is also referred to as the Hodkinson's Mental Test Score.
 Item Score (each one point)

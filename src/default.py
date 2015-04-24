@@ -27,11 +27,11 @@ import os
 import e32, graphics
 from audio import say
 
-from geralclass import *
-from geral import *
-from neuro import *
-from uti import *
-from rx import *
+from medcalc.geralclass import *
+from medcalc.geral import *
+from medcalc.neuro import *
+from medcalc.uti import *
+from medcalc.rx import *
 
 # Level 1 Menu
 

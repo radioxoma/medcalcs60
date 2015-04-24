@@ -7,7 +7,7 @@ from __future__ import with_statement
 #                        Teste Geral                        #
 # ###########################################################
 
-from geralclass import *
+from medcalc.geralclass import *
 
 
 class BMI (MedCalc):

@@ -60,3 +60,6 @@ target/
 .settings/
 .project
 *.pydevproject
+
+# Symbian
+*.sis

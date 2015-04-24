@@ -5,7 +5,7 @@ PYS60DIR="${HOME}/build/pys60/PythonForS60"
 CERPATH="${HOME}/Документы/Dropbox/Документы/doc/Python/PythonForS60/signing/cer"
 PROJECTDIR=`pwd`
 APPNAME=Medcalc
-VERSION=0.6.3
+VERSION=0.6.4
 CAPBLS=LocalServices+ReadUserData+WriteUserData+UserEnvironment
 SRCDIR=src
 TMPDIR=src.tmp
@@ -27,23 +27,28 @@ OPTS="--verbose
       "
 # --extrasdir=     - Name of dir. tree placed under drive root
 # --extra-modules= - Additional dependency modules that should be packaged with the application
-
-echo "Populating temp dir"
-rm -r ${TMPDIR}/*
-mkdir -p ${TMPDIR}/extras/data/python/medcalc
-
-cp -r ${SRCDIR}/medcalc ${TMPDIR}
-cp -r ${SRCDIR}/img/* ${TMPDIR}/extras/data/python/medcalc/
-cp -r ${SRCDIR}/default.py ${TMPDIR}/
-
-# Compile po files
-# https://wiki.maemo.org/Internationalize_a_Python_application
-
 # sys.prefix == 'C:\\resource\\python25'
 # etc 'C:\\DATA\\python', 'System\libs', 'System\apps\python\my'
 
-# Отсутствует компонент "Python for S60". Продолжить? Reading past correspondence on this form, this error appears to be because the UID for Python and its runtimes have changed between PyS60 1.4.x and 1.9.x.
-# https://garage.maemo.org/frs/?group_id=854&release_id=2763
+rm -r ${TMPDIR}/*
+echo "Populating temp dir"
+
+cp -r ${SRCDIR}/default.py ${TMPDIR}/
+cp -r ${SRCDIR}/medcalc ${TMPDIR}/
+
+mkdir -p ${TMPDIR}/extras/data/python/medcalc
+cp -r ${SRCDIR}/img/* ${TMPDIR}/extras/data/python/medcalc/
+# cp -r ${SRCDIR}/img/* ${TMPDIR}/extras/resource/python25/share/medcalc
+
+# Compile po files
+# https://wiki.maemo.org/Internationalize_a_Python_application
+# Copy localisation file(s) to default location
+# gettext._default_localedir == 'c:/resource/python25/share/locale'
+mkdir -p ${TMPDIR}/extras/resource/python25/share/locale/
+cp -r ${SRCDIR}/locale/ ${TMPDIR}/extras/resource/python25/share/
+# Retain only compiled translation
+find ${TMPDIR}/extras/resource/python25/share/locale -type f ! -name '*.mo' -delete
+# find ${SRCDIR}/locale/ -name '*.mo' | cpio -pdm ./../${TMPDIR}/extras/resource/python25/share/
 
 cd ${PYS60DIR}
 python2.5 ${PYS60DIR}/ensymble.py py2sis ${OPTS} "${PROJECTDIR}/${TMPDIR}" "${PROJECTDIR}/${APPNAME}-${VERSION}.sis"

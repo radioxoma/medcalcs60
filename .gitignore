@@ -63,3 +63,9 @@ target/
 
 # Symbian
 *.sis
+
+# Gettext / l10n
+*.mo
+
+# Build directiry
+src.tmp

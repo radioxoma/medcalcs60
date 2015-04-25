@@ -7,7 +7,7 @@ from __future__ import with_statement
 """
 Medical calculator
 
-Ref: http://www-users.med.cornell.edu/~spon/picu/calc/index.htm
+Ref: http://www-users.med.cornell.edu/~spon/picu/calc/medcalc.htm
 Ref: http://www.medcalc.com/
 Ref: http://www.medal.org/
 """
@@ -22,8 +22,12 @@ if in_emulator():
 sys.path.append(u"c:\\data\\python\\medcalc\\")
 
 import os
+import sys
 import gettext
-l10n = gettext.translation('medcalc', languages=['ru'])
+if sys.platform == 'symbian_s60':
+    l10n = gettext.translation('medcalc', languages=['ru'])
+else:
+    l10n = gettext.translation('medcalc', localedir='locale', languages=['ru'])
 l10n.install(unicode=True)
 import e32
 import graphics
@@ -65,7 +69,7 @@ class MenuUTI(MenuFilho):
     def __init__(self):
         self.Children = [
             _(u"Gradiente Arterial Alveolar"),
-            _(u"Bicarbonato e base excesso "),
+            _(u"Bicarbonato e base excesso"),
             _(u"Indíce de Ventilação"),
             _(u"Osmolaridade Sérica"),
             _(u"Quantidade Oxigênio"),
@@ -96,7 +100,7 @@ class MenuRX(MenuFilho):
 class MRI(MenuFilho):
     def __init__(self):
         self.Children = []
-        self.Title = u"MRI"
+        self.Title = _(u"MRI")
         self.MenuKid = []
 
 
@@ -123,7 +127,7 @@ class MenuStruct(object):
         self.lb = None
 
     def refresh(self):
-        appuifw.app.title = u"Medical"
+        appuifw.app.title = _(u"Medical")
         appuifw.app.menu = []
         appuifw.app.exit_key_handler = self.exit_key_handler
         appuifw.app.body = self.lb
@@ -150,16 +154,13 @@ class MenuStruct(object):
 
 
 def splash():
-    possible_locations = ["E:\\python\\logo.png", "C:\\data\\python\\medcalc\\logo.png", "logo.png"]
-    # possible_locations = ["C:/data/python/medcalc/logo.png", "logo.png"]
-    possible_locations.append(os.path.join(sys.path[0], "logo.png"))
+    possible_locations = ["C:/data/python/medcalc/logo.png", "logo.png"]
+    possible_locations.append(os.path.join(sys.path[0], "img/logo.png"))
     appuifw.app.screen = 'full'  # fullscreen
     for location in possible_locations:
         if os.path.exists(location):
-            try:
-                img1 = graphics.Image.open(location)
-            except:
-                print("Error finding logo")
+            img1 = graphics.Image.open(location)
+            break
 
     def handle_redraw(rect):
         canvas.blit(img1)
@@ -171,7 +172,10 @@ def splash():
     appuifw.app.screen = 'normal'  # fullscreen
 
 try:
-    splash()
+    try:
+        splash()
+    except Exception as e:
+        print("Error opening logo: %s" % e)
     MenuStruct().run()
 except Exception, e:
     import appuifw
@@ -184,6 +188,7 @@ except Exception, e:
         traceback.format_exception(e1, e2, e3))
     lock = e32.Ao_lock()
 
+    print(err_msg.encode('utf-8', errors='skip'))
     appuifw.app.body = appuifw.Text(err_msg)
     appuifw.app.menu = [(u"Exit", lambda: lock.signal())]
     appuifw.app.title = u"Error log"

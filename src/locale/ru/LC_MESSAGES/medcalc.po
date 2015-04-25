@@ -1,62 +1,671 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: medcalc\n"
-"POT-Creation-Date: 2015-04-24 22:38+0300\n"
-"PO-Revision-Date: 2015-04-24 22:48+0300\n"
+"POT-Creation-Date: 2015-04-25 15:30+0300\n"
+"PO-Revision-Date: 2015-04-25 17:27+0300\n"
 "Last-Translator: Eugene Dvoretsky <radioxoma@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.7.6\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SearchPath-0: ../../..\n"
 
-#: ../../../default.py:53
+# Human body surface area
+#: ../../../default.py:42
+msgid "BSA"
+msgstr "Площадь поверхности тела"
+
+# Body mass index
+#: ../../../default.py:42
+msgid "BMI"
+msgstr "Индекс массы тела"
+
+# Basal energy expenditure
+#: ../../../default.py:42
+msgid "BEE"
+msgstr "Basal energy expenditure"
+
+#: ../../../default.py:44 ../../../default.py:108
+msgid "Geral"
+msgstr "Общие"
+
+#: ../../../default.py:52
 msgid "Glasgow CS"
 msgstr "Шкала комы Глазго"
 
 # https://en.wikipedia.org/wiki/Mini%E2%80%93mental_state_examination
-#: ../../../default.py:54
+#: ../../../default.py:53
 msgid "Teste Mental Abreviado"
 msgstr "Краткая шкала оценки психического статуса"
 
 # https://en.wikipedia.org/wiki/Zung_Self-Rating_Depression_Scale
-#: ../../../default.py:55
+#: ../../../default.py:54
 msgid "Zung Depressão"
 msgstr "Шкала 3анга для самооценки депрессии"
 
 # https://en.wikipedia.org/wiki/National_Institute_of_Neurological_Disorders_and_Stroke
-#: ../../../default.py:56
+#: ../../../default.py:55
 msgid "NINDS 3-Item"
 msgstr ""
 
-#: ../../../default.py:57
-#, fuzzy
+# Hachinski ischemia score (vascular dementia)
+# http://www.strokecenter.org/wp-content/uploads/2011/08/hachinski.pdf
+# http://www.ncbi.nlm.nih.gov/pubmed/1164215?dopt=Abstract
+#: ../../../default.py:56
 msgid "Hachinski Indice Isquemico"
-msgstr "Vascular dementia (Hachinski Indice Isquemico)"
+msgstr "Ишемическая шкала Хачинского"
 
 # CHADS2 Score for Atrial Fibrillation Stroke Risk
-#: ../../../default.py:58
-#, fuzzy
+#: ../../../default.py:57
 msgid "CHADS2 - AVC/AFib"
-msgstr "CHADS2 риск фибрилляции предсердий"
+msgstr "CHA2DS2-VASс риск тромбоэмболии при фибрилляции/трепетании предсердий"
 
-#: ../../../default.py:59 ../../../default.py:87
+#: ../../../default.py:58 ../../../default.py:109
 msgid "Neuro"
+msgstr "Неврология"
+
+#: ../../../default.py:67
+msgid "Gradiente Arterial Alveolar"
+msgstr "Альвеолярно-артериальная разница по кислороду"
+
+#: ../../../default.py:68
+msgid "Bicarbonato e base excesso"
+msgstr "Бикарбонат и избыток оснований"
+
+#: ../../../default.py:69
+msgid "Indíce de Ventilação"
+msgstr ""
+
+#: ../../../default.py:70
+msgid "Osmolaridade Sérica"
+msgstr ""
+
+#: ../../../default.py:71
+msgid "Quantidade Oxigênio"
+msgstr ""
+
+#: ../../../default.py:72
+msgid "Saturação Oxigênio"
+msgstr ""
+
+# Intensive care medicine
+#: ../../../default.py:73 ../../../default.py:110
+msgid "UTI"
+msgstr "Интенсивная терапия"
+
+#: ../../../default.py:82
+msgid "Raio-X Torax PA"
+msgstr ""
+
+#: ../../../default.py:83
+msgid "Raio-X Torax Lat"
+msgstr ""
+
+#: ../../../default.py:84
+msgid "Raio-X Torax PA (F)"
+msgstr ""
+
+#: ../../../default.py:85
+msgid "Raio-X Pneumonia"
 msgstr ""
 
 #: ../../../default.py:86
-msgid "Geral"
+msgid "Outro Raio-X Pneumonia"
+msgstr ""
+
+#: ../../../default.py:87
+msgid "Raio-X Antrax"
 msgstr ""
 
 #: ../../../default.py:88
-msgid "UTI"
-msgstr "Анестезиология и реанимация"
+msgid "Raio-X Marfan"
+msgstr ""
 
 #: ../../../default.py:89
+msgid "Raio-X Câncer"
+msgstr ""
+
+#: ../../../default.py:90 ../../../default.py:111
 msgid "RX"
 msgstr "Рентгенограммы"
+
+#: ../../../default.py:99
+msgid "MRI"
+msgstr "МРТ"
+
+#: ../../../default.py:126
+msgid "Medical"
+msgstr "Медицинский"
+
+#: ../../../medcalc/geral.py:18 ../../../medcalc/geral.py:34
+#: ../../../medcalc/geral.py:52
+msgid "Peso (kg)"
+msgstr "Вес (кг)"
+
+#: ../../../medcalc/geral.py:19 ../../../medcalc/geral.py:35
+#: ../../../medcalc/geral.py:53
+msgid "Altura (cm)"
+msgstr "Рост (см)"
+
+#: ../../../medcalc/geral.py:24
+#, python-format
+msgid "IMC = %f"
+msgstr "ИМТ = %f"
+
+#: ../../../medcalc/geral.py:41
+#, python-format
+msgid "BSA = %f"
+msgstr "Площадь поерхности тела = %f"
+
+#: ../../../medcalc/geral.py:48
+msgid "Repouso"
+msgstr ""
+
+#: ../../../medcalc/geral.py:48
+msgid "Deambulando"
+msgstr ""
+
+#: ../../../medcalc/geral.py:49
+msgid "Homem"
+msgstr "Мужской"
+
+#: ../../../medcalc/geral.py:49
+msgid "Mulher"
+msgstr "Женский"
+
+#: ../../../medcalc/geral.py:51
+msgid "Sexo"
+msgstr "Пол"
+
+#: ../../../medcalc/geral.py:54 ../../../medcalc/neuro.py:21
+msgid "Idade"
+msgstr "Возраст"
+
+#: ../../../medcalc/geral.py:55
+msgid "Atividade"
+msgstr ""
+
+#: ../../../medcalc/geral.py:65
+#, python-format
+msgid "Gasto de Energia Basal = %.0f kcal"
+msgstr ""
+
+#: ../../../medcalc/geral.py:71
+msgid "Hipertensão arterial controlada "
+msgstr "Контролируемая артериальная гипертензия"
+
+#: ../../../medcalc/geral.py:72
+msgid "Diabetes controlada"
+msgstr "Контролируемый диабет"
+
+#: ../../../medcalc/geral.py:73
+msgid "Doença vascular periférica controlada"
+msgstr ""
+
+#: ../../../medcalc/geral.py:74
+msgid "Doença pulm. obstr. crônica controlada"
+msgstr ""
+
+#: ../../../medcalc/geral.py:75
+msgid "Doença Sistemica Controlada"
+msgstr ""
+
+#: ../../../medcalc/geral.py:76
+msgid "Angina inst. c/ hep EV ou nitrog."
+msgstr ""
+
+#: ../../../medcalc/geral.py:77
+msgid "Balão pré-op. intra-aórt"
+msgstr ""
+
+#: ../../../medcalc/geral.py:78
+msgid "Insuficiência cardíaca c/ edema pulm. ou perif."
+msgstr ""
+
+#: ../../../medcalc/geral.py:79
+msgid "Hipertensão não controlada"
+msgstr ""
+
+#: ../../../medcalc/geral.py:80
+msgid "Insufic. renal (creatinina sérica> 140µmol / L"
+msgstr ""
+
+#: ../../../medcalc/geral.py:81
+msgid "Outros debilitante doença sistêmica"
+msgstr ""
+
+#: ../../../medcalc/geral.py:82
+msgid "Reoperation"
+msgstr ""
+
+#: ../../../medcalc/geral.py:83
+msgid "Valvula e cirurg. coronaria"
+msgstr ""
+
+#: ../../../medcalc/geral.py:84
+msgid "Multiplas valvulas"
+msgstr ""
+
+#: ../../../medcalc/geral.py:85
+msgid "Ventricular aneurisma esq."
+msgstr ""
+
+#: ../../../medcalc/geral.py:86
+msgid "Reparo de defeito septo ventricular após IM"
+msgstr ""
+
+#: ../../../medcalc/geral.py:87
+msgid "Bypass de vasos difusos ou calcificados"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:22
+#, fuzzy
+msgid "Minutos para próxima hora"
+msgstr "Сколько осталось минут до конца часа?"
+
+#: ../../../medcalc/neuro.py:23
+msgid "Nome do lugar"
+msgstr "Название места"
+
+#: ../../../medcalc/neuro.py:24
+msgid "Reconhecer 2 pessoas"
+msgstr "Распознаёт двух людей"
+
+#: ../../../medcalc/neuro.py:25
+msgid "Data 1a guerra"
+msgstr "Дата 1 мировой войны"
+
+#: ../../../medcalc/neuro.py:26
+msgid "Presidente da república"
+msgstr "Президент страны"
+
+#: ../../../medcalc/neuro.py:27
+msgid "Conta 20 a 1?"
+msgstr "Счёт от 20 к 1"
+
+#: ../../../medcalc/neuro.py:28
+msgid "Endereço"
+msgstr "Адрес"
+
+#: ../../../medcalc/neuro.py:29
+msgid "Aniversário"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:30
+msgid "Ano em que estamos"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:45
+msgid "Espontaneamente"
+msgstr "Спонтанно"
+
+#: ../../../medcalc/neuro.py:46
+msgid "Estímulo Verbal"
+msgstr "На голос"
+
+#: ../../../medcalc/neuro.py:47
+msgid "A dor"
+msgstr "Боль"
+
+#: ../../../medcalc/neuro.py:48
+msgid "Nunca"
+msgstr "Нет ответа"
+
+#: ../../../medcalc/neuro.py:50
+msgid "Orientado e falando"
+msgstr "Больной ориентирован, быстрый и правильный ответ на заданный вопрос"
+
+#: ../../../medcalc/neuro.py:51
+msgid "Desorientado e falando"
+msgstr "Больной дезориентирован, спутанная речь"
+
+#: ../../../medcalc/neuro.py:52
+msgid "Palavras confusas"
+msgstr "Словесная окрошка, ответ по смыслу не соответствует вопросу"
+
+#: ../../../medcalc/neuro.py:53
+msgid "Sons incompreensiveis"
+msgstr "Нечленораздельные звуки в ответ на заданный вопрос"
+
+#: ../../../medcalc/neuro.py:54 ../../../medcalc/neuro.py:61
+msgid "Sem resposta"
+msgstr "Отсутствие речи"
+
+#: ../../../medcalc/neuro.py:56
+msgid "Obedece comandos"
+msgstr "Выполняет команды"
+
+#: ../../../medcalc/neuro.py:57
+msgid "Localiza a dor"
+msgstr ""
+"Целенаправленное движение в ответ на болевое раздражение (отталкивание)"
+
+#: ../../../medcalc/neuro.py:58
+msgid "Flexão normal"
+msgstr "Отдёргивание конечности в ответ на болевое раздражение"
+
+#: ../../../medcalc/neuro.py:59
+msgid "Flexão anormal"
+msgstr "Патологическое сгибание в ответ на болевое раздражение"
+
+#: ../../../medcalc/neuro.py:60
+msgid "Extensão"
+msgstr "Патологическое разгибание в ответ на болевое раздражение"
+
+#: ../../../medcalc/neuro.py:63
+msgid "Olhos"
+msgstr "Открывание глаз"
+
+#: ../../../medcalc/neuro.py:64
+msgid "Verbal"
+msgstr "Речевая реакция"
+
+#: ../../../medcalc/neuro.py:65
+msgid "Motor"
+msgstr "Двигательная реакция"
+
+#: ../../../medcalc/neuro.py:90
+msgid "Volume da lesão MR-DWI"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:91
+msgid "NIHSS score"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:92
+msgid "Tempo em horas desde o começo"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:112
+msgid "Poucas Vezes"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:113
+msgid "Algumas Vezes"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:114
+msgid "Boa Parte das Vezes"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:115
+msgid "Quase Sempre"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:117
+msgid "Sinto desanimo e tristeza?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:118
+msgid "Sinto melhor de manhã?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:119
+msgid "Choro ou tenho vontade?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:120
+msgid "Problemas para dormir?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:121
+msgid "Como o habitual?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:122
+msgid "Vida sexual normal?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:123
+msgid "Estou perdendo peso?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:124
+msgid "Problemas de constipação?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:125
+msgid "Coração batendo mais acelerado?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:126
+msgid "Cansado sem razão?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:127
+msgid "Pensamento claro como de costume?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:128
+msgid "É fácil fazer o que estou acostumado?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:129
+msgid "Sinto-me inquieto?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:130
+msgid "Sinto-me esperançoso com relação ao futuro?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:132
+msgid "Mais irritável que o usual?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:133
+msgid "É fácil tomar decisões?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:134
+msgid "Sinto-me útil e necessário?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:135
+msgid "Minha vida está plena?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:136
+msgid "Sinto que os outros estariam melhor com eu morto?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:138
+msgid "Gosto das coisas que costumava gostar?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:165
+msgid "Stepwise deterioration"
+msgstr "Постепенное ухудшение (когнитивного статуса)"
+
+#: ../../../medcalc/neuro.py:166
+msgid "Fluctuating course"
+msgstr "Флюктуирующее течение"
+
+#: ../../../medcalc/neuro.py:167
+msgid "Nocturnal confusion"
+msgstr "Дезориентация ночью"
+
+#: ../../../medcalc/neuro.py:168
+msgid "Relative preservation of personality"
+msgstr "Относительная личностная сохранность"
+
+#: ../../../medcalc/neuro.py:169
+msgid "Depression"
+msgstr "Депрессия"
+
+#: ../../../medcalc/neuro.py:170
+msgid "Somatic complaints"
+msgstr "Соматические жалобы"
+
+#: ../../../medcalc/neuro.py:171
+msgid "Emotional incontinence"
+msgstr "Эмоциональная неустойчивость"
+
+#: ../../../medcalc/neuro.py:172
+msgid "History of hypertension"
+msgstr "Артериальная гипертензия в анамнезе"
+
+#: ../../../medcalc/neuro.py:173
+msgid "History of strokes"
+msgstr "Инсульты в анамнезе"
+
+#: ../../../medcalc/neuro.py:174
+msgid "Evidence of associated atherosclerosis"
+msgstr "Признаки сопутствующего атеросклероза"
+
+#: ../../../medcalc/neuro.py:175
+msgid "Focal neurological symptoms"
+msgstr "Очаговые неврологические симптомы"
+
+#: ../../../medcalc/neuro.py:176
+msgid "Focal neurological signs"
+msgstr "Патологические очаговые знаки"
+
+#: ../../../medcalc/neuro.py:194
+msgid "Historico de ICC"
+msgstr ""
+"Инсульт, транзиторная ишемическая атака или артериальная тромбоэмболия в "
+"анамнезе"
+
+#: ../../../medcalc/neuro.py:195
+msgid "Hipertensão"
+msgstr "Гипертония"
+
+#: ../../../medcalc/neuro.py:196
+msgid "Mais de 75 anos"
+msgstr "Возраст ≥ 75 лет"
+
+#: ../../../medcalc/neuro.py:197
+msgid "Diabete mellitus"
+msgstr "Сахарный диабет"
+
+#: ../../../medcalc/neuro.py:198
+msgid "Histórico de AVC ou TIA"
+msgstr ""
+"Сосудистое заболевание (инфаркт миокарда в анамнезе, периферический "
+"атеросклероз, атеросклеротические бляшки в аорте)"
+
+#: ../../../medcalc/neuro.py:227
+msgid "Resultado - Novo Estilo\n"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:229
+msgid "Diga o que achou deste estilo...\n"
+msgstr ""
+
+#: ../../../medcalc/uti.py:13
+msgid "Hemoglobina (g/dl)"
+msgstr "Гемоглобин (г/дл)"
+
+#: ../../../medcalc/uti.py:14
+msgid "Sa02 (%)"
+msgstr "Sa02 (%)"
+
+#: ../../../medcalc/uti.py:15
+msgid "Pa02 (torr)"
+msgstr ""
+
+#: ../../../medcalc/uti.py:22
+#, python-format
+msgid "CaO2 = %.2f"
+msgstr "CaO2 = %.2f"
+
+#: ../../../medcalc/uti.py:32
+#, python-format
+msgid "Sat. O2 = %.2f"
+msgstr ""
+
+#: ../../../medcalc/uti.py:47
+#, python-format
+msgid "Osmolaridade Sérica = %.2f"
+msgstr ""
+
+#: ../../../medcalc/uti.py:53
+msgid "Ritmo Resp. Vent. (bpm)"
+msgstr "Частота дыханий в минуту"
+
+#: ../../../medcalc/uti.py:54
+msgid "Pico Pressão Insp. (torr)"
+msgstr ""
+
+#: ../../../medcalc/uti.py:55
+msgid "PEEP (torr)"
+msgstr ""
+
+#: ../../../medcalc/uti.py:56
+msgid "PaCO2 (torr)"
+msgstr ""
+
+#: ../../../medcalc/uti.py:64
+#, python-format
+msgid "Indice Ventilação %.2f"
+msgstr "Респираторный индекс %.2f"
+
+#: ../../../medcalc/uti.py:70
+msgid "In FiO2 (dec)"
+msgstr ""
+
+#: ../../../medcalc/uti.py:71
+msgid "In PaC02 (torr)"
+msgstr ""
+
+#: ../../../medcalc/uti.py:72
+msgid "In Pa02 (torr)"
+msgstr ""
+
+#: ../../../medcalc/uti.py:77
+#, python-format
+msgid "Gradiente Arterial Alveolar = %.2f"
+msgstr ""
+
+#: ../../../medcalc/uti.py:83
+msgid "Valor pH"
+msgstr "Значение pH"
+
+#: ../../../medcalc/uti.py:84
+msgid "Valor PaC02"
+msgstr "Значение PaC02"
+
+#: ../../../medcalc/uti.py:91
+#, python-format
+msgid ""
+"HCO3 = %(HCO3)s \n"
+"Desbalanceamento Base: %(BE)s"
+msgstr "HCO3 = %(HCO3)s, BE: %(BE)s"
+
+#~ msgid "homem"
+#~ msgstr "Мужской"
+
+#~ msgid "mulher"
+#~ msgstr "Женский"
+
+#~ msgid "nunca"
+#~ msgstr "Отсутствует"
+
+#~ msgid "orientado e falando"
+#~ msgstr "Больной ориентирован, быстрый и правильный ответ на заданный вопрос"
+
+#~ msgid "desorientado e falando"
+#~ msgstr "Больной дезориентирован, спутанная речь"
+
+#~ msgid "palavras confusas"
+#~ msgstr "Словесная окрошка, ответ по смыслу не соответствует вопросу"
+
+#~ msgid "sons incompreensiveis"
+#~ msgstr "Нечленораздельные звуки в ответ на заданный вопрос"
+
+#~ msgid "sem resposta"
+#~ msgstr "Нет ответа"
+
+#~ msgid "flexão normal"
+#~ msgstr "Отдёргивание конечности в ответ на болевое раздражение"
+
+#~ msgid "flexão anormal"
+#~ msgstr "Патологическое сгибание в ответ на болевое раздражение"
+
+#~ msgid "extensão"
+#~ msgstr "Патологическое разгибание в ответ на болевое раздражение"

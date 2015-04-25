@@ -154,7 +154,7 @@ class MenuStruct(object):
 
 
 def splash():
-    possible_locations = ["C:/data/python/medcalc/logo.png", "logo.png"]
+    possible_locations = ["C:\\data\\python\\medcalc\\logo.png"]
     possible_locations.append(os.path.join(sys.path[0], "img/logo.png"))
     appuifw.app.screen = 'full'  # fullscreen
     for location in possible_locations:
@@ -172,10 +172,7 @@ def splash():
     appuifw.app.screen = 'normal'  # fullscreen
 
 try:
-    try:
-        splash()
-    except Exception as e:
-        print("Error opening logo: %s" % e)
+    splash()
     MenuStruct().run()
 except Exception, e:
     import appuifw
@@ -188,7 +185,6 @@ except Exception, e:
         traceback.format_exception(e1, e2, e3))
     lock = e32.Ao_lock()
 
-    print(err_msg.encode('utf-8', errors='skip'))
     appuifw.app.body = appuifw.Text(err_msg)
     appuifw.app.menu = [(u"Exit", lambda: lock.signal())]
     appuifw.app.title = u"Error log"

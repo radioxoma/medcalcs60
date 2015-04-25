@@ -13,20 +13,13 @@ Ref: http://www.medal.org/
 """
 
 
-import sys
-from e32 import in_emulator
-if in_emulator():
-    sys.path.append('c:/data/python/')
-
-# install only in memory phone
-sys.path.append(u"c:\\data\\python\\medcalc\\")
-
 import os
 import sys
 import gettext
 if sys.platform == 'symbian_s60':
     l10n = gettext.translation('medcalc', languages=['ru'])
 else:
+	# For desktop testing
     l10n = gettext.translation('medcalc', localedir='locale', languages=['ru'])
 l10n.install(unicode=True)
 import e32
@@ -183,8 +176,8 @@ except Exception, e:
     err_msg = unicode(repr(e)) + u"\u2029" * 2
     err_msg += u"Call stack:\u2029" + unicode(
         traceback.format_exception(e1, e2, e3))
-    lock = e32.Ao_lock()
 
+    lock = e32.Ao_lock()
     appuifw.app.body = appuifw.Text(err_msg)
     appuifw.app.menu = [(u"Exit", lambda: lock.signal())]
     appuifw.app.title = u"Error log"

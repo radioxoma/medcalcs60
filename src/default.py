@@ -17,9 +17,10 @@ import os
 import sys
 import gettext
 if sys.platform == 'symbian_s60':
+    # mo files will be collected from `gettext._default_localedir`
     l10n = gettext.translation('medcalc', languages=['ru'])
 else:
-	# For desktop testing
+    # For desktop testing
     l10n = gettext.translation('medcalc', localedir='locale', languages=['ru'])
 l10n.install(unicode=True)
 import e32
@@ -120,7 +121,7 @@ class MenuStruct(object):
         self.lb = None
 
     def refresh(self):
-        appuifw.app.title = _(u"Medical")
+        appuifw.app.title = u"Medcalc"
         appuifw.app.menu = []
         appuifw.app.exit_key_handler = self.exit_key_handler
         appuifw.app.body = self.lb
@@ -147,6 +148,9 @@ class MenuStruct(object):
 
 
 def splash():
+    """Show splash image over the screen.
+    """
+    # Backslashes in file paths for compatibility with symbian native library
     possible_locations = ["C:\\data\\python\\medcalc\\logo.png"]
     possible_locations.append(os.path.join(sys.path[0], "img/logo.png"))
     appuifw.app.screen = 'full'  # fullscreen
@@ -159,13 +163,15 @@ def splash():
         canvas.blit(img1)
 
     canvas = appuifw.Canvas(event_callback=None, redraw_callback=handle_redraw)
-    canvas.blit(img1)
+    canvas.blit(img1)  # Causes error in wxwidgets pys60 emulator
     appuifw.app.body = canvas
-    e32.ao_sleep(3)
+    e32.ao_sleep(1)
     appuifw.app.screen = 'normal'  # fullscreen
 
+
 try:
-    splash()
+    if sys.platform == 'symbian_s60':
+        splash()  # On windows it brokes pys60 emulation library
     MenuStruct().run()
 except Exception, e:
     import appuifw

@@ -40,6 +40,10 @@ class AbbreviatedMentalTest(MedCalcList):
 
 
 class GCS(MedCalc):
+    """Glasgow Coma Scale.
+
+    https://en.wikipedia.org/wiki/Glasgow_Coma_Scale
+    """
     def __init__(self):
         self.Eye = [
             _(u'Espontaneamente'),
@@ -77,15 +81,23 @@ class GCS(MedCalc):
         L = self.getform()[1][2][1]
         M = self.getform()[2][2][1]
         GCS = 4 - E + 5 - L + 6 - M
-        appuifw.note(u"GCS = %d\nProb. recuperação: %d%%" % (
-            GCS, prob(GCS)), "info")
+        appuifw.note(_(u"GCS = %(GCS)d\nProb. recuperação: %(pGCS)d%%" % {
+            'GCS': GCS, 'pGCS': prob(GCS)}), "info")
 
 
 class NINDS3(MedCalc):
     def __init__(self):
-        self.volume = [u'<= 14.1 mL', u'> 14.1 mL']
-        self.nihss = [u' <= 3', u'4 a 15', u'> 15']
-        self.horas = [u'<= 3 horas', u'3 a 6 horas', u'> 6 horas']
+        self.volume = [
+            _(u'<= 14.1 mL'),
+            _(u'> 14.1 mL')]
+        self.nihss = [
+            _(u'<= 3'),
+            _(u'4 a 15'),
+            _(u'> 15')]
+        self.horas = [
+            _(u'<= 3 horas'),
+            _(u'3 a 6 horas'),
+            _(u'> 6 horas')]
         self.data = [
             (_(u'Volume da lesão MR-DWI'), 'combo', (self.volume, 0)),
             (_(u'NIHSS score'), 'combo', (self.nihss, 0)),
@@ -94,25 +106,30 @@ class NINDS3(MedCalc):
     def show(self):
         def prob(i):
             if i < 3:
-                return "Baixa"
+                return _("Baixa")
             if i < 5:
-                return "Média"
-            return "Alta"
+                return _("Média")
+            return _("Alta")
         V = self.getform()[0][2][1]
         N = self.getform()[1][2][1]
         H = self.getform()[2][2][1]
         ninds3 = 1 - V + 4 - 2 * N + H
-        appuifw.note(u"NINDS3 = %d\nProb. recuperação: %s" % (
-            ninds3, prob(ninds3)), "info")
+        appuifw.note(
+            _(u"NINDS3 = %(ninds3)d\nProb. recuperação: %(pninds3)s" % {
+                'ninds3': ninds3, 'pninds3': prob(ninds3)}), "info")
 
 
 class Zung(MedCalc):
+    """Zung Self-Rating Depression Scale.
+
+    https://en.wikipedia.org/wiki/Zung_Self-Rating_Depression_Scale
+    """
     def __init__(self):
         alist = [
-            _(u'Poucas Vezes'),
-            _(u'Algumas Vezes'),
-            _(u'Boa Parte das Vezes'),
-            _(u'Quase Sempre')]
+            _(u'Poucas Vezes'),         # A little of the time
+            _(u'Algumas Vezes'),        # Some of the time
+            _(u'Boa Parte das Vezes'),  # Good part of the time
+            _(u'Quase Sempre')]         # Most of the time
         self.data = [
             (_(u'Sinto desanimo e tristeza?'), 'combo', (alist, 0)),
             (_(u'Sinto melhor de manhã?'), 'combo', (alist, 0)),
@@ -147,16 +164,16 @@ class Zung(MedCalc):
 
         def diag(i):
             if i < 36:
-                return "Normal"
+                return _(u"Normal")
             if i < 57:
-                return "Limiar"
-            return "Limiar"
+                return _(u"Limiar")
+            return _(u"Limiar")
         f = self.getform()
         ZNG = 0
         for i in range(20):
             ZNG += prob(i, f[i][2][1])
-        appuifw.note(u"Zung = %d\nProvavelmente:%s" % (
-            ZNG, diag(GCS)), "info")
+        appuifw.note(_(u"Zung = %(ZNG)d\nProvavelmente:%(dGCS)s" % {
+            'ZNG': ZNG, 'dGCS': diag(GCS)}), "info")
 
 
 class Hachinski(MedCalcList):
@@ -181,11 +198,11 @@ class Hachinski(MedCalcList):
         for i in self._f:
             soma += self.pontos[i]
         if soma > 7:
-            appuifw.note(u"Pontos %d- demencia vascular " % soma, "info")
+            appuifw.note(_(u"Pontos %d- demencia vascular" % soma), "info")
         if soma < 4:
-            appuifw.note(u"Pontos %d- Demencia Primária" % soma, "info")
+            appuifw.note(_(u"Pontos %d- Demencia Primária" % soma), "info")
         if soma > 3 and soma < 8:
-            appuifw.note(u"Pontos %d- Limiar / Mixed" % soma, "info")
+            appuifw.note(_(u"Pontos %d- Limiar / Mixed" % soma), "info")
 
 
 class CHADS2(MedCalcList):
@@ -212,8 +229,10 @@ class CHADS2(MedCalcList):
             soma += self.pontos[i]
         rt = self.rate[soma]
         print rt
-        msg = u"%d Pontos\nProb AVC: %.1f%%\n(%s)" % (
-            rt[0], rt[1], rt[2])
+        msg = _(u"%(rt0)d Pontos\nProb AVC: %(rt1).1f%%\n(%(rt2)s)" % {
+            'rt0': rt[0],
+            'rt1': rt[1],
+            'rt2': rt[2]})
         print msg
         # appuifw.note(msg,"info")
         show_dummy(msg)

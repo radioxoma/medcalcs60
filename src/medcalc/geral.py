@@ -45,7 +45,10 @@ class BEE(MedCalc):
     """Basal energy expenditure.
     """
     def __init__(self):
-        act = [_(u'Repouso'), _(u'Deambulando')]
+        # Issue: activity is not used for calculation
+        act = [
+            _(u'Repouso'),  # Rest?
+            _(u'Deambulando')]  # Walking?
         sexo = [_(u'Homem'), _(u'Mulher')]
         self.data = [
             (_(u'Sexo'), 'combo', (sexo, 0)),

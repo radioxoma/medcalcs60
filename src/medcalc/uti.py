@@ -8,6 +8,10 @@ from medcalc.geralclass import *
 
 
 class OxygenContent(MedCalc):
+    """Oxygen Content.
+
+    http://www-users.med.cornell.edu/~spon/picu/calc/oxycont.htm
+    """
     def __init__(self):
         self.data = [
             (_(u'Hemoglobina (g/dl)'), 'number', 0),
@@ -23,6 +27,10 @@ class OxygenContent(MedCalc):
 
 
 class SatO2(MedCalc):
+    """Oxygen Saturation.
+
+    http://www-users.med.cornell.edu/~spon/picu/calc/o2satcal.htm
+    """
     def __init__(self):
         self.data = [(_(u'pO2 - Entrada'), 'number', 0)]
 
@@ -30,10 +38,14 @@ class SatO2(MedCalc):
         pO2 = self.getform()[0][2]
         print(pO2, self.getform())
         SO2 = (23400.0 * (pO2 ** 3 + 150 * pO2) ** -1 + 1) ** -1
-        appuifw.note(_(u"Sat. O2 = %.2f" % SO2), "info")
+        appuifw.note(_(u"SpO2 = %.2f" % SO2), "info")
 
 
 class OsmSerica(MedCalc):
+    """Serum Osmolality.
+
+    http://www-users.med.cornell.edu/~spon/picu/calc/osmolal.htm
+    """
     def __init__(self):
         self.data = [
             (u'Na (mEq/L)', 'number', 0),
@@ -49,6 +61,10 @@ class OsmSerica(MedCalc):
 
 
 class VentIndex(MedCalc):
+    """Ventilation Index.
+
+    http://www-users.med.cornell.edu/~spon/picu/calc/ventindx.htm
+    """
     def __init__(self):
         self.data = [
             (_(u'Ritmo Resp. Vent. (bpm)'), 'number', 0),
@@ -66,6 +82,13 @@ class VentIndex(MedCalc):
 
 
 class AaGrad(MedCalc):
+    """Alveolar-arterial Gradient.
+
+    Input FiO2  decimal
+    Input PaCO2 torr
+    Input PaO2  torr
+    http://www-users.med.cornell.edu/~spon/picu/calc/aagrad.htm
+    """
     def __init__(self):
         self.data = [
             (_(u'In FiO2 (dec)'), 'number', 0),
@@ -73,6 +96,7 @@ class AaGrad(MedCalc):
             (_(u'In Pa02 (torr)'), 'number', 0)]
 
     def show(self):
+        # 1 torr == 1/760 atm (standard atmosphere)
         PAO2 = self.getform()[0][2] * (760 - 47) - self.getform()[1][2] / 0.8
         PAO2 -= self.getform()[2][2]
         appuifw.note(_(u"Gradiente Arterial Alveolar = %.2f" % PAO2), "info")

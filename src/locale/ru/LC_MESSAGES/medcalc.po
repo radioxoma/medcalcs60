@@ -1,372 +1,380 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: medcalc\n"
-"POT-Creation-Date: 2015-04-26 06:13+0300\n"
-"PO-Revision-Date: 2015-04-26 06:13+0300\n"
+"POT-Creation-Date: 2015-04-26 19:42+0300\n"
+"PO-Revision-Date: 2015-04-26 19:42+0300\n"
 "Last-Translator: Eugene Dvoretsky <radioxoma@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.6\n"
+"X-Generator: Poedit 1.7.5\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SearchPath-0: ../../..\n"
 
 # Human body surface area
-#: ../../../default.py:39
+#: ../../../default.py:40
 msgid "BSA"
 msgstr "Площадь поверхности тела"
 
 # Body mass index
-#: ../../../default.py:39
+#: ../../../default.py:40
 msgid "BMI"
 msgstr "Индекс массы тела"
 
 # Basal energy expenditure
-#: ../../../default.py:39
+#: ../../../default.py:40
 msgid "BEE"
 msgstr "Базальная скорость метаболизма"
 
-#: ../../../default.py:41 ../../../default.py:105
+#: ../../../default.py:42 ../../../default.py:106
 msgid "Geral"
 msgstr "Общие"
 
-#: ../../../default.py:49
+#: ../../../default.py:50
 msgid "Glasgow CS"
 msgstr "Шкала комы Глазго"
 
 # https://en.wikipedia.org/wiki/Mini%E2%80%93mental_state_examination
-#: ../../../default.py:50
+#: ../../../default.py:51
 msgid "Teste Mental Abreviado"
 msgstr "Краткая шкала оценки психического статуса"
 
 # https://en.wikipedia.org/wiki/Zung_Self-Rating_Depression_Scale
-#: ../../../default.py:51
+#: ../../../default.py:52
 msgid "Zung Depressão"
 msgstr "Шкала 3анга для самооценки депрессии"
 
 # https://en.wikipedia.org/wiki/National_Institute_of_Neurological_Disorders_and_Stroke
-#: ../../../default.py:52
+#: ../../../default.py:53
 msgid "NINDS 3-Item"
-msgstr ""
+msgstr "Риск инсульта (NINDS 3-Item)"
 
 # Hachinski ischemia score (vascular dementia)
 # http://www.strokecenter.org/wp-content/uploads/2011/08/hachinski.pdf
 # http://www.ncbi.nlm.nih.gov/pubmed/1164215?dopt=Abstract
-#: ../../../default.py:53
+#: ../../../default.py:54
 msgid "Hachinski Indice Isquemico"
 msgstr "Ишемическая шкала Хачинского"
 
 # CHADS2 Score for Atrial Fibrillation Stroke Risk
-#: ../../../default.py:54
+#: ../../../default.py:55
 msgid "CHADS2 - AVC/AFib"
 msgstr "CHA2DS2-VASс риск тромбоэмболии при фибрилляции/трепетании предсердий"
 
-#: ../../../default.py:55 ../../../default.py:106
+#: ../../../default.py:56 ../../../default.py:107
 msgid "Neuro"
 msgstr "Неврология"
 
-#: ../../../default.py:64
+#: ../../../default.py:65
 msgid "Gradiente Arterial Alveolar"
 msgstr "Альвеолярно-артериальная разница по кислороду"
 
-#: ../../../default.py:65
+#: ../../../default.py:66
 msgid "Bicarbonato e base excesso"
 msgstr "Бикарбонат и избыток оснований"
 
-#: ../../../default.py:66
+#: ../../../default.py:67
 msgid "Indíce de Ventilação"
 msgstr "Респираторный индекс"
 
-#: ../../../default.py:67
-msgid "Osmolaridade Sérica"
-msgstr ""
-
 #: ../../../default.py:68
-msgid "Quantidade Oxigênio"
-msgstr ""
+msgid "Osmolaridade Sérica"
+msgstr "Осмолярность сыворотки"
 
 #: ../../../default.py:69
+msgid "Quantidade Oxigênio"
+msgstr "Содержание O2 в крови"
+
+#: ../../../default.py:70
 msgid "Saturação Oxigênio"
-msgstr ""
+msgstr "SpO2 при заданном pO2"
 
 # Intensive care medicine
-#: ../../../default.py:70 ../../../default.py:107
+#: ../../../default.py:71 ../../../default.py:108
 msgid "UTI"
 msgstr "Интенсивная терапия"
 
-#: ../../../default.py:79
-msgid "Raio-X Torax PA"
-msgstr ""
-
 #: ../../../default.py:80
-msgid "Raio-X Torax Lat"
-msgstr ""
+msgid "Raio-X Torax PA"
+msgstr "Грудная клетка, передняя проекция, мужчина"
 
 #: ../../../default.py:81
-msgid "Raio-X Torax PA (F)"
-msgstr ""
+msgid "Raio-X Torax Lat"
+msgstr "Грудная клетка, боковая проекция, мужчина"
 
 #: ../../../default.py:82
-msgid "Raio-X Pneumonia"
-msgstr "Пневмония"
+msgid "Raio-X Torax PA (F)"
+msgstr "Грудная клетка, передняя проекция, женщина"
 
 #: ../../../default.py:83
-msgid "Outro Raio-X Pneumonia"
-msgstr ""
+msgid "Raio-X Pneumonia"
+msgstr "Пневмония 1"
 
 #: ../../../default.py:84
-msgid "Raio-X Antrax"
-msgstr ""
+msgid "Outro Raio-X Pneumonia"
+msgstr "Пневмония 2"
 
 #: ../../../default.py:85
+msgid "Raio-X Antrax"
+msgstr "Сибирская язва"
+
+#: ../../../default.py:86
 msgid "Raio-X Marfan"
 msgstr "Марфана синдром"
 
-#: ../../../default.py:86
+#: ../../../default.py:87
 msgid "Raio-X Câncer"
 msgstr "Рак"
 
-#: ../../../default.py:87 ../../../default.py:108
+#: ../../../default.py:88 ../../../default.py:109
 msgid "RX"
 msgstr "Рентгенограммы"
 
-#: ../../../default.py:96
+#: ../../../default.py:97
 msgid "MRI"
 msgstr "МРТ"
 
-#: ../../../medcalc/geral.py:18 ../../../medcalc/geral.py:34
-#: ../../../medcalc/geral.py:55
+#: ../../../medcalc/geral.py:21 ../../../medcalc/geral.py:38
+#: ../../../medcalc/geral.py:61
 msgid "Peso (kg)"
 msgstr "Вес (кг)"
 
-#: ../../../medcalc/geral.py:19 ../../../medcalc/geral.py:35
-#: ../../../medcalc/geral.py:56
+#: ../../../medcalc/geral.py:22 ../../../medcalc/geral.py:39
+#: ../../../medcalc/geral.py:62
 msgid "Altura (cm)"
 msgstr "Рост (см)"
 
-#: ../../../medcalc/geral.py:24
+#: ../../../medcalc/geral.py:27
 #, python-format
 msgid "IMC = %f"
 msgstr "ИМТ = %f"
 
-#: ../../../medcalc/geral.py:41
+#: ../../../medcalc/geral.py:45
 #, python-format
 msgid "BSA = %f"
 msgstr "Площадь поерхности тела = %f"
 
-#: ../../../medcalc/geral.py:50
+#: ../../../medcalc/geral.py:56
 msgid "Repouso"
 msgstr "Отдых"
 
 # Walking
-#: ../../../medcalc/geral.py:51
+#: ../../../medcalc/geral.py:57
 msgid "Deambulando"
 msgstr "Ходьба"
 
-#: ../../../medcalc/geral.py:52
+#: ../../../medcalc/geral.py:58
 msgid "Homem"
 msgstr "Мужской"
 
-#: ../../../medcalc/geral.py:52
+#: ../../../medcalc/geral.py:58
 msgid "Mulher"
 msgstr "Женский"
 
-#: ../../../medcalc/geral.py:54
+#: ../../../medcalc/geral.py:60
 msgid "Sexo"
 msgstr "Пол"
 
-#: ../../../medcalc/geral.py:57 ../../../medcalc/neuro.py:21
+#: ../../../medcalc/geral.py:63 ../../../medcalc/neuro.py:25
 msgid "Idade"
 msgstr "Возраст"
 
-#: ../../../medcalc/geral.py:58
+#: ../../../medcalc/geral.py:64
 msgid "Atividade"
 msgstr "Активность"
 
-#: ../../../medcalc/geral.py:68
+#: ../../../medcalc/geral.py:74
 #, python-format
 msgid "Gasto de Energia Basal = %.0f kcal"
 msgstr "Расход базальной энергии = %.0f ккал"
 
-#: ../../../medcalc/geral.py:74
+#: ../../../medcalc/geral.py:80
 msgid "Hipertensão arterial controlada "
 msgstr "Контролируемая артериальная гипертензия"
 
-#: ../../../medcalc/geral.py:75
+#: ../../../medcalc/geral.py:81
 msgid "Diabetes controlada"
 msgstr "Контролируемый диабет"
 
-#: ../../../medcalc/geral.py:76
+#: ../../../medcalc/geral.py:82
 msgid "Doença vascular periférica controlada"
 msgstr ""
 
-#: ../../../medcalc/geral.py:77
+#: ../../../medcalc/geral.py:83
 msgid "Doença pulm. obstr. crônica controlada"
 msgstr ""
 
-#: ../../../medcalc/geral.py:78
+#: ../../../medcalc/geral.py:84
 msgid "Doença Sistemica Controlada"
 msgstr ""
 
-#: ../../../medcalc/geral.py:79
+#: ../../../medcalc/geral.py:85
 msgid "Angina inst. c/ hep EV ou nitrog."
 msgstr ""
 
-#: ../../../medcalc/geral.py:80
+#: ../../../medcalc/geral.py:86
 msgid "Balão pré-op. intra-aórt"
 msgstr ""
 
-#: ../../../medcalc/geral.py:81
+#: ../../../medcalc/geral.py:87
 msgid "Insuficiência cardíaca c/ edema pulm. ou perif."
 msgstr ""
 
-#: ../../../medcalc/geral.py:82
+#: ../../../medcalc/geral.py:88
 msgid "Hipertensão não controlada"
 msgstr ""
 
-#: ../../../medcalc/geral.py:83
+#: ../../../medcalc/geral.py:89
 msgid "Insufic. renal (creatinina sérica> 140µmol / L"
 msgstr ""
 
-#: ../../../medcalc/geral.py:84
+#: ../../../medcalc/geral.py:90
 msgid "Outros debilitante doença sistêmica"
 msgstr ""
 
-#: ../../../medcalc/geral.py:85
+#: ../../../medcalc/geral.py:91
 msgid "Reoperation"
-msgstr ""
+msgstr "Повторная операция"
 
-#: ../../../medcalc/geral.py:86
+#: ../../../medcalc/geral.py:92
 msgid "Valvula e cirurg. coronaria"
 msgstr ""
 
-#: ../../../medcalc/geral.py:87
+#: ../../../medcalc/geral.py:93
 msgid "Multiplas valvulas"
 msgstr ""
 
-#: ../../../medcalc/geral.py:88
+#: ../../../medcalc/geral.py:94
 msgid "Ventricular aneurisma esq."
 msgstr ""
 
-#: ../../../medcalc/geral.py:89
+#: ../../../medcalc/geral.py:95
 msgid "Reparo de defeito septo ventricular após IM"
 msgstr ""
 
-#: ../../../medcalc/geral.py:90
+#: ../../../medcalc/geral.py:96
 msgid "Bypass de vasos difusos ou calcificados"
 msgstr ""
 
-#: ../../../medcalc/neuro.py:22
-#, fuzzy
+#: ../../../medcalc/neuro.py:26
 msgid "Minutos para próxima hora"
-msgstr "Сколько осталось минут до конца часа?"
+msgstr "Минут до конца часа?"
 
-#: ../../../medcalc/neuro.py:23
+#: ../../../medcalc/neuro.py:27
 msgid "Nome do lugar"
 msgstr "Название места"
 
-#: ../../../medcalc/neuro.py:24
+#: ../../../medcalc/neuro.py:28
 msgid "Reconhecer 2 pessoas"
 msgstr "Распознаёт двух людей"
 
-#: ../../../medcalc/neuro.py:25
+#: ../../../medcalc/neuro.py:29
 msgid "Data 1a guerra"
 msgstr "Дата 1 мировой войны"
 
-#: ../../../medcalc/neuro.py:26
+#: ../../../medcalc/neuro.py:30
 msgid "Presidente da república"
 msgstr "Президент страны"
 
-#: ../../../medcalc/neuro.py:27
+#: ../../../medcalc/neuro.py:31
 msgid "Conta 20 a 1?"
 msgstr "Счёт от 20 к 1"
 
-#: ../../../medcalc/neuro.py:28
+#: ../../../medcalc/neuro.py:32
 msgid "Endereço"
 msgstr "Адрес"
 
-#: ../../../medcalc/neuro.py:29
+#: ../../../medcalc/neuro.py:33
 msgid "Aniversário"
-msgstr "Дата рождеиия"
+msgstr "Дата рождения"
 
-#: ../../../medcalc/neuro.py:30
+#: ../../../medcalc/neuro.py:34
 msgid "Ano em que estamos"
-msgstr ""
+msgstr "Какой сейчас год?"
 
-#: ../../../medcalc/neuro.py:49
+#: ../../../medcalc/neuro.py:41
+#, python-format
+msgid "Pontos %d- Não demenciado"
+msgstr "%d баллов, нет деменции"
+
+#: ../../../medcalc/neuro.py:43
+msgid "Pontos %d- Demenciado 81.5 %"
+msgstr "%d баллов, деменция в 81.5 %"
+
+#: ../../../medcalc/neuro.py:53
 msgid "Espontaneamente"
 msgstr "Спонтанно"
 
-#: ../../../medcalc/neuro.py:50
+#: ../../../medcalc/neuro.py:54
 msgid "Estímulo Verbal"
 msgstr "На голос"
 
-#: ../../../medcalc/neuro.py:51
+#: ../../../medcalc/neuro.py:55
 msgid "A dor"
 msgstr "Боль"
 
-#: ../../../medcalc/neuro.py:52
+#: ../../../medcalc/neuro.py:56
 msgid "Nunca"
 msgstr "Отсутствует"
 
-#: ../../../medcalc/neuro.py:54
+#: ../../../medcalc/neuro.py:58
 msgid "Orientado e falando"
 msgstr "Больной ориентирован, быстрый и правильный ответ на заданный вопрос"
 
-#: ../../../medcalc/neuro.py:55
+#: ../../../medcalc/neuro.py:59
 msgid "Desorientado e falando"
 msgstr "Больной дезориентирован, спутанная речь"
 
-#: ../../../medcalc/neuro.py:56
+#: ../../../medcalc/neuro.py:60
 msgid "Palavras confusas"
 msgstr "Словесная окрошка, ответ по смыслу не соответствует вопросу"
 
-#: ../../../medcalc/neuro.py:57
+#: ../../../medcalc/neuro.py:61
 msgid "Sons incompreensiveis"
 msgstr "Нечленораздельные звуки в ответ на заданный вопрос"
 
-#: ../../../medcalc/neuro.py:58 ../../../medcalc/neuro.py:65
+#: ../../../medcalc/neuro.py:62 ../../../medcalc/neuro.py:69
 msgid "Sem resposta"
 msgstr "Отсутствует"
 
-#: ../../../medcalc/neuro.py:60
+#: ../../../medcalc/neuro.py:64
 msgid "Obedece comandos"
 msgstr "Выполняет команды"
 
-#: ../../../medcalc/neuro.py:61
+#: ../../../medcalc/neuro.py:65
 msgid "Localiza a dor"
 msgstr ""
 "Целенаправленное движение в ответ на болевое раздражение (отталкивание)"
 
-#: ../../../medcalc/neuro.py:62
+#: ../../../medcalc/neuro.py:66
 msgid "Flexão normal"
 msgstr "Отдёргивание конечности в ответ на болевое раздражение"
 
-#: ../../../medcalc/neuro.py:63
+#: ../../../medcalc/neuro.py:67
 msgid "Flexão anormal"
 msgstr "Патологическое сгибание в ответ на болевое раздражение"
 
-#: ../../../medcalc/neuro.py:64
+#: ../../../medcalc/neuro.py:68
 msgid "Extensão"
 msgstr "Патологическое разгибание в ответ на болевое раздражение"
 
-#: ../../../medcalc/neuro.py:67
+#: ../../../medcalc/neuro.py:71
 msgid "Olhos"
 msgstr "Открывание глаз"
 
-#: ../../../medcalc/neuro.py:68
+#: ../../../medcalc/neuro.py:72
 msgid "Verbal"
 msgstr "Речевая реакция"
 
-#: ../../../medcalc/neuro.py:69
+#: ../../../medcalc/neuro.py:73
 msgid "Motor"
 msgstr "Двигательная реакция"
 
-#: ../../../medcalc/neuro.py:84
+#: ../../../medcalc/neuro.py:88
 #, python-format
 msgid ""
 "GCS = %(GCS)d\n"
@@ -375,174 +383,177 @@ msgstr ""
 "GCS = %(GCS)d\n"
 "Вероятность восстановления: %(pGCS)d%%"
 
-#: ../../../medcalc/neuro.py:91
-msgid "<= 14.1 mL"
-msgstr ""
-
-#: ../../../medcalc/neuro.py:92
-msgid "> 14.1 mL"
-msgstr ""
-
-#: ../../../medcalc/neuro.py:94
-msgid "<= 3"
-msgstr ""
-
-#: ../../../medcalc/neuro.py:95
-msgid "4 a 15"
-msgstr ""
-
-#: ../../../medcalc/neuro.py:96
-msgid "> 15"
-msgstr ""
-
-#: ../../../medcalc/neuro.py:98
-msgid "<= 3 horas"
-msgstr ""
-
-#: ../../../medcalc/neuro.py:99
-msgid "3 a 6 horas"
-msgstr ""
-
-#: ../../../medcalc/neuro.py:100
-msgid "> 6 horas"
-msgstr ""
-
-#: ../../../medcalc/neuro.py:102
-msgid "Volume da lesão MR-DWI"
-msgstr ""
-
-#: ../../../medcalc/neuro.py:103
-msgid "NIHSS score"
-msgstr ""
-
 #: ../../../medcalc/neuro.py:104
-msgid "Tempo em horas desde o começo"
-msgstr ""
+msgid "<= 14.1 mL"
+msgstr " ≤ 14.1 мл"
+
+#: ../../../medcalc/neuro.py:105
+msgid "> 14.1 mL"
+msgstr "> 14.1 мл"
+
+#: ../../../medcalc/neuro.py:108
+msgid "<= 3"
+msgstr " ≤ 3"
 
 #: ../../../medcalc/neuro.py:109
-msgid "Baixa"
-msgstr ""
+msgid "4 a 15"
+msgstr "4-15"
 
-#: ../../../medcalc/neuro.py:111
-msgid "Média"
-msgstr ""
+#: ../../../medcalc/neuro.py:110
+msgid "> 15"
+msgstr "> 15"
 
-#: ../../../medcalc/neuro.py:112
-msgid "Alta"
-msgstr ""
+#: ../../../medcalc/neuro.py:113
+msgid "<= 3 horas"
+msgstr " ≤ 3 часов"
 
+#: ../../../medcalc/neuro.py:114
+msgid "3 a 6 horas"
+msgstr "3-6 часов"
+
+#: ../../../medcalc/neuro.py:115
+msgid "> 6 horas"
+msgstr "> 6 часов"
+
+#: ../../../medcalc/neuro.py:117
+msgid "Volume da lesão MR-DWI"
+msgstr "MR-объём поражения"
+
+# National Institutes of Health Stroke Scale
 #: ../../../medcalc/neuro.py:118
+msgid "NIHSS score"
+msgstr "Балл инсульта NIHSS"
+
+#: ../../../medcalc/neuro.py:119
+msgid "Tempo em horas desde o começo"
+msgstr "Часов прошло с начала"
+
+#: ../../../medcalc/neuro.py:124
+msgid "Baixa"
+msgstr "Низкий"
+
+#: ../../../medcalc/neuro.py:126
+msgid "Média"
+msgstr "Средний"
+
+#: ../../../medcalc/neuro.py:127
+msgid "Alta"
+msgstr "Высокий"
+
+#: ../../../medcalc/neuro.py:133
 #, python-format
 msgid ""
 "NINDS3 = %(ninds3)d\n"
 "Prob. recuperação: %(pninds3)s"
 msgstr ""
+"NINDS3 = %(ninds3)d\n"
+"Вероятность восстановления: %(pninds3)s"
 
-#: ../../../medcalc/neuro.py:129
+#: ../../../medcalc/neuro.py:144
 msgid "Poucas Vezes"
 msgstr "Никогда"
 
-#: ../../../medcalc/neuro.py:130
+#: ../../../medcalc/neuro.py:145
 msgid "Algumas Vezes"
 msgstr "Иногда"
 
-#: ../../../medcalc/neuro.py:131
+#: ../../../medcalc/neuro.py:146
 msgid "Boa Parte das Vezes"
 msgstr "Часто"
 
-#: ../../../medcalc/neuro.py:132
+#: ../../../medcalc/neuro.py:147
 msgid "Quase Sempre"
 msgstr "Постоянно"
 
-#: ../../../medcalc/neuro.py:134
+#: ../../../medcalc/neuro.py:149
 msgid "Sinto desanimo e tristeza?"
 msgstr "Я чувствую подавленность и тоску"
 
-#: ../../../medcalc/neuro.py:135
+#: ../../../medcalc/neuro.py:150
 msgid "Sinto melhor de manhã?"
 msgstr "Утром я чувствую себя лучше всего"
 
-#: ../../../medcalc/neuro.py:136
+#: ../../../medcalc/neuro.py:151
 msgid "Choro ou tenho vontade?"
 msgstr "У меня бывают периоды плача или близости к слезам"
 
-#: ../../../medcalc/neuro.py:137
+#: ../../../medcalc/neuro.py:152
 msgid "Problemas para dormir?"
 msgstr "У меня проблемы со сном"
 
-#: ../../../medcalc/neuro.py:138
+#: ../../../medcalc/neuro.py:153
 msgid "Como o habitual?"
 msgstr "Аппетит у меня не хуже обычного"
 
-#: ../../../medcalc/neuro.py:139
+#: ../../../medcalc/neuro.py:154
 msgid "Vida sexual normal?"
 msgstr "Меня привлекает секс"
 
-#: ../../../medcalc/neuro.py:140
+#: ../../../medcalc/neuro.py:155
 msgid "Estou perdendo peso?"
 msgstr "Я замечаю, что теряю вес"
 
-#: ../../../medcalc/neuro.py:141
+#: ../../../medcalc/neuro.py:156
 msgid "Problemas de constipação?"
 msgstr "Меня беспокоят запоры"
 
-#: ../../../medcalc/neuro.py:142
+#: ../../../medcalc/neuro.py:157
 msgid "Coração batendo mais acelerado?"
 msgstr "Сердце бьётся быстрее, чем обычно"
 
-#: ../../../medcalc/neuro.py:143
+#: ../../../medcalc/neuro.py:158
 msgid "Cansado sem razão?"
 msgstr "Я устаю без всяких причин"
 
-#: ../../../medcalc/neuro.py:144
+#: ../../../medcalc/neuro.py:159
 msgid "Pensamento claro como de costume?"
 msgstr "Я мыслю также ясно как всегда"
 
-#: ../../../medcalc/neuro.py:145
+#: ../../../medcalc/neuro.py:160
 msgid "É fácil fazer o que estou acostumado?"
 msgstr "Мне легко делать то, что я умею"
 
-#: ../../../medcalc/neuro.py:146
+#: ../../../medcalc/neuro.py:161
 msgid "Sinto-me inquieto?"
 msgstr "Чувствую беспокойство и не могу усидеть на месте"
 
-#: ../../../medcalc/neuro.py:147
+#: ../../../medcalc/neuro.py:162
 msgid "Sinto-me esperançoso com relação ao futuro?"
 msgstr "У меня есть надежды на будущее"
 
-#: ../../../medcalc/neuro.py:149
+#: ../../../medcalc/neuro.py:164
 msgid "Mais irritável que o usual?"
 msgstr "Я более раздражителен, чем обычно"
 
-#: ../../../medcalc/neuro.py:150
+#: ../../../medcalc/neuro.py:165
 msgid "É fácil tomar decisões?"
 msgstr "Мне легко принимать решения"
 
-#: ../../../medcalc/neuro.py:151
+#: ../../../medcalc/neuro.py:166
 msgid "Sinto-me útil e necessário?"
 msgstr "Я чувствую, что полезен и необходим"
 
-#: ../../../medcalc/neuro.py:152
+#: ../../../medcalc/neuro.py:167
 msgid "Minha vida está plena?"
 msgstr "Я живу достаточно полной жизнью"
 
-#: ../../../medcalc/neuro.py:153
+#: ../../../medcalc/neuro.py:168
 msgid "Sinto que os outros estariam melhor com eu morto?"
 msgstr "Я чувствую, что другим людям станет лучше, если я умру"
 
-#: ../../../medcalc/neuro.py:155
+#: ../../../medcalc/neuro.py:170
 msgid "Gosto das coisas que costumava gostar?"
 msgstr "Меня до сих пор радует то, что радовало всегда"
 
-#: ../../../medcalc/neuro.py:167
+#: ../../../medcalc/neuro.py:182
 msgid "Normal"
 msgstr "Норма"
 
-#: ../../../medcalc/neuro.py:169 ../../../medcalc/neuro.py:170
+#: ../../../medcalc/neuro.py:184 ../../../medcalc/neuro.py:185
 msgid "Limiar"
 msgstr "Порог"
 
-#: ../../../medcalc/neuro.py:175
+#: ../../../medcalc/neuro.py:190
 #, python-format
 msgid ""
 "Zung = %(ZNG)d\n"
@@ -551,187 +562,190 @@ msgstr ""
 "Балл = %(ZNG)d\n"
 "Вероятность:%(dGCS)s"
 
-#: ../../../medcalc/neuro.py:182
+#: ../../../medcalc/neuro.py:202
 msgid "Stepwise deterioration"
 msgstr "Постепенное ухудшение (когнитивного статуса)"
 
-#: ../../../medcalc/neuro.py:183
+#: ../../../medcalc/neuro.py:203
 msgid "Fluctuating course"
 msgstr "Флюктуирующее течение"
 
-#: ../../../medcalc/neuro.py:184
+#: ../../../medcalc/neuro.py:204
 msgid "Nocturnal confusion"
 msgstr "Дезориентация ночью"
 
-#: ../../../medcalc/neuro.py:185
+#: ../../../medcalc/neuro.py:205
 msgid "Relative preservation of personality"
 msgstr "Относительная личностная сохранность"
 
-#: ../../../medcalc/neuro.py:186
+#: ../../../medcalc/neuro.py:206
 msgid "Depression"
 msgstr "Депрессия"
 
-#: ../../../medcalc/neuro.py:187
+#: ../../../medcalc/neuro.py:207
 msgid "Somatic complaints"
 msgstr "Соматические жалобы"
 
-#: ../../../medcalc/neuro.py:188
+#: ../../../medcalc/neuro.py:208
 msgid "Emotional incontinence"
 msgstr "Эмоциональная неустойчивость"
 
-#: ../../../medcalc/neuro.py:189
+#: ../../../medcalc/neuro.py:209
 msgid "History of hypertension"
 msgstr "Артериальная гипертензия в анамнезе"
 
-#: ../../../medcalc/neuro.py:190
+#: ../../../medcalc/neuro.py:210
 msgid "History of strokes"
 msgstr "Инсульты в анамнезе"
 
-#: ../../../medcalc/neuro.py:191
+#: ../../../medcalc/neuro.py:211
 msgid "Evidence of associated atherosclerosis"
 msgstr "Признаки сопутствующего атеросклероза"
 
-#: ../../../medcalc/neuro.py:192
+#: ../../../medcalc/neuro.py:212
 msgid "Focal neurological symptoms"
 msgstr "Очаговые неврологические симптомы"
 
-#: ../../../medcalc/neuro.py:193
+#: ../../../medcalc/neuro.py:213
 msgid "Focal neurological signs"
 msgstr "Патологические очаговые знаки"
 
-#: ../../../medcalc/neuro.py:201
+#: ../../../medcalc/neuro.py:221
 #, python-format
 msgid "Pontos %d- demencia vascular"
-msgstr ""
+msgstr "%d баллов, сосудистая деменция"
 
-#: ../../../medcalc/neuro.py:203
+#: ../../../medcalc/neuro.py:223
 #, python-format
 msgid "Pontos %d- Demencia Primária"
-msgstr ""
+msgstr "%d баллов, начальное слабоумие"
 
-#: ../../../medcalc/neuro.py:205
+#: ../../../medcalc/neuro.py:225
 #, python-format
 msgid "Pontos %d- Limiar / Mixed"
-msgstr ""
+msgstr "%d баллов,  пограничная / смешанная деменция"
 
-#: ../../../medcalc/neuro.py:211
+#: ../../../medcalc/neuro.py:235
 msgid "Historico de ICC"
 msgstr ""
 "Инсульт, транзиторная ишемическая атака или артериальная тромбоэмболия в "
 "анамнезе"
 
-#: ../../../medcalc/neuro.py:212
+#: ../../../medcalc/neuro.py:236
 msgid "Hipertensão"
 msgstr "Гипертония"
 
-#: ../../../medcalc/neuro.py:213
+#: ../../../medcalc/neuro.py:237
 msgid "Mais de 75 anos"
 msgstr "Возраст ≥ 75 лет"
 
-#: ../../../medcalc/neuro.py:214
+#: ../../../medcalc/neuro.py:238
 msgid "Diabete mellitus"
 msgstr "Сахарный диабет"
 
-#: ../../../medcalc/neuro.py:215
+#: ../../../medcalc/neuro.py:239
 msgid "Histórico de AVC ou TIA"
 msgstr ""
 "Сосудистое заболевание (инфаркт миокарда в анамнезе, периферический "
 "атеросклероз, атеросклеротические бляшки в аорте)"
 
-#: ../../../medcalc/neuro.py:232
+#: ../../../medcalc/neuro.py:256
 #, python-format
 msgid ""
 "%(rt0)d Pontos\n"
 "Prob AVC: %(rt1).1f%%\n"
 "(%(rt2)s)"
 msgstr ""
+"%(rt0)d баллов\n"
+"Вероятность AVC: %(rt1).1f%%\n"
+"(%(rt2)s)"
 
-#: ../../../medcalc/neuro.py:246
+#: ../../../medcalc/neuro.py:270
 msgid "Resultado - Novo Estilo\n"
-msgstr ""
+msgstr "В результате - Новый Стиль\n"
 
-#: ../../../medcalc/neuro.py:248
+#: ../../../medcalc/neuro.py:272
 msgid "Diga o que achou deste estilo...\n"
-msgstr ""
+msgstr "Скажите, что вы думаете об этом стиле...\n"
 
-#: ../../../medcalc/uti.py:13
+#: ../../../medcalc/uti.py:17
 msgid "Hemoglobina (g/dl)"
 msgstr "Гемоглобин (г/дл)"
 
-#: ../../../medcalc/uti.py:14
+#: ../../../medcalc/uti.py:18
 msgid "Sa02 (%)"
 msgstr "Sa02 (%)"
 
-#: ../../../medcalc/uti.py:15
+#: ../../../medcalc/uti.py:19
 msgid "Pa02 (torr)"
-msgstr ""
+msgstr "Pa02 (mm Hg)"
 
-#: ../../../medcalc/uti.py:22
+#: ../../../medcalc/uti.py:26
 #, python-format
 msgid "CaO2 = %.2f"
 msgstr "CaO2 = %.2f"
 
-#: ../../../medcalc/uti.py:27
+#: ../../../medcalc/uti.py:35
 msgid "pO2 - Entrada"
-msgstr ""
+msgstr "pO2 во вдыхаемом воздухе"
 
-#: ../../../medcalc/uti.py:33
+#: ../../../medcalc/uti.py:41
 #, python-format
-msgid "Sat. O2 = %.2f"
-msgstr ""
+msgid "SpO2 = %.2f"
+msgstr "SpO2 = %.2f"
 
-#: ../../../medcalc/uti.py:48
+#: ../../../medcalc/uti.py:60
 #, python-format
 msgid "Osmolaridade Sérica = %.2f"
-msgstr ""
+msgstr "Осмолярность сыворотки = %.2f"
 
-#: ../../../medcalc/uti.py:54
+#: ../../../medcalc/uti.py:70
 msgid "Ritmo Resp. Vent. (bpm)"
 msgstr "Частота дыханий в минуту"
 
-#: ../../../medcalc/uti.py:55
+#: ../../../medcalc/uti.py:71
 msgid "Pico Pressão Insp. (torr)"
-msgstr ""
+msgstr "Пиковое давление вдоха (mm Hg)"
 
-#: ../../../medcalc/uti.py:56
+#: ../../../medcalc/uti.py:72
 msgid "PEEP (torr)"
-msgstr ""
+msgstr "ПДКВ (mm Hg)"
 
-#: ../../../medcalc/uti.py:57
+#: ../../../medcalc/uti.py:73
 msgid "PaCO2 (torr)"
-msgstr ""
+msgstr "PaCO2 (mm Hg)"
 
-#: ../../../medcalc/uti.py:65
+#: ../../../medcalc/uti.py:81
 #, python-format
 msgid "Indice Ventilação %.2f"
 msgstr "Респираторный индекс %.2f"
 
-#: ../../../medcalc/uti.py:71
+#: ../../../medcalc/uti.py:94
 msgid "In FiO2 (dec)"
-msgstr ""
+msgstr "In FiO2 (mm Hg)"
 
-#: ../../../medcalc/uti.py:72
+#: ../../../medcalc/uti.py:95
 msgid "In PaC02 (torr)"
-msgstr ""
+msgstr "In PaC02 (mm Hg)"
 
-#: ../../../medcalc/uti.py:73
+#: ../../../medcalc/uti.py:96
 msgid "In Pa02 (torr)"
-msgstr ""
+msgstr "Pa02 (mm Hg)"
 
-#: ../../../medcalc/uti.py:78
+#: ../../../medcalc/uti.py:102
 #, python-format
 msgid "Gradiente Arterial Alveolar = %.2f"
 msgstr "Градиент %.2f"
 
-#: ../../../medcalc/uti.py:84
+#: ../../../medcalc/uti.py:108
 msgid "Valor pH"
-msgstr "Значение pH"
+msgstr "pH"
 
-#: ../../../medcalc/uti.py:85
+#: ../../../medcalc/uti.py:109
 msgid "Valor PaC02"
-msgstr "Значение PaC02"
+msgstr "PaC02"
 
-#: ../../../medcalc/uti.py:92
+#: ../../../medcalc/uti.py:116
 #, python-format
 msgid ""
 "HCO3 = %(HCO3)s \n"

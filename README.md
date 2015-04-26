@@ -12,7 +12,7 @@ The source code was forked from https://code.google.com/p/medcalcs60/ for develo
 
 ## Building
 
-*NB! Windows bat file outdated. I'm building sis package on Archlinux with `create_sis.sh`*
+*NB! Windows bat file is outdated. I'm building sis package on Archlinux with `create_sis.sh`*
 
 * Receive own certificate on [shoujizu.net](http://www.shoujizu.net/en/cer.php) or [allnokia.ru](http://allnokia.ru/symb_cert/) site (symbiansigned had closed).
 * Install python 2.5.
@@ -21,7 +21,7 @@ The source code was forked from https://code.google.com/p/medcalcs60/ for develo
 
         git clone https://github.com/radioxoma/medcalcs60.git
         cd medcalcs60
-        sh ./sreate_sis.sh
+        sh ./create_sis.sh
 
 
 ## Installing

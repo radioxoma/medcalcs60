@@ -4,18 +4,22 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import with_statement
 
-'''
-The Abbreviated Mental Test can be used to quickly test the cognitive function in elderly patients. This is also referred to as the Hodkinson's Mental Test Score.
-Item Score (each one point)
-age, time to the nearest hour, year, name of place, recognition of 2 persons, birthday (date and month), date of World War I, name of your country's President, able to count from 20 to 1 backwards, address - 42 West Street,
-Interpretation: * minimum score: 0, * maximum score: 10
-* A higher score indicates greater cognitive function. * A score of 6 is used as the cutoff to separate normal elderly persons from those who are confused or demented with a correct assignment of 81.5%.
-'''
 
 from medcalc.geralclass import *
 
 
 class AbbreviatedMentalTest(MedCalcList):
+    """Abbreviated mental test score.
+
+    The Abbreviated Mental Test can be used to quickly test the cognitive
+    function in elderly patients.
+
+    * A higher score indicates greater cognitive function.
+    * A score of 6 is used as the cutoff to separate normal elderly persons
+        from those who are confused or demented with a correct assignment of 81.5%.
+
+    https://en.wikipedia.org/wiki/Abbreviated_mental_test_score
+    """
     def __init__(self):
         self.data = [
             _(u'Idade'),
@@ -34,9 +38,9 @@ class AbbreviatedMentalTest(MedCalcList):
         for i in self._f:
             soma += 1
         if soma > 6:
-            appuifw.note(u"Pontos %d- Não demenciado" % soma, "info")
+            appuifw.note(_(u"Pontos %d- Não demenciado" % soma), "info")
         else:
-            appuifw.note(u"Pontos %d- Demenciado" % soma, "info")
+            appuifw.note(_(u"Pontos %d- Demenciado 81.5 %" % soma), "info")
 
 
 class GCS(MedCalc):
@@ -86,14 +90,25 @@ class GCS(MedCalc):
 
 
 class NINDS3(MedCalc):
+    """National Institutes of Health Stroke Scale.
+
+    https://en.wikipedia.org/wiki/National_Institutes_of_Health_Stroke_Scale
+    http://www.ninds.nih.gov/doctors/nih_stroke_scale.pdf
+
+    Three item scale for prediction of stroke recovery.
+    http://www.medicine.ox.ac.uk/bandolier/booth/diagnos/stroked.html
+    """
     def __init__(self):
+        # Magnetic resonance diffusion-weighted imaging
         self.volume = [
             _(u'<= 14.1 mL'),
             _(u'> 14.1 mL')]
+        # NIH stroke scale
         self.nihss = [
             _(u'<= 3'),
             _(u'4 a 15'),
             _(u'> 15')]
+        # Time from onset
         self.horas = [
             _(u'<= 3 horas'),
             _(u'3 a 6 horas'),
@@ -177,6 +192,11 @@ class Zung(MedCalc):
 
 
 class Hachinski(MedCalcList):
+    """Hachinski ischemia score.
+
+    http://www.strokecenter.org/wp-content/uploads/2011/08/hachinski.pdf
+    http://www.ncbi.nlm.nih.gov/pubmed/1164215?dopt=Abstract
+    """
     def __init__(self):
         self.data = [
             _(u'Stepwise deterioration'),
@@ -206,6 +226,10 @@ class Hachinski(MedCalcList):
 
 
 class CHADS2(MedCalcList):
+    """
+
+    http://athero.ru/AF_risk-assessment_1.pdf
+    """
     def __init__(self):
         self.data = [
             _(u'Historico de ICC'),
@@ -215,13 +239,13 @@ class CHADS2(MedCalcList):
             _(u'Histórico de AVC ou TIA')]
         self.pontos = [1, 1, 1, 1, 2]
         self.rate = [
-            (0, 1.9, u"1.2 a 3.0"),
-            (1, 2.8, u"2.0 a 3.8"),
-            (2, 4.0, u"3.1 a 5.1"),
-            (3, 5.9, u"4.6 a 7.3"),
-            (4, 8.5, u"6.3 a 11.1"),
-            (5, 12.5, u"8.2 a 17.5"),
-            (6, 18.2, u"10.5 a 27.4")]
+            (0, 1.9, u"1.2 - 3.0"),
+            (1, 2.8, u"2.0 - 3.8"),
+            (2, 4.0, u"3.1 - 5.1"),
+            (3, 5.9, u"4.6 - 7.3"),
+            (4, 8.5, u"6.3 - 11.1"),
+            (5, 12.5, u"8.2 - 17.5"),
+            (6, 18.2, u"10.5 - 27.4")]
 
     def show(self):
         soma = 0

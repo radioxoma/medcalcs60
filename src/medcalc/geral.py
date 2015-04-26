@@ -12,6 +12,9 @@ from medcalc.geralclass import *
 
 class BMI(MedCalc):
     """Body mass index.
+
+    http://www.medcalc.com/body.html
+    http://www-users.med.cornell.edu/~spon/picu/calc/bmicalc.htm
     """
     def __init__(self):
         self.data = [
@@ -28,6 +31,7 @@ class BSA(MedCalc):
     """Human body surface area.
 
     BSA = (W ** 0.425 * H ** 0.725) * 0.007184
+    http://www-users.med.cornell.edu/~spon/picu/calc/bsacalc.htm
     """
     def __init__(self):
         self.data = [
@@ -43,6 +47,8 @@ class BSA(MedCalc):
 
 class BEE(MedCalc):
     """Basal energy expenditure.
+
+    http://www-users.med.cornell.edu/~spon/picu/calc/beecalc.htm
     """
     def __init__(self):
         # Issue: activity is not used for calculation

@@ -12,7 +12,7 @@ TMPDIR=src.tmp
 ICON=${SRCDIR}/logo2.svg
 
 OPTS="--verbose
-	  --appname=${APPNAME}
+      --appname=${APPNAME}
       --version=${VERSION}
       --caps=${CAPBLS}
       --vendor=EugeneDvoretsky
@@ -25,14 +25,26 @@ OPTS="--verbose
       --textfile=${PROJECTDIR}/disclaimer.txt
       --heapsize=4k,5M
       "
-#
+
 # --extrasdir=     - Name of dir. tree placed under drive root
 # --extra-modules= - Additional dependency modules that should be packaged with the application
 # sys.prefix == 'C:\\resource\\python25'
 # etc 'C:\\DATA\\python', 'System\libs', 'System\apps\python\my'
 
-rm -r ${TMPDIR}/*
-echo "Populating temp dir"
+if [ -d "${TMPDIR}" ]
+then
+    echo "${TMPDIR} found"
+    if find ${TMPDIR} -maxdepth 0 -empty | read v
+    then
+        echo "${TMPDIR} is empty, nothing to do"
+    else
+        echo "Removing ${TMPDIR} content"
+        rm -r ${TMPDIR}/*
+    fi
+else
+    echo "Creating an empty ${TMPDIR} directory"
+    mkdir -p "${TMPDIR}/"
+fi
 
 cp -r ${SRCDIR}/default.py ${TMPDIR}/
 cp -r ${SRCDIR}/medcalc ${TMPDIR}/

@@ -63,23 +63,15 @@ class MedCalcMQ(object):
 
 class MedImage(object):
     def run(self):
-        possible_locations = []
-        possible_locations.append(os.path.join(sys.path[0], self.fname))
-        possible_locations.append(self.fname)
-        possible_locations.append(os.path.join('c:\\data\\python\\', self.fname))
-        possible_locations.append(os.path.join('c:\\data\\python\\medcalc\\', self.fname))
-
+        if sys.platform == 'symbian_s60':
+            img_share = os.path.join(sys.prefix, 'share\\medcalc', self.fname)
+        else:
+            img_share = os.path.join(os.getcwdu(), 'img', self.fname)
         appuifw.app.screen = 'full'
-        for location in possible_locations:
-            if os.path.exists(location):
-                try:
-                    img1 = graphics.Image.open(location)
-                    a = sysinfo.display_pixels()
-                    if (a[1] / a[0] >= 1):
-                        # Not sure about transpose type
-                        img1 = img1.transpose('ROTATE_90')
-                except:
-                    pass
+        img1 = graphics.Image.open(img_share)
+        w, h = sysinfo.display_pixels()
+        if w > h:
+            img1 = img1.transpose(graphics.ROTATE_270)
 
         def handle_redraw(rect):
             canvas.blit(img1)
@@ -89,7 +81,7 @@ class MedImage(object):
             canvas.blit(img1)
             appuifw.app.body = canvas
         except:
-            appuifw.note(u"Error img1", "note")
+            appuifw.note(u"Error %s" % img_share, "note")
 
     def mark_saved(self, aBool):
         self._saved = aBool

@@ -151,13 +151,12 @@ def splash():
     """Show splash image over the screen.
     """
     # Backslashes in file paths for compatibility with symbian native library
-    possible_locations = ["C:\\data\\python\\medcalc\\logo.png"]
-    possible_locations.append(os.path.join(sys.path[0], "img/logo.png"))
-    appuifw.app.screen = 'full'  # fullscreen
-    for location in possible_locations:
-        if os.path.exists(location):
-            img1 = graphics.Image.open(location)
-            break
+    if sys.platform == 'symbian_s60':
+        img_share = os.path.join(sys.prefix, 'share\\medcalc', 'logo.png')
+    else:
+        img_share = os.path.join(os.getcwdu(), 'img', 'logo.png')
+    img1 = graphics.Image.open(img_share)
+    appuifw.app.screen = 'full'
 
     def handle_redraw(rect):
         canvas.blit(img1)
@@ -166,7 +165,7 @@ def splash():
     canvas.blit(img1)  # Causes error in wxwidgets pys60 emulator
     appuifw.app.body = canvas
     e32.ao_sleep(1)
-    appuifw.app.screen = 'normal'  # fullscreen
+    appuifw.app.screen = 'normal'
 
 
 try:

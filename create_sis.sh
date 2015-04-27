@@ -5,7 +5,7 @@ PYS60DIR="${HOME}/build/pys60/PythonForS60"
 CERPATH="${HOME}/Документы/Dropbox/Документы/doc/Python/PythonForS60/signing/cer"
 PROJECTDIR=`pwd`
 APPNAME=Medcalc
-VERSION=0.6.4
+VERSION=0.6.5
 CAPBLS=LocalServices+ReadUserData+WriteUserData+UserEnvironment
 SRCDIR=src
 TMPDIR=src.tmp
@@ -49,9 +49,9 @@ fi
 cp -r ${SRCDIR}/default.py ${TMPDIR}/
 cp -r ${SRCDIR}/medcalc ${TMPDIR}/
 
-mkdir -p ${TMPDIR}/extras/data/python/medcalc
-cp -r ${SRCDIR}/img/* ${TMPDIR}/extras/data/python/medcalc/
-# cp -r ${SRCDIR}/img/* ${TMPDIR}/extras/resource/python25/share/medcalc
+echo "Copying images"
+mkdir -p ${TMPDIR}/extras/resource/python25/share/medcalc
+cp -r ${SRCDIR}/img/* ${TMPDIR}/extras/resource/python25/share/medcalc
 
 echo "Compiling localization files"
 # https://wiki.maemo.org/Internationalize_a_Python_application

@@ -2,11 +2,10 @@
 
 # Path to module-repo, ensymble, inside PythonForS60
 PYS60DIR="${HOME}/build/pys60/PythonForS60"
-CERPATH="${HOME}/Документы/Dropbox/Документы/doc/Python/PythonForS60/signing/cer"
 PROJECTDIR=`pwd`
 APPNAME=Medcalc
 VERSION=0.6.5
-CAPBLS=LocalServices+ReadUserData+WriteUserData+UserEnvironment
+CAPBLS=ReadUserData+WriteUserData
 SRCDIR=src
 TMPDIR=src.tmp
 
@@ -55,11 +54,9 @@ python2.5 ${PYS60DIR}/ensymble.py py2sis \
     --verbose \
     --appname="${APPNAME}" \
     --version="${VERSION}" \
+    --uid="0xeef3508c" `# From original package`\
     --caps="${CAPBLS}" \
     --vendor="Eugene Dvoretsky","Eugene Dvoretsky","Евгений Дворецкий" \
-    --cert="${CERPATH}/2009-11-18.cer" \
-    --privkey="${CERPATH}/2009-11-18.key" \
-    --passphrase="" \
     --lang=EN,PO,RU \
     --extrasdir=extras \
     --icon="${PROJECTDIR}/${SRCDIR}/logo2.svg" \

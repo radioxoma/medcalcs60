@@ -14,7 +14,6 @@ The source code was forked from https://code.google.com/p/medcalcs60/ for develo
 
 *NB! Windows bat file is outdated. I'm building sis package on Archlinux with `create_sis.sh`*
 
-* Receive own certificate on [shoujizu.net](http://www.shoujizu.net/en/cer.php) or [allnokia.ru](http://allnokia.ru/symb_cert/) site (symbiansigned had closed).
 * Install python 2.5.
 * Download and unpack [PythonForS60_2.0.0.tar.gz](https://garage.maemo.org/frs/download.php/7486/PythonForS60_2.0.0.tar.gz) from PyS60 SDK ('ensymble' buld system included).
 * Edit paths in `create_sis.sh` script for compatibility with your SDK and other files placement.
@@ -27,4 +26,4 @@ The source code was forked from https://code.google.com/p/medcalcs60/ for develo
 ## Installing
 
 * Install python 2.0 (actually it's [2.5.4](https://www.python.org/doc/2.5.4/)) runtime on device.
-* Install sis package. Binary installers are avaliable at [releases page](https://github.com/radioxoma/medcalcs60/releases). You have to sign it before installing.
+* Install sis package. Binary installers are available at [releases page](https://github.com/radioxoma/medcalcs60/releases).

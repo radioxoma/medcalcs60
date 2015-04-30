@@ -1,0 +1,6 @@
+﻿The application intended only for users with corresponded medical education. Please don't consider this calculator as absolutely precise and use common sense in ambiguous cases. Bug reports are strongly encouraged.
+
+This program is distributed under the terms of BSD 3-Clause License. Use it at your own risk.
+
+New versions and source code at
+https://github.com/radioxoma/medcalcs60

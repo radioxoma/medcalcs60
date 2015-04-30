@@ -9,27 +9,6 @@ VERSION=0.6.5
 CAPBLS=LocalServices+ReadUserData+WriteUserData+UserEnvironment
 SRCDIR=src
 TMPDIR=src.tmp
-ICON=${SRCDIR}/logo2.svg
-
-OPTS="--verbose
-      --appname=${APPNAME}
-      --version=${VERSION}
-      --caps=${CAPBLS}
-      --vendor=EugeneDvoretsky
-      --cert=${CERPATH}/2009-11-18.cer
-      --privkey=${CERPATH}/2009-11-18.key
-      --passphrase=''
-      --lang=PO,RU
-      --extrasdir=extras
-      --icon=${PROJECTDIR}/${ICON}
-      --textfile=${PROJECTDIR}/disclaimer.txt
-      --heapsize=4k,5M
-      "
-
-# --extrasdir=     - Name of dir. tree placed under drive root
-# --extra-modules= - Additional dependency modules that should be packaged with the application
-# sys.prefix == 'C:\\resource\\python25'
-# etc 'C:\\DATA\\python', 'System\libs', 'System\apps\python\my'
 
 if [ -d "${TMPDIR}" ]
 then
@@ -63,5 +42,27 @@ msgfmt -c ${SRCDIR}/locale/ru/LC_MESSAGES/medcalc.po \
 # cp -r ${SRCDIR}/locale/ ${TMPDIR}/extras/resource/python25/share/
 # find ${TMPDIR}/extras/resource/python25/share/locale -type f ! -name '*.mo' -delete
 
+
+# --caption="English Caption","French Caption","German Caption"
+# --extrasdir=     - Name of dir. tree placed under drive root
+# --extra-modules= - Additional dependency modules that should be packaged with the application
+# sys.prefix == 'C:\\resource\\python25'
+# etc 'C:\\DATA\\python', 'System\libs', 'System\apps\python\my'
+
+# --textfile
 cd ${PYS60DIR}
-python2.5 ${PYS60DIR}/ensymble.py py2sis ${OPTS} "${PROJECTDIR}/${TMPDIR}" "${PROJECTDIR}/${APPNAME}-${VERSION}.sis"
+python2.5 ${PYS60DIR}/ensymble.py py2sis \
+    --verbose \
+    --appname="${APPNAME}" \
+    --version="${VERSION}" \
+    --caps="${CAPBLS}" \
+    --vendor="Eugene Dvoretsky","Eugene Dvoretsky","Евгений Дворецкий" \
+    --cert="${CERPATH}/2009-11-18.cer" \
+    --privkey="${CERPATH}/2009-11-18.key" \
+    --passphrase="" \
+    --lang=EN,PO,RU \
+    --extrasdir=extras \
+    --icon="${PROJECTDIR}/${SRCDIR}/logo2.svg" \
+    --textfile="${PROJECTDIR}/eula/%c.txt" `# UTF-8 with BOM` \
+    --heapsize=4k,5M \
+    "${PROJECTDIR}/${TMPDIR}" "${PROJECTDIR}/${APPNAME}-${VERSION}.sis"

@@ -17,7 +17,10 @@ import os
 import sys
 import gettext
 if sys.platform == 'symbian_s60':
-    # mo files will be collected from `gettext._default_localedir`
+    # mo files will be collected from `gettext._default_localedir` subdirs
+    # There is no 'LANGUAGE', 'LC_ALL', 'LC_MESSAGES', 'LANG' system variable,
+    # or other normal way o detect system language/locale,  so we need to
+    # specify languages by yourself.
     l10n = gettext.translation('medcalc', languages=['ru'])
 else:
     # For desktop testing

@@ -27,4 +27,4 @@ The source code was forked from https://code.google.com/p/medcalcs60/ for develo
 ## Installing
 
 * Install python 2.0 (actually it's [2.5.4](https://www.python.org/doc/2.5.4/)) runtime on device.
-* Install the built sis package.
+* Install sis package. Binary installers are avaliable at [releases page](https://github.com/radioxoma/medcalcs60/releases). You have to sign it before installing.

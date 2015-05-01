@@ -15,27 +15,18 @@ Ref: http://www.medal.org/
 
 import os
 import sys
+import ConfigParser
 import gettext
-if sys.platform == 'symbian_s60':
-    # mo files will be collected from `gettext._default_localedir` subdirs
-    # There is no 'LANGUAGE', 'LC_ALL', 'LC_MESSAGES', 'LANG' system variable,
-    # or other normal way o detect system language/locale,  so we need to
-    # specify languages by yourself.
-    l10n = gettext.translation('medcalc', languages=['ru'])
-else:
-    # For desktop testing
-    l10n = gettext.translation('medcalc', localedir='locale', languages=['ru'])
-l10n.install(unicode=True)
+
 import e32
 import graphics
+import appuifw
 
 from medcalc.geralclass import *
 from medcalc.geral import *
 from medcalc.neuro import *
 from medcalc.uti import *
 from medcalc.rx import *
-
-# Level 1 Menu
 
 
 class MenuGeral(MenuFilho):
@@ -101,8 +92,27 @@ class MRI(MenuFilho):
         self.MenuKid = []
 
 
-class MenuStruct(object):
+class Application(object):
     def __init__(self):
+        # Configuration
+        self._cfg = ConfigParser.RawConfigParser(defaults={'language': ''})
+        self._cfg_section = 'DEFAULT'
+        self._cfg_path = "C:/System/data/medcalc.ini"
+        self._cfg.read(self._cfg_path)
+
+        ## Localization
+        # mo files will be collected from `gettext._default_localedir` subdirs
+        # There is no 'LANGUAGE', 'LC_ALL', 'LC_MESSAGES', 'LANG' system
+        # variable or other normal way o detect system language/locale,
+        # so we need to specify languages by yourself.
+        if sys.platform == 'symbian_s60':
+            self._localedir = None  # Parameter for function. not actual path
+        else:
+            # On desktop
+            self._localedir ='locale'
+        self.set_language(self._cfg.get(self._cfg_section, 'language'))
+
+        # Application runtime
         self.script_lock = e32.Ao_lock()
         self.Parent = None
         self.Children = [
@@ -125,7 +135,12 @@ class MenuStruct(object):
 
     def refresh(self):
         appuifw.app.title = u"Medcalc"
-        appuifw.app.menu = []
+        appuifw.app.menu = [
+            # (u"Settings", (
+                # (u"Language", self.menu_language))),
+            (_(u"Language"), self.menu_language),
+            (_(u"About"), self.menu_about),
+            (_(u"Exit"), self.exit_key_handler)]
         appuifw.app.exit_key_handler = self.exit_key_handler
         appuifw.app.body = self.lb
 
@@ -148,6 +163,55 @@ class MenuStruct(object):
 
     def back(self):
         pass
+
+    def set_language(self, language):
+        """Change interface language.
+
+        :param str language: 'en', 'ru', etc.
+        """
+        l10n = gettext.translation(
+            'medcalc', localedir=self._localedir, languages=[language],
+            fallback=True)
+        l10n.install(unicode=True)
+
+    def save_cfg(self):
+        """Write config to file.
+        """
+        with open(self._cfg_path, mode='wb') as f:
+            self._cfg.write(f)
+
+    def menu_language(self):
+        """Show language list, save changes in config.
+        """
+        def find_translations():
+            """Get list of language codes.
+
+            `gettext.find()` can't do it without defined system variables
+            """
+            all_translations = set()
+            if self._localedir:
+                localedir = self._localedir
+            else:
+                localedir = gettext._default_localedir
+            for loc_folder in os.listdir(localedir):
+                for mo in os.listdir(
+                    os.path.join(localedir, loc_folder, 'LC_MESSAGES')):
+                    if mo.endswith('.mo'):
+                        all_translations.add(unicode(loc_folder))
+            return list(all_translations)
+
+        translations = find_translations()
+        translations.append(u'Disable translation')
+        idx = appuifw.popup_menu(translations, _(u"Select language:"))
+
+        self.set_language(translations[idx])
+        self._cfg.set(self._cfg_section, 'language', translations[idx])
+        self.save_cfg()
+        appuifw.note(
+            _(u"Please reload the program to apply the changes."), 'info')
+
+    def menu_about(self):
+        appuifw.note(_(u"Open source medical calculator."), 'info')
 
 
 def splash():
@@ -174,12 +238,9 @@ def splash():
 try:
     if sys.platform == 'symbian_s60':
         splash()  # On windows it brokes pys60 emulation library
-    MenuStruct().run()
+    Application().run()
 except Exception, e:
-    import appuifw
     import traceback
-    import sys
-
     e1, e2, e3 = sys.exc_info()
     err_msg = unicode(repr(e)) + u"\u2029" * 2
     err_msg += u"Call stack:\u2029" + unicode(

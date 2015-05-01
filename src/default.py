@@ -100,7 +100,7 @@ class Application(object):
         self._cfg_path = "C:/System/data/medcalc.ini"
         self._cfg.read(self._cfg_path)
 
-        ## Localization
+        # Localization
         # mo files will be collected from `gettext._default_localedir` subdirs
         # There is no 'LANGUAGE', 'LC_ALL', 'LC_MESSAGES', 'LANG' system
         # variable or other normal way o detect system language/locale,
@@ -109,7 +109,7 @@ class Application(object):
             self._localedir = None  # Parameter for function. not actual path
         else:
             # On desktop
-            self._localedir ='locale'
+            self._localedir = 'locale'
         self.set_language(self._cfg.get(self._cfg_section, 'language'))
 
         # Application runtime
@@ -137,7 +137,7 @@ class Application(object):
         appuifw.app.title = u"Medcalc"
         appuifw.app.menu = [
             # (u"Settings", (
-                # (u"Language", self.menu_language))),
+            #     (u"Language", self.menu_language))),
             (_(u"Language"), self.menu_language),
             (_(u"About"), self.menu_about),
             (_(u"Exit"), self.exit_key_handler)]
@@ -195,7 +195,7 @@ class Application(object):
                 localedir = gettext._default_localedir
             for loc_folder in os.listdir(localedir):
                 for mo in os.listdir(
-                    os.path.join(localedir, loc_folder, 'LC_MESSAGES')):
+                        os.path.join(localedir, loc_folder, 'LC_MESSAGES')):
                     if mo.endswith('.mo'):
                         all_translations.add(unicode(loc_folder))
             return list(all_translations)
@@ -203,15 +203,15 @@ class Application(object):
         translations = find_translations()
         translations.append(u'Disable translation')
         idx = appuifw.popup_menu(translations, _(u"Select language:"))
-
-        self.set_language(translations[idx])
-        self._cfg.set(self._cfg_section, 'language', translations[idx])
-        self.save_cfg()
-        appuifw.note(
-            _(u"Please reload the program to apply the changes."), 'info')
+        if idx is not None:
+            self.set_language(translations[idx])
+            self._cfg.set(self._cfg_section, 'language', translations[idx])
+            self.save_cfg()
+            appuifw.note(
+                _(u"Please reload the program to apply the changes."), 'info')
 
     def menu_about(self):
-        appuifw.note(_(u"Open source medical calculator."), 'info')
+        appuifw.note(_(u"Open source medical calculator."), 'conf')
 
 
 def splash():

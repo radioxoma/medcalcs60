@@ -32,13 +32,15 @@ class SatO2(MedCalc):
     http://www-users.med.cornell.edu/~spon/picu/calc/o2satcal.htm
     """
     def __init__(self):
-        self.data = [(_(u'pO2 - Entrada'), 'number', 0)]
+        # pO2 = P * FiO2; P = 760 mmHg (air pressure), FiO2 = 0.21 (21 %) 
+        # pO2 = 760 * 0.21 = 159.6 mmHg
+        self.data = [(_(u'pO2 - Entrada'), 'number', 160)]
 
     def show(self):
         pO2 = self.getform()[0][2]
         print(pO2, self.getform())
-        SO2 = (23400.0 * (pO2 ** 3 + 150 * pO2) ** -1 + 1) ** -1
-        appuifw.note(_(u"SpO2 = %.2f" % SO2), "info")
+        SO2 = 100 * (23400.0 * (pO2 ** 3 + 150 * pO2) ** -1 + 1) ** -1
+        appuifw.note(_(u"SpO2 = %.2f %%" % SO2), "info")
 
 
 class OsmSerica(MedCalc):
@@ -105,8 +107,8 @@ class AaGrad(MedCalc):
 class Bicarb(MedCalc):
     def __init__(self):
         self.data = [
-            (_(u'Valor pH'), 'number', 0),
-            (_(u'Valor PaC02'), 'number', 0)]
+            (_(u'pH'), 'number', 0),
+            (_(u'PaC02'), 'number', 0)]
 
     def show(self):
         pH = self.getform()[0][2]

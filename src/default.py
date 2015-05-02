@@ -22,6 +22,7 @@ import e32
 import graphics
 import appuifw
 
+import medcalc
 from medcalc.geralclass import *
 from medcalc.geral import *
 from medcalc.neuro import *
@@ -29,7 +30,7 @@ from medcalc.uti import *
 from medcalc.rx import *
 
 
-class MenuGeral(MenuFilho):
+class MenuGeral(MenuItem):
     def __init__(self):
         self.Children = [_(u"BSA"), _(u"BMI"), _(u"BEE")]
         # self.Children = [u"BSA", u"BMI", u"BEE", u"Risco Cirúrgico"]
@@ -38,7 +39,7 @@ class MenuGeral(MenuFilho):
         # self.MenuKid = [BSA(), BMI(), BEE(), AnestesiaRisk()]
 
 
-class MenuNeuro(MenuFilho):
+class MenuNeuro(MenuItem):
     def __init__(self):
         self.Children = [
             _(u"Glasgow CS"),
@@ -53,7 +54,7 @@ class MenuNeuro(MenuFilho):
             CHADS2()]
 
 
-class MenuUTI(MenuFilho):
+class MenuUTI(MenuItem):
     def __init__(self):
         self.Children = [
             _(u"Gradiente Arterial Alveolar"),
@@ -68,7 +69,7 @@ class MenuUTI(MenuFilho):
             SatO2()]
 
 
-class MenuRX(MenuFilho):
+class MenuRX(MenuItem):
     def __init__(self):
         self.Children = [
             _(u"Raio-X Torax PA"),
@@ -85,11 +86,11 @@ class MenuRX(MenuFilho):
             RxToraxPneumonia2(), RxToraxAntrax(), RxMarfan(), RxCancer()]
 
 
-class MRI(MenuFilho):
-    def __init__(self):
-        self.Children = []
-        self.Title = _(u"MRI")
-        self.MenuKid = []
+# class MRI(MenuItem):
+#     def __init__(self):
+#         self.Children = []
+#         self.Title = _(u"MRI")
+#         self.MenuKid = []
 
 
 class Application(object):
@@ -211,7 +212,9 @@ class Application(object):
                 _(u"Please reload the program to apply the changes."), 'info')
 
     def menu_about(self):
-        appuifw.note(_(u"Open source medical calculator."), 'conf')
+        appuifw.note(
+            _(u"Open source medical calculator v%s." % medcalc.__version__),
+            'conf')
 
 
 def splash():

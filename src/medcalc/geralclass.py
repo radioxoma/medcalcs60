@@ -12,6 +12,8 @@ import sysinfo
 
 
 class MedCalc(object):
+    """Calculator item representation.
+    """
     def run(self):
         flags = appuifw.FFormEditModeOnly + appuifw.FFormDoubleSpaced
         self._f = appuifw.Form(self.data, flags)
@@ -30,23 +32,8 @@ class MedCalc(object):
 
 
 class MedCalcList(object):
-    # Formato Checkbox
-    def run(self):
-        self._f = appuifw.multi_selection_list(
-            self.data, style='checkbox', search_field=1)
-
-    def mark_saved(self, aBool):
-        self._saved = aBool
-
-    def getform(self):
-        return self._f
-
-    def is_saved(self):
-        return True
-
-
-class MedCalcMQ(object):
-    # Formato Multi Questionario
+    """Set of checkboxes item representation.
+    """
     def run(self):
         self._f = appuifw.multi_selection_list(
             self.data, style='checkbox', search_field=1)
@@ -62,6 +49,8 @@ class MedCalcMQ(object):
 
 
 class MedImage(object):
+    """Image item representation.
+    """
     def run(self):
         if sys.platform == 'symbian_s60':
             img_share = os.path.join(sys.prefix, 'share\\medcalc', self.fname)
@@ -90,8 +79,9 @@ class MedImage(object):
         return self._f
 
 
-class MenuFilho:
-    """Menu."""
+class MenuItem(object):
+    """Submenu.
+    """
     def run(self, menupai):
         from key_codes import EKeyLeftArrow
         self.lb = appuifw.Listbox(self.Children, self.lbox_observe)

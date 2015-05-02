@@ -18,8 +18,8 @@ class BMI(MedCalc):
     """
     def __init__(self):
         self.data = [
-            (_(u'Peso (kg)'), 'number', 0),
-            (_(u'Altura (cm)'), 'number', 0)]
+            (_(u'Peso (kg)'), 'number', 60),
+            (_(u'Altura (cm)'), 'number', 170)]
 
     def show(self):
         W = self.getform()[0][2]
@@ -35,8 +35,8 @@ class BSA(MedCalc):
     """
     def __init__(self):
         self.data = [
-            (_(u"Peso (kg)"), 'number', 0),
-            (_(u"Altura (cm)"), 'number', 0)]
+            (_(u"Peso (kg)"), 'number', 60),
+            (_(u"Altura (cm)"), 'number', 170)]
 
     def show(self):
         W = self.getform()[0][2]

@@ -40,7 +40,7 @@ class AbbreviatedMentalTest(MedCalcList):
         if soma > 6:
             appuifw.note(_(u"Pontos %d- Não demenciado" % soma), "info")
         else:
-            appuifw.note(_(u"Pontos %d- Demenciado 81.5 %" % soma), "info")
+            appuifw.note(_(u"Pontos %d- Demenciado 81.5 %%" % soma), "info")
 
 
 class GCS(MedCalc):

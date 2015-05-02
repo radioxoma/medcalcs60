@@ -4,7 +4,7 @@
 PYS60DIR="${HOME}/build/pys60/PythonForS60"
 PROJECTDIR=`pwd`
 APPNAME=Medcalc
-VERSION=0.6.5
+VERSION=0.6.6
 CAPBLS=ReadUserData+WriteUserData
 SRCDIR=src
 TMPDIR=src.tmp

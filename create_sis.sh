@@ -4,7 +4,10 @@
 PYS60DIR="${HOME}/build/pys60/PythonForS60"
 PROJECTDIR=`pwd`
 APPNAME=Medcalc
-VERSION=0.6.6
+# Version n.n.n appears n.n(n) on device
+VERSION=`python2 -c "import runpy; print(
+    runpy.run_path('src/medcalc/__init__.py')['__version__'])"`
+# VERSION=`grep -o "[0-9].*[0-9]" src/medcalc/__init__.py`
 CAPBLS=ReadUserData+WriteUserData
 SRCDIR=src
 TMPDIR=src.tmp
@@ -48,7 +51,6 @@ msgfmt -c ${SRCDIR}/locale/ru/LC_MESSAGES/medcalc.po \
 # sys.prefix == 'C:\\resource\\python25'
 # etc 'C:\\DATA\\python', 'System\libs', 'System\apps\python\my'
 
-# --textfile
 cd ${PYS60DIR}
 python2.5 ${PYS60DIR}/ensymble.py py2sis \
     --verbose \
@@ -63,3 +65,5 @@ python2.5 ${PYS60DIR}/ensymble.py py2sis \
     --textfile="${PROJECTDIR}/eula/%c.txt" `# UTF-8 with BOM` \
     --heapsize=4k,5M \
     "${PROJECTDIR}/${TMPDIR}" "${PROJECTDIR}/${APPNAME}-${VERSION}.sis"
+
+echo "Binary '${APPNAME}-${VERSION}.sis' created."

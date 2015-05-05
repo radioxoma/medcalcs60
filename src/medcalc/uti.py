@@ -29,7 +29,7 @@ class OxygenContent(MedCalc):
         SaO2 = self.getform()[1][2]
         PaO2 = self.getform()[2][2]
         CaO2 = 1.36 * Hgb * SaO2 / 100 + 0.0031 * PaO2
-        appuifw.note(_(u"CaO2 = %.2f" % CaO2), "info")
+        self.notify(_(u"CaO2 = %.2f" % CaO2))
 
 
 class SatO2(MedCalc):
@@ -47,9 +47,8 @@ class SatO2(MedCalc):
 
     def show(self):
         pO2 = self.getform()[0][2]
-        print(pO2, self.getform())
         SO2 = 100 * (23400.0 * (pO2 ** 3 + 150 * pO2) ** -1 + 1) ** -1
-        appuifw.note(_(u"SpO2 = %.2f %%" % SO2), "info")
+        self.notify(_(u"SpO2 = %.2f %%" % SO2))
 
 
 class OsmSerica(MedCalc):
@@ -71,7 +70,7 @@ class OsmSerica(MedCalc):
         Glu = self.getform()[1][2]
         BUN = self.getform()[2][2]
         Osmolality = 2 * Na + Glu / 18 + BUN / 2.8
-        appuifw.note(_(u"Osmolaridade Sérica = %.2f" % Osmolality), "info")
+        self.notify(_(u"Osmolaridade Sérica = %.2f" % Osmolality))
 
 
 class VentIndex(MedCalc):
@@ -95,7 +94,7 @@ class VentIndex(MedCalc):
         PEEP = self.getform()[2][2]
         PaCO2 = self.getform()[3][2]
         VI = (RR * (PIP - PEEP) * PaCO2) / 1000.0
-        appuifw.note(_(u"Indice Ventilação %.2f" % VI), 'info')
+        self.notify(_(u"Indice Ventilação %.2f" % VI))
 
 
 class AaGrad(MedCalc):
@@ -119,7 +118,7 @@ class AaGrad(MedCalc):
         # 1 torr == 1/760 atm (standard atmosphere)
         PAO2 = self.getform()[0][2] * (760 - 47) - self.getform()[1][2] / 0.8
         PAO2 -= self.getform()[2][2]
-        appuifw.note(_(u"Gradiente Arterial Alveolar = %.2f" % PAO2), "info")
+        self.notify(_(u"Gradiente Arterial Alveolar = %.2f" % PAO2))
 
 
 class Bicarb(MedCalc):
@@ -136,5 +135,5 @@ class Bicarb(MedCalc):
         pCO2 = self.getform()[1][2]
         HCO3 = 0.03 * pCO2 * 10 ** (pH - 6.1)
         BE = 0.02786 * pCO2 * 10 ** (pH - 6.1) + 13.77 * pH - 124.58
-        appuifw.note(_(u"HCO3 = %(HCO3)s \nDesbalanceamento Base: %(BE)s" % {
-            'HCO3': HCO3, 'BE': BE}), "info")
+        self.notify(_(u"HCO3 = %(HCO3)s \nDesbalanceamento Base: %(BE)s" % {
+            'HCO3': HCO3, 'BE': BE}))

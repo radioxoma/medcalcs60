@@ -44,9 +44,9 @@ class AbbreviatedMentalTest(MedCalcList):
         for i in self._f:
             soma += 1
         if soma > 6:
-            appuifw.note(_(u"Pontos %d- Não demenciado" % soma), "info")
+            self.notify(_(u"Pontos %d- Não demenciado" % soma))
         else:
-            appuifw.note(_(u"Pontos %d- Demenciado 81.5 %%" % soma), "info")
+            self.notify(_(u"Pontos %d- Demenciado 81.5 %%" % soma))
 
 
 class GCS(MedCalc):
@@ -94,8 +94,8 @@ class GCS(MedCalc):
         L = self.getform()[1][2][1]
         M = self.getform()[2][2][1]
         GCS = 4 - E + 5 - L + 6 - M
-        appuifw.note(_(u"GCS = %(GCS)d\nProb. recuperação: %(pGCS)d%%" % {
-            'GCS': GCS, 'pGCS': prob(GCS)}), "info")
+        self.notify(_(u"GCS = %(GCS)d\nProb. recuperação: %(pGCS)d%%" % {
+            'GCS': GCS, 'pGCS': prob(GCS)}))
 
 
 class NINDS3(MedCalc):
@@ -141,9 +141,9 @@ class NINDS3(MedCalc):
         N = self.getform()[1][2][1]
         H = self.getform()[2][2][1]
         ninds3 = 1 - V + 4 - 2 * N + H
-        appuifw.note(
+        self.notify(
             _(u"NINDS3 = %(ninds3)d\nProb. recuperação: %(pninds3)s" % {
-                'ninds3': ninds3, 'pninds3': prob(ninds3)}), "info")
+                'ninds3': ninds3, 'pninds3': prob(ninds3)}))
 
 
 class Zung(MedCalc):
@@ -202,8 +202,8 @@ class Zung(MedCalc):
         ZNG = 0
         for i in range(20):
             ZNG += prob(i, f[i][2][1])
-        appuifw.note(_(u"Zung = %(ZNG)d\nProvavelmente:%(dGCS)s" % {
-            'ZNG': ZNG, 'dGCS': diag(GCS)}), "info")
+        self.notify(_(u"Zung = %(ZNG)d\nProvavelmente:%(dGCS)s" % {
+            'ZNG': ZNG, 'dGCS': diag(GCS)}))
 
 
 class Hachinski(MedCalcList):
@@ -236,11 +236,11 @@ class Hachinski(MedCalcList):
         for i in self._f:
             soma += self.pontos[i]
         if soma > 7:
-            appuifw.note(_(u"Pontos %d- demencia vascular" % soma), "info")
+            self.notify(_(u"Pontos %d- demencia vascular" % soma))
         if soma < 4:
-            appuifw.note(_(u"Pontos %d- Demencia Primária" % soma), "info")
+            self.notify(_(u"Pontos %d- Demencia Primária" % soma))
         if soma > 3 and soma < 8:
-            appuifw.note(_(u"Pontos %d- Limiar / Mixed" % soma), "info")
+            self.notify(_(u"Pontos %d- Limiar / Mixed" % soma))
 
 
 class CHADS2(MedCalcList):
@@ -283,19 +283,8 @@ class CHADS2(MedCalcList):
         for i in self._f:
             soma += self.pontos[i]
         rt = self.rate[soma]
-        print rt
         msg = _(u"%(rt0)d Pontos\nProb AVC: %(rt1).1f%%\n(%(rt2)s)" % {
             'rt0': rt[0],
             'rt1': rt[1],
             'rt2': rt[2]})
-        print msg
-        # appuifw.note(msg,"info")
-        show_dummy(msg)
-
-
-def show_dummy(text):
-    t = appuifw.Text()
-    appuifw.app.body = t
-    t.font = (u"Nokia Hindi S60", 14, None)
-    t.color = 0xFF0000
-    t.add(text)
+        self.notify(msg)

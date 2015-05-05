@@ -6,8 +6,10 @@ from __future__ import with_statement
 
 import os
 import sys
+
 import appuifw
 import graphics
+import globalui
 import sysinfo
 
 
@@ -40,6 +42,9 @@ class MedCalc(object):
 
     def is_saved(self):
         return self.bmi_saved
+    
+    def notify(self, text):
+        return show_text_static(text, self.name)
 
 
 class MedCalcList(object):
@@ -64,6 +69,9 @@ class MedCalcList(object):
 
     def is_saved(self):
         return True
+    
+    def notify(self, text):
+        return show_text_static(text, self.name)
 
 
 class MedImage(object):
@@ -141,3 +149,23 @@ class MenuItem(object):
 
     def do_exit(self):
         self.exit_key_handler()
+
+
+def show_text(text):
+    """Show rich text through Text widget. 
+    """
+    t = appuifw.Text()
+    appuifw.app.body = t
+    # t.font = (u"Nokia Hindi S60", 14, None)
+    # t.color = 0xFF0000
+    t.add(text)
+
+
+def show_text_static(text, header=None):
+    """Show plain text with scroll bar, waiting for user action.
+    """
+    # Widget returns integers
+    if globalui.global_msg_query(text, header):
+        return True
+    else:
+        return False

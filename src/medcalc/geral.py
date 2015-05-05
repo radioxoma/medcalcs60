@@ -32,7 +32,7 @@ class BMI(MedCalc):
     def show(self):
         W = self.getform()[0][2]
         H = self.getform()[1][2] / 100.0
-        appuifw.note(_(u"IMC = %f" % (W / H ** 2)), "info")
+        self.notify(_(u"IMC = %f" % (W / H ** 2)))
 
 
 class BSA(MedCalc):
@@ -53,7 +53,7 @@ class BSA(MedCalc):
         W = self.getform()[0][2]
         H = self.getform()[1][2]
         data = (W ** 0.425 * H ** 0.725) * 0.007184
-        appuifw.note(_(u"BSA = %f" % data), "info")
+        self.notify(_(u"BSA = %f" % data))
 
 
 class BEE(MedCalc):
@@ -85,12 +85,12 @@ class BEE(MedCalc):
             bee = 66.5 + (13.75 * W) + (5.003 * H) - (6.775 * A)
         else:
             bee = 655.1 + (9.563 * W) + (1.850 * H) - (4.676 * A)
-        appuifw.note(_(u"Gasto de Energia Basal = %.0f kcal" % bee), "info")
+        self.notify(_(u"Gasto de Energia Basal = %.0f kcal" % bee))
 
 
 class CurrentAge(MedCalc):
     """Calculate current age by date of birth.
-    
+
     Impossible estimate exact number of month, days without access to leap
     years data on symbian phone.
     """
@@ -103,7 +103,7 @@ class CurrentAge(MedCalc):
     def show(self):
         dob = datetime.datetime.utcfromtimestamp(self.getform()[0][2])
         delta = datetime.datetime.now() - dob
-        appuifw.note(_(u"%.2f years" % (delta.days / 365.2425)), "info")
+        self.notify(_(u"%.2f years" % (delta.days / 365.2425)))
 
 
 # class AnestesiaRisk(MedCalcList):

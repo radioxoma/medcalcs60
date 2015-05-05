@@ -194,8 +194,8 @@ def splash():
 
 
 try:
-    if sys.platform == 'symbian_s60':
-        splash()  # On windows it brokes pys60 emulation library
+    # if sys.platform == 'symbian_s60':
+    #     splash()  # On windows it brokes pys60 emulation library
     Application().run()
 except Exception, e:
     import traceback

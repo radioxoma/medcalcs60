@@ -7,6 +7,8 @@ from __future__ import with_statement
 #                        Teste Geral                        #
 # ###########################################################
 
+
+import datetime
 from medcalc.geralclass import *
 
 
@@ -86,6 +88,24 @@ class BEE(MedCalc):
         appuifw.note(_(u"Gasto de Energia Basal = %.0f kcal" % bee), "info")
 
 
+class CurrentAge(MedCalc):
+    """Calculate current age by date of birth.
+    
+    Impossible estimate exact number of month, days without access to leap
+    years data on symbian phone.
+    """
+    def __init__(self):
+        super(CurrentAge, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u"Current age")
+        self.data = [(_(u"Birthday"), 'date')]
+
+    def show(self):
+        dob = datetime.datetime.utcfromtimestamp(self.getform()[0][2])
+        delta = datetime.datetime.now() - dob
+        appuifw.note(_(u"%.2f years" % (delta.days / 365.2425)), "info")
+
+
 # class AnestesiaRisk(MedCalcList):
 #     def __init__(self):
 #         super(AnestesiaRisk, self).__init__()
@@ -109,7 +129,7 @@ class BEE(MedCalc):
 #             _(u'Ventricular aneurisma esq.'),
 #             _(u'Reparo de defeito septo ventricular após IM'),
 #             _(u'Bypass de vasos difusos ou calcificados')]
-# 
+#
 #     def show(self):
 #         soma = 0
 #         print(self._f)

@@ -50,8 +50,7 @@ class Application(object):
         self.set_language(self._cfg.get(self._cfg_section, 'language'))
 
         # Application runtime
-        self.script_lock = e32.Ao_lock()
-
+        self._app_lock = e32.Ao_lock()
         self.Parent = None
         self.collect_calcs()
 
@@ -78,17 +77,18 @@ class Application(object):
             self.menu_items.append(medcalc.geralclass.MenuItem(list(grp)))
 
     def run(self):
-        from key_codes import EKeyLeftArrow
+        # from key_codes import EKeyLeftArrow
         self.lb = appuifw.Listbox(self.categories, self.lbox_observe)
-        self.lb.bind(EKeyLeftArrow, lambda: self.lbox_observe(0))
+        # self.lb.bind(EKeyLeftArrow, lambda: self.lbox_observe(0))
         old_title = appuifw.app.title
         self.refresh()
-        self.script_lock.wait()
+        self._app_lock.wait()
         appuifw.app.title = old_title
         appuifw.app.body = None
         self.lb = None
 
     def refresh(self):
+        appuifw.app.screen = 'normal'
         appuifw.app.title = u"Medcalc"
         appuifw.app.menu = [
             # (u"Settings", (
@@ -104,7 +104,7 @@ class Application(object):
 
     def exit_key_handler(self):
         appuifw.app.exit_key_handler = None
-        self.script_lock.signal()
+        self._app_lock.signal()
         sys.exit()
 
     def lbox_observe(self, ind=None):

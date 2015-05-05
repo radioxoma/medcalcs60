@@ -13,7 +13,18 @@ import sysinfo
 
 class MedCalc(object):
     """Calculator item representation.
+
+    Derive own class with next attributes:
+    :category unicode str: Items will be grouped in submenu by category.
+    :name unicode str: Name of the item in submenu.
+    :data list:
+    :show method: Perform calculations and show notification to user.
     """
+    def __init__(self):
+        super(MedCalc, self).__init__()
+        self.category = u'EmptyCatMedCalc'
+        self.name = u'NoNameMedCalc'
+
     def run(self):
         flags = appuifw.FFormEditModeOnly + appuifw.FFormDoubleSpaced
         self._f = appuifw.Form(self.data, flags)
@@ -33,7 +44,14 @@ class MedCalc(object):
 
 class MedCalcList(object):
     """Set of checkboxes item representation.
+    
+    Usage same as MedCalc class.
     """
+    def __init__(self):
+        super(MedCalcList, self).__init__()
+        self.category = u'EmptyCatMedCalcList'
+        self.name = u'NoNameMedCalcList'
+
     def run(self):
         self._f = appuifw.multi_selection_list(
             self.data, style='checkbox', search_field=1)
@@ -50,7 +68,15 @@ class MedCalcList(object):
 
 class MedImage(object):
     """Image item representation.
+    :category unicode str: Items will be grouped in submenu by category.
+    :name unicode str: Name of the item in submenu.
+    :fname str: relative path to image  in filesystem.
     """
+    def __init__(self):
+        super(MedImage, self).__init__()
+        self.category = u'EmptyCatMedImage'
+        self.name = u'NoNameMedImage'
+
     def run(self):
         if sys.platform == 'symbian_s60':
             img_share = os.path.join(sys.prefix, 'share\\medcalc', self.fname)
@@ -80,13 +106,20 @@ class MedImage(object):
 
 
 class MenuItem(object):
-    """Submenu.
+    """Submenu item.
     """
+    def __init__(self, calculators):
+        super(MenuItem, self).__init__()
+        # All calculators here must have same category
+        self.calculators = calculators
+        self.category = calculators[0].category
+        self.childrens = [c.name for c in calculators]
+
     def run(self, menupai):
         from key_codes import EKeyLeftArrow
-        self.lb = appuifw.Listbox(self.Children, self.lbox_observe)
+        self.lb = appuifw.Listbox(self.childrens, self.lbox_observe)
         self.lb.bind(EKeyLeftArrow, lambda: self.lbox_observe(0))
-        appuifw.app.title = self.Title
+        appuifw.app.title = self.category
         appuifw.app.menu = []
         appuifw.app.exit_key_handler = self.exit_key_handler
         appuifw.app.body = self.lb
@@ -98,8 +131,8 @@ class MenuItem(object):
         else:
             index = self.lb.current()
         focused_item = 0
-        self.MenuKid[index].run()
-        self.MenuKid[index].show()
+        self.calculators[index].run()
+        self.calculators[index].show()
         appuifw.app.screen = 'normal'
 
     def exit_key_handler(self):

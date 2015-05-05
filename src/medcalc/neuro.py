@@ -8,6 +8,9 @@ from __future__ import with_statement
 from medcalc.geralclass import *
 
 
+CATEGORY = _(u"Neuro")
+
+
 class AbbreviatedMentalTest(MedCalcList):
     """Abbreviated mental test score.
 
@@ -21,6 +24,9 @@ class AbbreviatedMentalTest(MedCalcList):
     https://en.wikipedia.org/wiki/Abbreviated_mental_test_score
     """
     def __init__(self):
+        super(AbbreviatedMentalTest, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u'Teste Mental Abreviado')
         self.data = [
             _(u'Idade'),
             _(u'Minutos para próxima hora'),
@@ -49,6 +55,9 @@ class GCS(MedCalc):
     https://en.wikipedia.org/wiki/Glasgow_Coma_Scale
     """
     def __init__(self):
+        super(GCS, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u"Glasgow CS")
         self.Eye = [
             _(u'Espontaneamente'),
             _(u'Estímulo Verbal'),
@@ -99,6 +108,9 @@ class NINDS3(MedCalc):
     http://www.medicine.ox.ac.uk/bandolier/booth/diagnos/stroked.html
     """
     def __init__(self):
+        super(NINDS3, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u'NINDS 3-Item')
         # Magnetic resonance diffusion-weighted imaging
         self.volume = [
             _(u'<= 14.1 mL'),
@@ -140,6 +152,9 @@ class Zung(MedCalc):
     https://en.wikipedia.org/wiki/Zung_Self-Rating_Depression_Scale
     """
     def __init__(self):
+        super(Zung, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u'Zung Depressão')
         alist = [
             _(u'Poucas Vezes'),         # A little of the time
             _(u'Algumas Vezes'),        # Some of the time
@@ -198,6 +213,9 @@ class Hachinski(MedCalcList):
     http://www.ncbi.nlm.nih.gov/pubmed/1164215?dopt=Abstract
     """
     def __init__(self):
+        super(Hachinski, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u'Hachinski Indice Isquemico')
         self.data = [
             _(u'Stepwise deterioration'),
             _(u'Fluctuating course'),
@@ -226,11 +244,24 @@ class Hachinski(MedCalcList):
 
 
 class CHADS2(MedCalcList):
-    """
+    """CHADS2 - AVC/AFib
+    
+    CHADS2 Score for AF (atrial fibrillation)
+    Definetly not VAS
 
-    http://athero.ru/AF_risk-assessment_1.pdf
+    http://reference.medscape.com/calculator/chads-2-af-stroke
+    Gage BF, Waterman AD, Shannon W, et. al. Validation of clinical classification schemes for predicting stroke: results from the National Registry of Atrial Fibrillation. JAMA. 2001 Jun 13;285(22):2864-70.
+    Go AS, Hylek EM, Chang Y, et. al. Anticoagulation therapy for stroke prevention in atrial fibrillation: how well do randomized trials translate into clinical practice?. JAMA. 2003 Nov 26;290(20):2685-92.
+    
+    http://www.gpnotebook.co.uk/simplepage.cfm?ID=x20110126111352933383
+
+    Russian translation:
+        http://athero.ru/AF_risk-assessment_1.pdf#2
     """
     def __init__(self):
+        super(CHADS2, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u'CHADS2 - AVC/AFib')
         self.data = [
             _(u'Historico de ICC'),
             _(u'Hipertensão'),
@@ -265,10 +296,6 @@ class CHADS2(MedCalcList):
 def show_dummy(text):
     t = appuifw.Text()
     appuifw.app.body = t
-    t.color = 0xFF00FF
     t.font = (u"Nokia Hindi S60", 14, None)
-    t.add(_(u"Resultado - Novo Estilo\n"))
-    t.font = (u"Nokia Hindi S60", 12, None)
-    t.add(_(u"Diga o que achou deste estilo...\n"))
     t.color = 0xFF0000
     t.add(text)

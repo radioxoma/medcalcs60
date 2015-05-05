@@ -15,6 +15,9 @@ Ref: http://www.medal.org/
 
 import os
 import sys
+import inspect
+from operator import attrgetter
+from itertools import groupby
 import ConfigParser
 import gettext
 
@@ -23,74 +26,7 @@ import graphics
 import appuifw
 
 import medcalc
-from medcalc.geralclass import *
-from medcalc.geral import *
-from medcalc.neuro import *
-from medcalc.uti import *
-from medcalc.rx import *
-
-
-class MenuGeral(MenuItem):
-    def __init__(self):
-        self.Children = [_(u"BSA"), _(u"BMI"), _(u"BEE")]
-        # self.Children = [u"BSA", u"BMI", u"BEE", u"Risco Cirúrgico"]
-        self.Title = _(u"Geral")
-        self.MenuKid = [BSA(), BMI(), BEE()]
-        # self.MenuKid = [BSA(), BMI(), BEE(), AnestesiaRisk()]
-
-
-class MenuNeuro(MenuItem):
-    def __init__(self):
-        self.Children = [
-            _(u"Glasgow CS"),
-            _(u'Teste Mental Abreviado'),
-            _(u'Zung Depressão'),
-            _(u'NINDS 3-Item'),
-            _(u'Hachinski Indice Isquemico'),
-            _(u'CHADS2 - AVC/AFib')]
-        self.Title = _(u"Neuro")
-        self.MenuKid = [
-            GCS(), AbbreviatedMentalTest(), Zung(), NINDS3(), Hachinski(),
-            CHADS2()]
-
-
-class MenuUTI(MenuItem):
-    def __init__(self):
-        self.Children = [
-            _(u"Gradiente Arterial Alveolar"),
-            _(u"Bicarbonato e base excesso"),
-            _(u"Indíce de Ventilação"),
-            _(u"Osmolaridade Sérica"),
-            _(u"Quantidade Oxigênio"),
-            _(u"Saturação Oxigênio")]
-        self.Title = _(u"UTI")
-        self.MenuKid = [
-            AaGrad(), Bicarb(), VentIndex(), OsmSerica(), OxygenContent(),
-            SatO2()]
-
-
-class MenuRX(MenuItem):
-    def __init__(self):
-        self.Children = [
-            _(u"Raio-X Torax PA"),
-            _(u"Raio-X Torax Lat"),
-            _(u"Raio-X Torax PA (F)"),
-            _(u"Raio-X Pneumonia"),
-            _(u"Outro Raio-X Pneumonia"),
-            _(u"Raio-X Antrax"),
-            _(u"Raio-X Marfan"),
-            _(u"Raio-X Câncer")]
-        self.Title = _(u"RX")
-        self.MenuKid = [
-            RxTorax(), RxToraxLat(), RxToraxFem(), RxToraxPneumonia(),
-            RxToraxPneumonia2(), RxToraxAntrax(), RxMarfan(), RxCancer()]
-
-
-# class MRI(MenuItem):
-#     def __init__(self):
-#         self.Children = []
-#         self.Title = _(u"MRI")
-#         self.MenuKid = []
+from medcalc import geralclass
 
 
 class Application(object):
@@ -115,17 +51,35 @@ class Application(object):
 
         # Application runtime
         self.script_lock = e32.Ao_lock()
+
         self.Parent = None
-        self.Children = [
-            _(u"Geral"),
-            _(u"Neuro"),
-            _(u"UTI"),
-            _(u"RX")]
-        self.MenuKid = [MenuGeral(), MenuNeuro(), MenuUTI(), MenuRX()]
+        self.collect_calcs()
+
+    def collect_calcs(self):
+        """Collect all calculators and create menu structure.
+        """
+        from medcalc import geral, neuro, rx, uti
+        classes = list()
+        for modname, mod in inspect.getmembers(medcalc, inspect.ismodule):
+            for clsname, cls in inspect.getmembers(mod, inspect.isclass):
+                # mro = inspect.getmro(cls)
+                mro = cls.__bases__
+                if (geralclass.MedCalc in mro or
+                    geralclass.MedCalcList in mro or
+                    geralclass.MedImage in mro):
+                    classes.append(cls())
+
+        classes.sort(key=attrgetter('category'))
+
+        self.categories = list()
+        self.menu_items = list()
+        for k, grp in groupby(classes, attrgetter('category')):
+            self.categories.append(k)
+            self.menu_items.append(medcalc.geralclass.MenuItem(list(grp)))
 
     def run(self):
         from key_codes import EKeyLeftArrow
-        self.lb = appuifw.Listbox(self.Children, self.lbox_observe)
+        self.lb = appuifw.Listbox(self.categories, self.lbox_observe)
         self.lb.bind(EKeyLeftArrow, lambda: self.lbox_observe(0))
         old_title = appuifw.app.title
         self.refresh()
@@ -159,7 +113,7 @@ class Application(object):
         else:
             index = self.lb.current()
         focused_item = 0
-        self.MenuKid[index].run(self)
+        self.menu_items[index].run(self)
         appuifw.app.screen = 'normal'
 
     def back(self):
@@ -189,6 +143,7 @@ class Application(object):
 
             `gettext.find()` can't do it without defined system variables
             """
+            # __builtin__.__dict__['_'] = lambda x: x  # Monkey path
             all_translations = set()
             if self._localedir:
                 localedir = self._localedir
@@ -245,12 +200,12 @@ try:
 except Exception, e:
     import traceback
     e1, e2, e3 = sys.exc_info()
-    err_msg = unicode(repr(e)) + u"\u2029" * 2
-    err_msg += u"Call stack:\u2029" + unicode(
-        traceback.format_exception(e1, e2, e3))
+    err_msg = repr(e) + u"\u2029" * 2 + u"Call stack:\u2029"
+    err_msg + u''.join(traceback.format_exception(e1, e2, e3))
 
     lock = e32.Ao_lock()
+    appuifw.app.title = u"Error log"
+    appuifw.app.screen = 'full'
     appuifw.app.body = appuifw.Text(err_msg)
     appuifw.app.menu = [(u"Exit", lambda: lock.signal())]
-    appuifw.app.title = u"Error log"
     lock.wait()

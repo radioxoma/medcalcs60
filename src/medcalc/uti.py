@@ -7,12 +7,18 @@ from __future__ import with_statement
 from medcalc.geralclass import *
 
 
+CATEGORY = _(u"UTI")
+
+
 class OxygenContent(MedCalc):
     """Oxygen Content.
 
     http://www-users.med.cornell.edu/~spon/picu/calc/oxycont.htm
     """
     def __init__(self):
+        super(OxygenContent, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u"Quantidade Oxigênio")
         self.data = [
             (_(u'Hemoglobina (g/dl)'), 'number', 0),
             (_(u'Sa02 (%)'), 'number', 0),
@@ -32,6 +38,9 @@ class SatO2(MedCalc):
     http://www-users.med.cornell.edu/~spon/picu/calc/o2satcal.htm
     """
     def __init__(self):
+        super(SatO2, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u"Saturação Oxigênio")
         # pO2 = P * FiO2; P = 760 mmHg (air pressure), FiO2 = 0.21 (21 %) 
         # pO2 = 760 * 0.21 = 159.6 mmHg
         self.data = [(_(u'pO2 - Entrada'), 'number', 160)]
@@ -49,6 +58,9 @@ class OsmSerica(MedCalc):
     http://www-users.med.cornell.edu/~spon/picu/calc/osmolal.htm
     """
     def __init__(self):
+        super(OsmSerica, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u"Osmolaridade Sérica")
         self.data = [
             (u'Na (mEq/L)', 'number', 0),
             (u'Glucose (mg/dL)', 'number', 0),
@@ -68,6 +80,9 @@ class VentIndex(MedCalc):
     http://www-users.med.cornell.edu/~spon/picu/calc/ventindx.htm
     """
     def __init__(self):
+        super(VentIndex, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u"Indíce de Ventilação")
         self.data = [
             (_(u'Ritmo Resp. Vent. (bpm)'), 'number', 0),
             (_(u'Pico Pressão Insp. (torr)'), 'number', 0),
@@ -92,6 +107,9 @@ class AaGrad(MedCalc):
     http://www-users.med.cornell.edu/~spon/picu/calc/aagrad.htm
     """
     def __init__(self):
+        super(AaGrad, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u"Gradiente Arterial Alveolar")
         self.data = [
             (_(u'In FiO2 (dec)'), 'number', 0),
             (_(u'In PaC02 (torr)'), 'number', 0),
@@ -106,6 +124,9 @@ class AaGrad(MedCalc):
 
 class Bicarb(MedCalc):
     def __init__(self):
+        super(Bicarb, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u"Bicarbonato e base excesso")
         self.data = [
             (_(u'pH'), 'number', 0),
             (_(u'PaC02'), 'number', 0)]

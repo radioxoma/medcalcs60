@@ -10,6 +10,9 @@ from __future__ import with_statement
 from medcalc.geralclass import *
 
 
+CATEGORY = _(u"Geral")
+
+
 class BMI(MedCalc):
     """Body mass index.
 
@@ -17,6 +20,9 @@ class BMI(MedCalc):
     http://www-users.med.cornell.edu/~spon/picu/calc/bmicalc.htm
     """
     def __init__(self):
+        super(BMI, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u"BMI")
         self.data = [
             (_(u'Peso (kg)'), 'number', 60),
             (_(u'Altura (cm)'), 'number', 170)]
@@ -34,6 +40,9 @@ class BSA(MedCalc):
     http://www-users.med.cornell.edu/~spon/picu/calc/bsacalc.htm
     """
     def __init__(self):
+        super(BSA, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u"BSA")
         self.data = [
             (_(u"Peso (kg)"), 'number', 60),
             (_(u"Altura (cm)"), 'number', 170)]
@@ -51,6 +60,9 @@ class BEE(MedCalc):
     http://www-users.med.cornell.edu/~spon/picu/calc/beecalc.htm
     """
     def __init__(self):
+        super(BEE, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u"BEE")
         # Issue: activity is not used for calculation
         act = [
             _(u'Repouso'),  # Rest?
@@ -74,27 +86,30 @@ class BEE(MedCalc):
         appuifw.note(_(u"Gasto de Energia Basal = %.0f kcal" % bee), "info")
 
 
-class AnestesiaRisk(MedCalcList):
-    def __init__(self):
-        self.data = [
-            _(u'Hipertensão arterial controlada '),
-            _(u'Diabetes controlada'),
-            _(u'Doença vascular periférica controlada'),
-            _(u'Doença pulm. obstr. crônica controlada'),
-            _(u'Doença Sistemica Controlada'),
-            _(u'Angina inst. c/ hep EV ou nitrog.'),
-            _(u'Balão pré-op. intra-aórt'),
-            _(u'Insuficiência cardíaca c/ edema pulm. ou perif.'),
-            _(u'Hipertensão não controlada'),
-            _(u'Insufic. renal (creatinina sérica> 140µmol / L'),
-            _(u'Outros debilitante doença sistêmica'),
-            _(u'Reoperation'),
-            _(u'Valvula e cirurg. coronaria'),
-            _(u'Multiplas valvulas'),
-            _(u'Ventricular aneurisma esq.'),
-            _(u'Reparo de defeito septo ventricular após IM'),
-            _(u'Bypass de vasos difusos ou calcificados')]
-
-    def show(self):
-        soma = 0
-        print(self._f)
+# class AnestesiaRisk(MedCalcList):
+#     def __init__(self):
+#         super(AnestesiaRisk, self).__init__()
+#         self.category = CATEGORY
+#         self.name = _(u"Risco Cirúrgico")
+#         self.data = [
+#             _(u'Hipertensão arterial controlada '),
+#             _(u'Diabetes controlada'),
+#             _(u'Doença vascular periférica controlada'),
+#             _(u'Doença pulm. obstr. crônica controlada'),
+#             _(u'Doença Sistemica Controlada'),
+#             _(u'Angina inst. c/ hep EV ou nitrog.'),
+#             _(u'Balão pré-op. intra-aórt'),
+#             _(u'Insuficiência cardíaca c/ edema pulm. ou perif.'),
+#             _(u'Hipertensão não controlada'),
+#             _(u'Insufic. renal (creatinina sérica> 140µmol / L'),
+#             _(u'Outros debilitante doença sistêmica'),
+#             _(u'Reoperation'),
+#             _(u'Valvula e cirurg. coronaria'),
+#             _(u'Multiplas valvulas'),
+#             _(u'Ventricular aneurisma esq.'),
+#             _(u'Reparo de defeito septo ventricular após IM'),
+#             _(u'Bypass de vasos difusos ou calcificados')]
+# 
+#     def show(self):
+#         soma = 0
+#         print(self._f)

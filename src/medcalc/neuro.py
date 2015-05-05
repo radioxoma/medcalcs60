@@ -8,7 +8,7 @@ from __future__ import with_statement
 from medcalc.geralclass import *
 
 
-CATEGORY = _(u"Neuro")
+CATEGORY = _(u"Neurology")
 
 
 class AbbreviatedMentalTest(MedCalcList):
@@ -57,7 +57,8 @@ class GCS(MedCalc):
     def __init__(self):
         super(GCS, self).__init__()
         self.category = CATEGORY
-        self.name = _(u"Glasgow CS")
+        self.name = _(u"Glasgow coma scale")
+        # self.desc = _(u"")
         self.Eye = [
             _(u'Espontaneamente'),
             _(u'Estímulo Verbal'),

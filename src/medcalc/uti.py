@@ -7,7 +7,7 @@ from __future__ import with_statement
 from medcalc.geralclass import *
 
 
-CATEGORY = _(u"UTI")
+CATEGORY = _(u"ICU")
 
 
 class OxygenContent(MedCalc):
@@ -18,11 +18,11 @@ class OxygenContent(MedCalc):
     def __init__(self):
         super(OxygenContent, self).__init__()
         self.category = CATEGORY
-        self.name = _(u"Quantidade Oxigênio")
+        self.name = _(u"Oxygen content")
         self.data = [
-            (_(u'Hemoglobina (g/dl)'), 'number', 0),
-            (_(u'Sa02 (%)'), 'number', 0),
-            (_(u'Pa02 (torr)'), 'number', 0)]
+            (_(u'Hb (g/dl)'), 'number', 0),
+            (_(u'SaO2 (%)'), 'number', 0),
+            (_(u'PaO2 (mmHg)'), 'number', 0)]
 
     def show(self):
         Hgb = self.getform()[0][2]
@@ -40,10 +40,10 @@ class SatO2(MedCalc):
     def __init__(self):
         super(SatO2, self).__init__()
         self.category = CATEGORY
-        self.name = _(u"Saturação Oxigênio")
+        self.name = _(u"Oxygen Saturation")
         # pO2 = P * FiO2; P = 760 mmHg (air pressure), FiO2 = 0.21 (21 %) 
         # pO2 = 760 * 0.21 = 159.6 mmHg
-        self.data = [(_(u'pO2 - Entrada'), 'number', 160)]
+        self.data = [(_(u"Insp. pO2"), 'number', 160)]
 
     def show(self):
         pO2 = self.getform()[0][2]
@@ -59,7 +59,7 @@ class OsmSerica(MedCalc):
     def __init__(self):
         super(OsmSerica, self).__init__()
         self.category = CATEGORY
-        self.name = _(u"Osmolaridade Sérica")
+        self.name = _(u"Serum Osmolality")
         self.data = [
             (u'Na (mEq/L)', 'number', 0),
             (u'Glucose (mg/dL)', 'number', 0),
@@ -69,8 +69,8 @@ class OsmSerica(MedCalc):
         Na = self.getform()[0][2]
         Glu = self.getform()[1][2]
         BUN = self.getform()[2][2]
-        Osmolality = 2 * Na + Glu / 18 + BUN / 2.8
-        self.notify(_(u"Osmolaridade Sérica = %.2f" % Osmolality))
+        osmolality = 2 * Na + Glu / 18 + BUN / 2.8
+        self.notify(_(u"Serum Osmolality = %.2f" % osmolality))
 
 
 class VentIndex(MedCalc):
@@ -81,12 +81,12 @@ class VentIndex(MedCalc):
     def __init__(self):
         super(VentIndex, self).__init__()
         self.category = CATEGORY
-        self.name = _(u"Indíce de Ventilação")
+        self.name = _(u"Ventilation Index")
         self.data = [
-            (_(u'Ritmo Resp. Vent. (bpm)'), 'number', 0),
-            (_(u'Pico Pressão Insp. (torr)'), 'number', 0),
-            (_(u'PEEP (torr)'), 'number', 0),
-            (_(u'PaCO2 (torr)'), 'number', 0)]
+            (_(u'Respiratory Rate (bpm)'), 'number', 0),
+            (_(u'Peak Inspiratory Pressure (mmHg)'), 'number', 0),
+            (_(u'PEEP (mmHg)'), 'number', 0),
+            (_(u'PaCO2 (mmHg)'), 'number', 0)]
 
     def show(self):
         RR = self.getform()[0][2]
@@ -94,7 +94,7 @@ class VentIndex(MedCalc):
         PEEP = self.getform()[2][2]
         PaCO2 = self.getform()[3][2]
         VI = (RR * (PIP - PEEP) * PaCO2) / 1000.0
-        self.notify(_(u"Indice Ventilação %.2f" % VI))
+        self.notify(_(u"Ventilation Index %.2f" % VI))
 
 
 class AaGrad(MedCalc):
@@ -104,36 +104,41 @@ class AaGrad(MedCalc):
     Input PaCO2 torr
     Input PaO2  torr
     http://www-users.med.cornell.edu/~spon/picu/calc/aagrad.htm
+    https://en.wikipedia.org/wiki/Alveolar%E2%80%93arterial_gradient
     """
     def __init__(self):
         super(AaGrad, self).__init__()
         self.category = CATEGORY
-        self.name = _(u"Gradiente Arterial Alveolar")
+        self.name = _(u"Alveolar-arterial Gradient")
         self.data = [
-            (_(u'In FiO2 (dec)'), 'number', 0),
-            (_(u'In PaC02 (torr)'), 'number', 0),
-            (_(u'In Pa02 (torr)'), 'number', 0)]
+            (_(u'In FiO2'), 'number', 0),
+            (_(u'In PaCO2 (mmHg)'), 'number', 0),
+            (_(u'In PaO2 (mmHg)'), 'number', 0)]
 
     def show(self):
-        # 1 torr == 1/760 atm (standard atmosphere)
+        # 1 torr == 1/760 atm (standard atmosphere) == 1 mmHg
         PAO2 = self.getform()[0][2] * (760 - 47) - self.getform()[1][2] / 0.8
         PAO2 -= self.getform()[2][2]
-        self.notify(_(u"Gradiente Arterial Alveolar = %.2f" % PAO2))
+        self.notify(_(u"Alveolar-arterial Gradient = %.2f" % PAO2))
 
 
 class Bicarb(MedCalc):
+    """Base Excess & Calculated Bicarbonate.
+    
+    http://www-users.med.cornell.edu/~spon/picu/calc/basecalc.htm
+    """
     def __init__(self):
         super(Bicarb, self).__init__()
         self.category = CATEGORY
-        self.name = _(u"Bicarbonato e base excesso")
+        self.name = _(u"Bicarbonate & Base Excess")
         self.data = [
             (_(u'pH'), 'number', 0),
-            (_(u'PaC02'), 'number', 0)]
+            (_(u'PaCO2'), 'number', 0)]
 
     def show(self):
         pH = self.getform()[0][2]
         pCO2 = self.getform()[1][2]
         HCO3 = 0.03 * pCO2 * 10 ** (pH - 6.1)
         BE = 0.02786 * pCO2 * 10 ** (pH - 6.1) + 13.77 * pH - 124.58
-        self.notify(_(u"HCO3 = %(HCO3)s \nDesbalanceamento Base: %(BE)s" % {
+        self.notify(_(u"HCO3 = %(HCO3)s\nBE: %(BE)s" % {
             'HCO3': HCO3, 'BE': BE}))

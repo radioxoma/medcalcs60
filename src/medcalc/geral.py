@@ -12,7 +12,7 @@ import datetime
 from medcalc.geralclass import *
 
 
-CATEGORY = _(u"Geral")
+CATEGORY = _(u"General")
 
 
 class BMI(MedCalc):
@@ -26,13 +26,13 @@ class BMI(MedCalc):
         self.category = CATEGORY
         self.name = _(u"BMI")
         self.data = [
-            (_(u'Peso (kg)'), 'number', 60),
-            (_(u'Altura (cm)'), 'number', 170)]
+            (_(u'Body mass (kg)'), 'number', 60),
+            (_(u'Height (cm)'), 'number', 170)]
 
     def show(self):
         W = self.getform()[0][2]
         H = self.getform()[1][2] / 100.0
-        self.notify(_(u"IMC = %f" % (W / H ** 2)))
+        self.notify(_(u"BMI = %f" % (W / H ** 2)))
 
 
 class BSA(MedCalc):
@@ -44,10 +44,10 @@ class BSA(MedCalc):
     def __init__(self):
         super(BSA, self).__init__()
         self.category = CATEGORY
-        self.name = _(u"BSA")
+        self.name = _(u"Body surface area")
         self.data = [
-            (_(u"Peso (kg)"), 'number', 60),
-            (_(u"Altura (cm)"), 'number', 170)]
+            (_(u"Body mass (kg)"), 'number', 60),
+            (_(u"Height (cm)"), 'number', 170)]
 
     def show(self):
         W = self.getform()[0][2]
@@ -64,28 +64,28 @@ class BEE(MedCalc):
     def __init__(self):
         super(BEE, self).__init__()
         self.category = CATEGORY
-        self.name = _(u"BEE")
+        self.name = _(u"Basal energy expenditure")
         # Issue: activity is not used for calculation
         act = [
-            _(u'Repouso'),  # Rest?
-            _(u'Deambulando')]  # Walking?
-        sexo = [_(u'Homem'), _(u'Mulher')]
+            _(u'Bedrest'),
+            _(u'Ambulating')]
+        sexo = [_(u'Male'), _(u'Female')]
         self.data = [
-            (_(u'Sexo'), 'combo', (sexo, 0)),
-            (_(u"Peso (kg)"), 'number', 0),
-            (_(u'Altura (cm)'), 'number', 0),
-            (_(u"Idade"), 'number', 0),
-            (_(u"Atividade"), "combo", (act, 0))]
+            (_(u'Sex'), 'combo', (sexo, 0)),
+            (_(u"Body mass (kg)"), 'number', 0),
+            (_(u'Height (cm)'), 'number', 0),
+            (_(u"Age"), 'number', 0),
+            (_(u"Activity"), "combo", (act, 0))]
 
     def show(self):
-        W = self.getform()[1][2]
-        H = self.getform()[2][2]
-        A = self.getform()[3][2]
+        weight = self.getform()[1][2]
+        height = self.getform()[2][2]
+        age = self.getform()[3][2]
         if (self.getform()[0][2][1] == 0):
-            bee = 66.5 + (13.75 * W) + (5.003 * H) - (6.775 * A)
+            bee = 66.5 + (13.75 * weight) + (5.003 * height) - (6.775 * age)
         else:
-            bee = 655.1 + (9.563 * W) + (1.850 * H) - (4.676 * A)
-        self.notify(_(u"Gasto de Energia Basal = %.0f kcal" % bee))
+            bee = 655.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age)
+        self.notify(_(u"Basal energy expenditure = %.0f kcal" % bee))
 
 
 class CurrentAge(MedCalc):

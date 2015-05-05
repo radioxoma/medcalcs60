@@ -1,0 +1,688 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2015-05-06 01:14+0300\n"
+"PO-Revision-Date: 2015-05-06 01:15+0300\n"
+"Last-Translator: Eugene Dvoretsky <radioxoma@gmail.com>\n"
+"Language-Team: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: ../../..\n"
+
+#: ../../../default.py:96
+msgid "Language"
+msgstr ""
+
+#: ../../../default.py:97
+msgid "About"
+msgstr ""
+
+#: ../../../default.py:98
+msgid "Exit"
+msgstr ""
+
+#: ../../../default.py:161
+msgid "Select language:"
+msgstr ""
+
+#: ../../../default.py:167
+msgid "Please reload the program to apply the changes."
+msgstr ""
+
+#: ../../../default.py:171
+#, python-format
+msgid "Open source medical calculator v%s."
+msgstr ""
+
+#: ../../../medcalc/geral.py:15
+msgid "General"
+msgstr "Geral"
+
+#: ../../../medcalc/geral.py:27
+msgid "BMI"
+msgstr ""
+
+#: ../../../medcalc/geral.py:29 ../../../medcalc/geral.py:49
+#: ../../../medcalc/geral.py:75
+msgid "Body mass (kg)"
+msgstr "Peso (kg)"
+
+#: ../../../medcalc/geral.py:30 ../../../medcalc/geral.py:50
+#: ../../../medcalc/geral.py:76
+msgid "Height (cm)"
+msgstr "Altura (cm)"
+
+#: ../../../medcalc/geral.py:35
+#, python-format
+msgid "BMI = %f"
+msgstr "IMC = %f"
+
+#: ../../../medcalc/geral.py:47
+msgid "Body surface area"
+msgstr ""
+
+#: ../../../medcalc/geral.py:56
+#, python-format
+msgid "BSA = %f"
+msgstr ""
+
+#: ../../../medcalc/geral.py:67
+msgid "Basal energy expenditure"
+msgstr "Gasto de Energia Basal"
+
+#: ../../../medcalc/geral.py:70
+msgid "Bedrest"
+msgstr "Repouso"
+
+#: ../../../medcalc/geral.py:71
+msgid "Ambulating"
+msgstr "Deambulando"
+
+#: ../../../medcalc/geral.py:72
+msgid "Male"
+msgstr "Homem"
+
+#: ../../../medcalc/geral.py:72
+msgid "Female"
+msgstr "Mulher"
+
+#: ../../../medcalc/geral.py:74
+msgid "Sex"
+msgstr "Sexo"
+
+#: ../../../medcalc/geral.py:77
+msgid "Age"
+msgstr "Idade"
+
+#: ../../../medcalc/geral.py:78
+msgid "Activity"
+msgstr "Atividade"
+
+#: ../../../medcalc/geral.py:88
+#, python-format
+msgid "Basal energy expenditure = %.0f kcal"
+msgstr "Gasto de Energia Basal = %.0f kcal"
+
+#: ../../../medcalc/geral.py:100
+msgid "Current age"
+msgstr "Idade"
+
+#: ../../../medcalc/geral.py:101
+msgid "Birthday"
+msgstr ""
+
+#: ../../../medcalc/geral.py:106
+#, python-format
+msgid "%.2f years"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:11
+msgid "Neurology"
+msgstr "Neuro"
+
+#: ../../../medcalc/neuro.py:29
+msgid "Teste Mental Abreviado"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:31
+msgid "Idade"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:32
+msgid "Minutos para próxima hora"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:33
+msgid "Nome do lugar"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:34
+msgid "Reconhecer 2 pessoas"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:35
+msgid "Data 1a guerra"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:36
+msgid "Presidente da república"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:37
+msgid "Conta 20 a 1?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:38
+msgid "Endereço"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:39
+msgid "Aniversário"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:40
+msgid "Ano em que estamos"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:47
+#, python-format
+msgid "Pontos %d- Não demenciado"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:49
+#, python-format
+msgid "Pontos %d- Demenciado 81.5 %%"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:60
+msgid "Glasgow coma scale"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:63
+msgid "Espontaneamente"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:64
+msgid "Estímulo Verbal"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:65
+msgid "A dor"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:66
+msgid "Nunca"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:68
+msgid "Orientado e falando"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:69
+msgid "Desorientado e falando"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:70
+msgid "Palavras confusas"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:71
+msgid "Sons incompreensiveis"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:72 ../../../medcalc/neuro.py:79
+msgid "Sem resposta"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:74
+msgid "Obedece comandos"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:75
+msgid "Localiza a dor"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:76
+msgid "Flexão normal"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:77
+msgid "Flexão anormal"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:78
+msgid "Extensão"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:81
+msgid "Olhos"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:82
+msgid "Verbal"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:83
+msgid "Motor"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:98
+#, python-format
+msgid ""
+"GCS = %(GCS)d\n"
+"Prob. recuperação: %(pGCS)d%%"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:114
+msgid "NINDS 3-Item"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:117
+msgid "<= 14.1 mL"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:118
+msgid "> 14.1 mL"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:121
+msgid "<= 3"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:122
+msgid "4 a 15"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:123
+msgid "> 15"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:126
+msgid "<= 3 horas"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:127
+msgid "3 a 6 horas"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:128
+msgid "> 6 horas"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:130
+msgid "Volume da lesão MR-DWI"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:131
+msgid "NIHSS score"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:132
+msgid "Tempo em horas desde o começo"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:137
+msgid "Baixa"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:139
+msgid "Média"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:140
+msgid "Alta"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:146
+#, python-format
+msgid ""
+"NINDS3 = %(ninds3)d\n"
+"Prob. recuperação: %(pninds3)s"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:158
+msgid "Zung Depressão"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:160
+msgid "Poucas Vezes"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:161
+msgid "Algumas Vezes"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:162
+msgid "Boa Parte das Vezes"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:163
+msgid "Quase Sempre"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:165
+msgid "Sinto desanimo e tristeza?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:166
+msgid "Sinto melhor de manhã?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:167
+msgid "Choro ou tenho vontade?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:168
+msgid "Problemas para dormir?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:169
+msgid "Como o habitual?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:170
+msgid "Vida sexual normal?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:171
+msgid "Estou perdendo peso?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:172
+msgid "Problemas de constipação?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:173
+msgid "Coração batendo mais acelerado?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:174
+msgid "Cansado sem razão?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:175
+msgid "Pensamento claro como de costume?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:176
+msgid "É fácil fazer o que estou acostumado?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:177
+msgid "Sinto-me inquieto?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:178
+msgid "Sinto-me esperançoso com relação ao futuro?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:180
+msgid "Mais irritável que o usual?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:181
+msgid "É fácil tomar decisões?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:182
+msgid "Sinto-me útil e necessário?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:183
+msgid "Minha vida está plena?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:184
+msgid "Sinto que os outros estariam melhor com eu morto?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:186
+msgid "Gosto das coisas que costumava gostar?"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:198
+msgid "Normal"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:200 ../../../medcalc/neuro.py:201
+msgid "Limiar"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:206
+#, python-format
+msgid ""
+"Zung = %(ZNG)d\n"
+"Provavelmente:%(dGCS)s"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:219
+msgid "Hachinski Indice Isquemico"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:221
+msgid "Stepwise deterioration"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:222
+msgid "Fluctuating course"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:223
+msgid "Nocturnal confusion"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:224
+msgid "Relative preservation of personality"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:225
+msgid "Depression"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:226
+msgid "Somatic complaints"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:227
+msgid "Emotional incontinence"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:228
+msgid "History of hypertension"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:229
+msgid "History of strokes"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:230
+msgid "Evidence of associated atherosclerosis"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:231
+msgid "Focal neurological symptoms"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:232
+msgid "Focal neurological signs"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:240
+#, python-format
+msgid "Pontos %d- demencia vascular"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:242
+#, python-format
+msgid "Pontos %d- Demencia Primária"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:244
+#, python-format
+msgid "Pontos %d- Limiar / Mixed"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:265
+msgid "CHADS2 - AVC/AFib"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:267
+msgid "Historico de ICC"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:268
+msgid "Hipertensão"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:269
+msgid "Mais de 75 anos"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:270
+msgid "Diabete mellitus"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:271
+msgid "Histórico de AVC ou TIA"
+msgstr ""
+
+#: ../../../medcalc/neuro.py:287
+#, python-format
+msgid ""
+"%(rt0)d Pontos\n"
+"Prob AVC: %(rt1).1f%%\n"
+"(%(rt2)s)"
+msgstr ""
+
+#: ../../../medcalc/rx.py:10
+msgid "X-Ray"
+msgstr "Raio-X"
+
+#: ../../../medcalc/rx.py:17
+msgid "Torax PA"
+msgstr ""
+
+#: ../../../medcalc/rx.py:25
+msgid "Torax Lat"
+msgstr ""
+
+#: ../../../medcalc/rx.py:33
+msgid "Torax PA (F)"
+msgstr ""
+
+#: ../../../medcalc/rx.py:41
+msgid "Pneumonia 1"
+msgstr ""
+
+#: ../../../medcalc/rx.py:49
+msgid "Pneumonia 2"
+msgstr ""
+
+#: ../../../medcalc/rx.py:57
+msgid "Anthrax"
+msgstr "Antrax"
+
+#: ../../../medcalc/rx.py:65
+msgid "Marfan"
+msgstr ""
+
+#: ../../../medcalc/rx.py:73
+msgid "Cancer"
+msgstr "Câncer"
+
+#: ../../../medcalc/uti.py:10
+msgid "ICU"
+msgstr "UTI"
+
+#: ../../../medcalc/uti.py:21
+msgid "Oxygen content"
+msgstr "Quantidade Oxigênio"
+
+#: ../../../medcalc/uti.py:23
+msgid "Hb (g/dl)"
+msgstr ""
+
+#: ../../../medcalc/uti.py:24
+msgid "SaO2 (%)"
+msgstr ""
+
+#: ../../../medcalc/uti.py:25
+msgid "PaO2 (mmHg)"
+msgstr ""
+
+#: ../../../medcalc/uti.py:32
+#, python-format
+msgid "CaO2 = %.2f"
+msgstr ""
+
+#: ../../../medcalc/uti.py:43
+msgid "Oxygen Saturation"
+msgstr "Saturação Oxigênio"
+
+#: ../../../medcalc/uti.py:46
+msgid "Insp. pO2"
+msgstr "Entrada pO2"
+
+#: ../../../medcalc/uti.py:51
+#, python-format
+msgid "SpO2 = %.2f %%"
+msgstr ""
+
+#: ../../../medcalc/uti.py:62
+msgid "Serum Osmolality"
+msgstr "Osmolaridade Sérica"
+
+#: ../../../medcalc/uti.py:73
+#, python-format
+msgid "Serum Osmolality = %.2f"
+msgstr "Osmolaridade Sérica  = %.2f"
+
+#: ../../../medcalc/uti.py:84
+msgid "Ventilation Index"
+msgstr "Indíce de Ventilação"
+
+#: ../../../medcalc/uti.py:86
+msgid "Respiratory Rate (bpm)"
+msgstr "Ritmo Resp. Vent. (bpm)"
+
+#: ../../../medcalc/uti.py:87
+msgid "Peak Inspiratory Pressure (mmHg)"
+msgstr "Pico Pressão Insp. (mmHg)"
+
+#: ../../../medcalc/uti.py:88
+msgid "PEEP (mmHg)"
+msgstr ""
+
+#: ../../../medcalc/uti.py:89
+msgid "PaCO2 (mmHg)"
+msgstr ""
+
+#: ../../../medcalc/uti.py:97
+#, python-format
+msgid "Ventilation Index %.2f"
+msgstr "Indice Ventilação %.2f"
+
+#: ../../../medcalc/uti.py:112
+msgid "Alveolar-arterial Gradient"
+msgstr "Gradiente Arterial Alveolar"
+
+#: ../../../medcalc/uti.py:114
+msgid "In FiO2"
+msgstr ""
+
+#: ../../../medcalc/uti.py:115
+msgid "In PaCO2 (mmHg)"
+msgstr ""
+
+#: ../../../medcalc/uti.py:116
+msgid "In PaO2 (mmHg)"
+msgstr ""
+
+#: ../../../medcalc/uti.py:122
+#, python-format
+msgid "Alveolar-arterial Gradient = %.2f"
+msgstr "Gradiente Arterial Alveolar = %.2f"
+
+#: ../../../medcalc/uti.py:133
+msgid "Bicarbonate & Base Excess"
+msgstr "Bicarbonato e base excesso"
+
+#: ../../../medcalc/uti.py:135
+msgid "pH"
+msgstr ""
+
+#: ../../../medcalc/uti.py:136
+msgid "PaCO2"
+msgstr ""
+
+#: ../../../medcalc/uti.py:143
+#, python-format
+msgid ""
+"HCO3 = %(HCO3)s\n"
+"BE: %(BE)s"
+msgstr ""

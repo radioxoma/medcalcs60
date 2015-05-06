@@ -38,14 +38,11 @@ echo "Compiling localization files"
 # https://wiki.maemo.org/Internationalize_a_Python_application
 # Copy localisation file(s) to default location
 # gettext._default_localedir == 'c:/resource/python25/share/locale'
-mkdir -p ${TMPDIR}/extras/resource/python25/share/locale/ru/LC_MESSAGES/
-msgfmt -c ${SRCDIR}/locale/ru/LC_MESSAGES/medcalc.po \
-       -o ${TMPDIR}/extras/resource/python25/share/locale/ru/LC_MESSAGES/medcalc.mo
-# cp -r ${SRCDIR}/locale/ ${TMPDIR}/extras/resource/python25/share/
-# find ${TMPDIR}/extras/resource/python25/share/locale -type f ! -name '*.mo' -delete
+find ${SRCDIR}/locale/ -name \*.po -execdir msgfmt medcalc.po -o medcalc.mo \;
+mkdir -p ${TMPDIR}/extras/resource/python25/share/locale/
+cp -r ${SRCDIR}/locale/ ${TMPDIR}/extras/resource/python25/share/
+find ${TMPDIR}/extras/resource/python25/share/locale -type f ! -name '*.mo' -delete
 
-
-# --caption="English Caption","French Caption","German Caption"
 # --extrasdir=     - Name of dir. tree placed under drive root
 # --extra-modules= - Additional dependency modules that should be packaged with the application
 # sys.prefix == 'C:\\resource\\python25'
@@ -61,7 +58,7 @@ python2.5 ${PYS60DIR}/ensymble.py py2sis \
     --vendor="Eugene Dvoretsky","Eugene Dvoretsky","Евгений Дворецкий" \
     --lang=EN,PO,RU \
     --extrasdir=extras \
-    --icon="${PROJECTDIR}/${SRCDIR}/logo2.svg" \
+    --icon="${PROJECTDIR}/${SRCDIR}/logo.svg" \
     --textfile="${PROJECTDIR}/eula/%c.txt" `# UTF-8 with BOM` \
     --heapsize=4k,5M \
     "${PROJECTDIR}/${TMPDIR}" "${PROJECTDIR}/${APPNAME}-${VERSION}.sis"

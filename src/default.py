@@ -157,7 +157,7 @@ class Application(object):
             return list(all_translations)
 
         translations = find_translations()
-        translations.append(u'Disable translation')
+        translations.append(u'en')
         idx = appuifw.popup_menu(translations, _(u"Select language:"))
         if idx is not None:
             self.set_language(translations[idx])

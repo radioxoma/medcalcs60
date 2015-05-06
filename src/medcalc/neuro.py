@@ -26,27 +26,27 @@ class AbbreviatedMentalTest(MedCalcList):
     def __init__(self):
         super(AbbreviatedMentalTest, self).__init__()
         self.category = CATEGORY
-        self.name = _(u'Teste Mental Abreviado')
+        self.name = _(u'Abbreviated mental test')
         self.data = [
-            _(u'Idade'),
-            _(u'Minutos para próxima hora'),
-            _(u'Nome do lugar'),
-            _(u'Reconhecer 2 pessoas'),
-            _(u'Data 1a guerra'),
-            _(u'Presidente da república'),
-            _(u'Conta 20 a 1?'),
-            _(u'Endereço'),
-            _(u'Aniversário'),
-            _(u'Ano em que estamos')]
+            _(u'Current age'),
+            _(u'Date of birth'),
+            _(u'Can remember an address'),
+            _(u'Where are you now'),
+            _(u'What is the year'),
+            _(u'Time to the nearest hour'),
+            _(u'Recognize two persons'),
+            _(u'Any historical data'),
+            _(u'Present president'),
+            _(u'Count from 20 to 1')]
 
     def show(self):
         soma = 0
         for i in self._f:
             soma += 1
         if soma > 6:
-            self.notify(_(u"Pontos %d- Não demenciado" % soma))
+            self.notify(_(u"%d points, no dementia") % soma)
         else:
-            self.notify(_(u"Pontos %d- Demenciado 81.5 %%" % soma))
+            self.notify(_(u"%d points, dementia probability 81.5 %%") % soma)
 
 
 class GCS(MedCalc):
@@ -60,25 +60,25 @@ class GCS(MedCalc):
         self.name = _(u"Glasgow coma scale")
         # self.desc = _(u"")
         self.Eye = [
-            _(u'Espontaneamente'),
-            _(u'Estímulo Verbal'),
-            _(u'A dor'),
-            _(u'Nunca')]
+            _(u'Opens spontaneously'),
+            _(u'In response to voice'),
+            _(u'Pain'),
+            _(u'None')]
         self.Lang = [
-            _(u'Orientado e falando'),
-            _(u'Desorientado e falando'),
-            _(u'Palavras confusas'),
-            _(u'Sons incompreensiveis'),
-            _(u'Sem resposta')]
+            _(u'Oriented, converses normally'),
+            _(u'Confused, disoriented'),
+            _(u'Utters inappropriate words'),
+            _(u'Incomprehensible sounds'),
+            _(u'No reaction')]
         self.Motor = [
-            _(u'Obedece comandos'),
-            _(u'Localiza a dor'),
-            _(u'Flexão normal'),
-            _(u'Flexão anormal'),
-            _(u'Extensão'),
-            _(u'Sem resposta')]
+            _(u'Obeys commands'),
+            _(u'Localizes painful stimuli'),
+            _(u'Flexion / Withdrawal to painful stimuli'),
+            _(u'Abnormal flexion to painful stimuli (decorticate response)'),
+            _(u'Extension to painful stimuli (decerebrate response)'),
+            _(u'No reaction')]
         self.data = [
-            (_(u'Olhos'), 'combo', (self.Eye, 0)),
+            (_(u'Eye'), 'combo', (self.Eye, 0)),
             (_(u'Verbal'), 'combo', (self.Lang, 0)),
             (_(u'Motor'), 'combo', (self.Motor, 0))]
 
@@ -95,8 +95,8 @@ class GCS(MedCalc):
         L = self.getform()[1][2][1]
         M = self.getform()[2][2][1]
         GCS = 4 - E + 5 - L + 6 - M
-        self.notify(_(u"GCS = %(GCS)d\nProb. recuperação: %(pGCS)d%%" % {
-            'GCS': GCS, 'pGCS': prob(GCS)}))
+        self.notify(_(u"%(GCS)d points, recovery prob. %(pGCS)d%%") % {
+            'GCS': GCS, 'pGCS': prob(GCS)})
 
 
 class NINDS3(MedCalc):
@@ -111,80 +111,78 @@ class NINDS3(MedCalc):
     def __init__(self):
         super(NINDS3, self).__init__()
         self.category = CATEGORY
-        self.name = _(u'NINDS 3-Item')
+        self.name = _(u'NINDS 3-item')
         # Magnetic resonance diffusion-weighted imaging
         self.volume = [
-            _(u'<= 14.1 mL'),
+            _(u'≤ 14.1 mL'),
             _(u'> 14.1 mL')]
         # NIH stroke scale
         self.nihss = [
-            _(u'<= 3'),
-            _(u'4 a 15'),
-            _(u'> 15')]
+            u'≤ 3',
+            u'4-15',
+            u'> 15']
         # Time from onset
         self.horas = [
-            _(u'<= 3 horas'),
-            _(u'3 a 6 horas'),
-            _(u'> 6 horas')]
+            _(u'≤ 3 hours'),
+            _(u'3-6 hours'),
+            _(u'> 6 hours')]
         self.data = [
-            (_(u'Volume da lesão MR-DWI'), 'combo', (self.volume, 0)),
+            (_(u'MR-DWI lesion volume'), 'combo', (self.volume, 0)),
             (_(u'NIHSS score'), 'combo', (self.nihss, 0)),
-            (_(u'Tempo em horas desde o começo'), 'combo', (self.horas, 0))]
+            (_(u'Time from onset'), 'combo', (self.horas, 0))]
 
     def show(self):
         def prob(i):
             if i < 3:
-                return _("Baixa")
+                return _(u"low")
             if i < 5:
-                return _("Média")
-            return _("Alta")
+                return _(u"medium")
+            return _(u"high")
         V = self.getform()[0][2][1]
         N = self.getform()[1][2][1]
         H = self.getform()[2][2][1]
         ninds3 = 1 - V + 4 - 2 * N + H
         self.notify(
-            _(u"NINDS3 = %(ninds3)d\nProb. recuperação: %(pninds3)s" % {
-                'ninds3': ninds3, 'pninds3': prob(ninds3)}))
+            _(u"%(ninds3)d points, recovery prob. %(pninds3)s") % {
+                'ninds3': ninds3, 'pninds3': prob(ninds3)})
 
 
 class Zung(MedCalc):
     """Zung Self-Rating Depression Scale.
 
     https://en.wikipedia.org/wiki/Zung_Self-Rating_Depression_Scale
+    http://psychology-tools.com/zung-depression-scale/
     """
     def __init__(self):
         super(Zung, self).__init__()
         self.category = CATEGORY
-        self.name = _(u'Zung Depressão')
+        self.name = _(u'Zung depression scale')
         alist = [
-            _(u'Poucas Vezes'),         # A little of the time
-            _(u'Algumas Vezes'),        # Some of the time
-            _(u'Boa Parte das Vezes'),  # Good part of the time
-            _(u'Quase Sempre')]         # Most of the time
+            _(u'A little of the time'),
+            _(u'Some of the time'),
+            _(u'Good part of the time'),
+            _(u'Most of the time')]
         self.data = [
-            (_(u'Sinto desanimo e tristeza?'), 'combo', (alist, 0)),
-            (_(u'Sinto melhor de manhã?'), 'combo', (alist, 0)),
-            (_(u'Choro ou tenho vontade?'), 'combo', (alist, 0)),
-            (_(u'Problemas para dormir?'), 'combo', (alist, 0)),
-            (_(u'Como o habitual?'), 'combo', (alist, 0)),
-            (_(u'Vida sexual normal?'), 'combo', (alist, 0)),
-            (_(u'Estou perdendo peso?'), 'combo', (alist, 0)),
-            (_(u'Problemas de constipação?'), 'combo', (alist, 0)),
-            (_(u'Coração batendo mais acelerado?'), 'combo', (alist, 0)),
-            (_(u'Cansado sem razão?'), 'combo', (alist, 0)),
-            (_(u'Pensamento claro como de costume?'), 'combo', (alist, 0)),
-            (_(u'É fácil fazer o que estou acostumado?'), 'combo', (alist, 0)),
-            (_(u'Sinto-me inquieto?'), 'combo', (alist, 0)),
-            (_(u'Sinto-me esperançoso com relação ao futuro?'), 'combo',
-                (alist, 0)),
-            (_(u'Mais irritável que o usual?'), 'combo', (alist, 0)),
-            (_(u'É fácil tomar decisões?'), 'combo', (alist, 0)),
-            (_(u'Sinto-me útil e necessário?'), 'combo', (alist, 0)),
-            (_(u'Minha vida está plena?'), 'combo', (alist, 0)),
-            (_(u'Sinto que os outros estariam melhor com eu morto?'), 'combo',
-                (alist, 0)),
-            (_(u'Gosto das coisas que costumava gostar?'), 'combo',
-                (alist, 0))]
+            (_(u'I feel down hearted and blue.'), 'combo', (alist, 0)),
+            (_(u'Morning is when I feel the best.'), 'combo', (alist, 0)),
+            (_(u'I have crying spells or feel like it.'), 'combo', (alist, 0)),
+            (_(u'I have trouble sleeping at night.'), 'combo', (alist, 0)),
+            (_(u'I eat as much as I used to.'), 'combo', (alist, 0)),
+            (_(u'I still enjoy sex.'), 'combo', (alist, 0)),
+            (_(u'I notice that I am losing weight.'), 'combo', (alist, 0)),
+            (_(u'I have trouble with constipation.'), 'combo', (alist, 0)),
+            (_(u'My heart beats faster than usual.'), 'combo', (alist, 0)),
+            (_(u'I get tired for no reason.'), 'combo', (alist, 0)),
+            (_(u'My mind is as clear as it used to be.'), 'combo', (alist, 0)),
+            (_(u'I find it easy to do the things I used to.'), 'combo', (alist, 0)),
+            (_(u'I am restless and can’t keep still.'), 'combo', (alist, 0)),
+            (_(u'I feel hopeful about the future.'), 'combo', (alist, 0)),
+            (_(u'I am more irritable than usual.'), 'combo', (alist, 0)),
+            (_(u'I find it easy to make decisions.'), 'combo', (alist, 0)),
+            (_(u'I feel that I am useful and needed.'), 'combo', (alist, 0)),
+            (_(u'My life is pretty full.'), 'combo', (alist, 0)),
+            (_(u'I feel that others would be better off if I were dead.'), 'combo', (alist, 0)),
+            (_(u'I still enjoy the things I used to do.'), 'combo', (alist, 0))]
 
     def show(self):
         def prob(i, j):
@@ -195,16 +193,16 @@ class Zung(MedCalc):
 
         def diag(i):
             if i < 36:
-                return _(u"Normal")
+                return _(u"normal")
             if i < 57:
-                return _(u"Limiar")
-            return _(u"Limiar")
+                return _(u"threshold")
+            return _(u"threshold")
         f = self.getform()
         ZNG = 0
         for i in range(20):
             ZNG += prob(i, f[i][2][1])
-        self.notify(_(u"Zung = %(ZNG)d\nProvavelmente:%(dGCS)s" % {
-            'ZNG': ZNG, 'dGCS': diag(GCS)}))
+        self.notify(_(u"%(ZNG)d prob. %(dGCS)s") % {
+            'ZNG': ZNG, 'dGCS': diag(GCS)})
 
 
 class Hachinski(MedCalcList):
@@ -216,7 +214,7 @@ class Hachinski(MedCalcList):
     def __init__(self):
         super(Hachinski, self).__init__()
         self.category = CATEGORY
-        self.name = _(u'Hachinski Indice Isquemico')
+        self.name = _(u'Hachinski ischemia score')
         self.data = [
             _(u'Stepwise deterioration'),
             _(u'Fluctuating course'),
@@ -237,23 +235,28 @@ class Hachinski(MedCalcList):
         for i in self._f:
             soma += self.pontos[i]
         if soma > 7:
-            self.notify(_(u"Pontos %d- demencia vascular" % soma))
+            self.notify(_(u"%d points, vascular dementia") % soma)
         if soma < 4:
-            self.notify(_(u"Pontos %d- Demencia Primária" % soma))
-        if soma > 3 and soma < 8:
-            self.notify(_(u"Pontos %d- Limiar / Mixed" % soma))
+            self.notify(_(u"%d points, primary dementia") % soma)
+        if 3 < soma < 8:
+            self.notify(_(u"%d points, borderline / mixed") % soma)
 
 
 class CHADS2(MedCalcList):
-    """CHADS2 - AVC/AFib
-    
+    """CHADS2 - stroke risk.
+
     CHADS2 Score for AF (atrial fibrillation)
-    Definetly not VAS
+    https://en.wikipedia.org/wiki/CHA2DS2%E2%80%93VASc_score
 
     http://reference.medscape.com/calculator/chads-2-af-stroke
-    Gage BF, Waterman AD, Shannon W, et. al. Validation of clinical classification schemes for predicting stroke: results from the National Registry of Atrial Fibrillation. JAMA. 2001 Jun 13;285(22):2864-70.
-    Go AS, Hylek EM, Chang Y, et. al. Anticoagulation therapy for stroke prevention in atrial fibrillation: how well do randomized trials translate into clinical practice?. JAMA. 2003 Nov 26;290(20):2685-92.
+    Gage BF, Waterman AD, Shannon W, et. al. Validation of clinical
+    classification schemes for predicting stroke: results from the National
+    Registry of Atrial Fibrillation. JAMA. 2001 Jun 13;285(22):2864-70.
     
+    Go AS, Hylek EM, Chang Y, et. al. Anticoagulation therapy for stroke
+    prevention in atrial fibrillation: how well do randomized trials translate
+    into clinical practice?. JAMA. 2003 Nov 26;290(20):2685-92.
+
     http://www.gpnotebook.co.uk/simplepage.cfm?ID=x20110126111352933383
 
     Russian translation:
@@ -262,30 +265,30 @@ class CHADS2(MedCalcList):
     def __init__(self):
         super(CHADS2, self).__init__()
         self.category = CATEGORY
-        self.name = _(u'CHADS2 - AVC/AFib')
+        self.name = _(u'CHADS2 - stroke risk')
         self.data = [
-            _(u'Historico de ICC'),
-            _(u'Hipertensão'),
-            _(u'Mais de 75 anos'),
-            _(u'Diabete mellitus'),
-            _(u'Histórico de AVC ou TIA')]
+            _(u'Heart failure, past or current'),
+            _(u'Hypertension'),
+            _(u'Age ≥ 75 years'),
+            _(u'Diabetes mellitus'),
+            _(u'Prior ischemic stroke, TIA or thromboembolism')]
         self.pontos = [1, 1, 1, 1, 2]
         self.rate = [
-            (0, 1.9, u"1.2 - 3.0"),
-            (1, 2.8, u"2.0 - 3.8"),
-            (2, 4.0, u"3.1 - 5.1"),
-            (3, 5.9, u"4.6 - 7.3"),
-            (4, 8.5, u"6.3 - 11.1"),
-            (5, 12.5, u"8.2 - 17.5"),
-            (6, 18.2, u"10.5 - 27.4")]
+            (0, 1.9, u"1.2-3.0"),
+            (1, 2.8, u"2.0-3.8"),
+            (2, 4.0, u"3.1-5.1"),
+            (3, 5.9, u"4.6-7.3"),
+            (4, 8.5, u"6.3-11.1"),
+            (5, 12.5, u"8.2-17.5"),
+            (6, 18.2, u"10.5-27.4")]
 
     def show(self):
         soma = 0
         for i in self._f:
             soma += self.pontos[i]
         rt = self.rate[soma]
-        msg = _(u"%(rt0)d Pontos\nProb AVC: %(rt1).1f%%\n(%(rt2)s)" % {
+        msg = _(u"%(rt0)d points, stroke prob. %(rt1).1f%% (%(rt2)s)") % {
             'rt0': rt[0],
             'rt1': rt[1],
-            'rt2': rt[2]})
+            'rt2': rt[2]}
         self.notify(msg)

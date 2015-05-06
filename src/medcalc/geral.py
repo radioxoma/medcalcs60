@@ -24,7 +24,7 @@ class BMI(MedCalc):
     def __init__(self):
         super(BMI, self).__init__()
         self.category = CATEGORY
-        self.name = _(u"BMI")
+        self.name = _(u"Body mass index")
         self.data = [
             (_(u'Body mass (kg)'), 'number', 60),
             (_(u'Height (cm)'), 'number', 170)]
@@ -32,7 +32,7 @@ class BMI(MedCalc):
     def show(self):
         W = self.getform()[0][2]
         H = self.getform()[1][2] / 100.0
-        self.notify(_(u"BMI = %f" % (W / H ** 2)))
+        self.notify(_(u"%.2f" % (W / H ** 2)))
 
 
 class BSA(MedCalc):
@@ -53,7 +53,7 @@ class BSA(MedCalc):
         W = self.getform()[0][2]
         H = self.getform()[1][2]
         data = (W ** 0.425 * H ** 0.725) * 0.007184
-        self.notify(_(u"BSA = %f" % data))
+        self.notify(_(u"%.2f m2 (square meters)" % data))
 
 
 class BEE(MedCalc):
@@ -85,7 +85,7 @@ class BEE(MedCalc):
             bee = 66.5 + (13.75 * weight) + (5.003 * height) - (6.775 * age)
         else:
             bee = 655.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age)
-        self.notify(_(u"Basal energy expenditure = %.0f kcal" % bee))
+        self.notify(_(u"%.1f kcal" % bee))
 
 
 class CurrentAge(MedCalc):
@@ -98,7 +98,7 @@ class CurrentAge(MedCalc):
         super(CurrentAge, self).__init__()
         self.category = CATEGORY
         self.name = _(u"Current age")
-        self.data = [(_(u"Birthday"), 'date')]
+        self.data = [(_(u"Birthday"), 'date', 0.0)]
 
     def show(self):
         dob = datetime.datetime.utcfromtimestamp(self.getform()[0][2])

@@ -57,25 +57,27 @@ class BSA(MedCalc):
 
 
 class BEE(MedCalc):
-    """Basal energy expenditure.
+    """Basal energy expenditure (Harris-Benedict equation).
 
     http://www-users.med.cornell.edu/~spon/picu/calc/beecalc.htm
+    https://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation
+    https://en.wikipedia.org/wiki/Basal_metabolic_rate
     """
     def __init__(self):
         super(BEE, self).__init__()
         self.category = CATEGORY
         self.name = _(u"Basal energy expenditure")
         # Issue: activity is not used for calculation
-        act = [
-            _(u'Bedrest'),
-            _(u'Ambulating')]
+        # act = [
+        #     _(u'Bedrest'),
+        #     _(u'Ambulating')]
         sexo = [_(u'Male'), _(u'Female')]
         self.data = [
             (_(u'Sex'), 'combo', (sexo, 0)),
             (_(u"Body mass (kg)"), 'number', 0),
             (_(u'Height (cm)'), 'number', 0),
-            (_(u"Age"), 'number', 0),
-            (_(u"Activity"), "combo", (act, 0))]
+            (_(u"Age"), 'number', 0)]
+            # (_(u"Activity"), "combo", (act, 0))
 
     def show(self):
         weight = self.getform()[1][2]
@@ -98,7 +100,7 @@ class CurrentAge(MedCalc):
         super(CurrentAge, self).__init__()
         self.category = CATEGORY
         self.name = _(u"Current age")
-        self.data = [(_(u"Birthday"), 'date', 0.0)]
+        self.data = [(_(u"Date of birth"), 'date', 0.0)]
 
     def show(self):
         dob = datetime.datetime.utcfromtimestamp(self.getform()[0][2])

@@ -52,34 +52,9 @@ class Application(object):
         # Application runtime
         self._app_lock = e32.Ao_lock()
         self.Parent = None
-        self.collect_calcs()
-
-    def collect_calcs(self):
-        """Collect all calculators and create menu structure.
-        """
-        from medcalc import geral, neuro, rx, uti
-        classes = list()
-        for modname, mod in inspect.getmembers(medcalc, inspect.ismodule):
-            for clsname, cls in inspect.getmembers(mod, inspect.isclass):
-                # mro = inspect.getmro(cls)
-                mro = cls.__bases__
-                if (geralclass.MedCalc in mro or
-                    geralclass.MedCalcList in mro or
-                    geralclass.MedImage in mro):
-                    classes.append(cls())
-
-        classes.sort(key=attrgetter('category'))
-
-        self.categories = list()
-        self.menu_items = list()
-        for k, grp in groupby(classes, attrgetter('category')):
-            self.categories.append(k)
-            self.menu_items.append(medcalc.geralclass.MenuItem(list(grp)))
 
     def run(self):
-        # from key_codes import EKeyLeftArrow
-        self.lb = appuifw.Listbox(self.categories, self.lbox_observe)
-        # self.lb.bind(EKeyLeftArrow, lambda: self.lbox_observe(0))
+        self.update_calcs()
         old_title = appuifw.app.title
         self.refresh()
         self._app_lock.wait()
@@ -98,6 +73,30 @@ class Application(object):
             (_(u"Exit"), self.exit_key_handler)]
         appuifw.app.exit_key_handler = self.exit_key_handler
         appuifw.app.body = self.lb
+
+    def update_calcs(self):
+        """Collect all calculators and create menu structure.
+        """
+        from medcalc import geral, neuro, rx, uti
+        map(reload, (geral, neuro, rx, uti))  # For categories update
+        classes = list()
+        for modname, mod in inspect.getmembers(medcalc, inspect.ismodule):
+            for clsname, cls in inspect.getmembers(mod, inspect.isclass):
+                # mro = inspect.getmro(cls)
+                mro = cls.__bases__
+                if (geralclass.MedCalc in mro or
+                    geralclass.MedCalcList in mro or
+                    geralclass.MedImage in mro):
+                    classes.append(cls())
+
+        classes.sort(key=attrgetter('category'))
+
+        self.categories = list()
+        self.menu_items = list()
+        for k, grp in groupby(classes, attrgetter('category')):
+            self.categories.append(k)
+            self.menu_items.append(medcalc.geralclass.MenuItem(list(grp)))
+        self.lb = appuifw.Listbox(self.categories, self.lbox_observe)
 
     def do_exit(self):
         self.exit_key_handler()
@@ -163,12 +162,13 @@ class Application(object):
             self.set_language(translations[idx])
             self._cfg.set(self._cfg_section, 'language', translations[idx])
             self.save_cfg()
+            self.update_calcs()
             appuifw.note(
                 _(u"Please reload the program to apply the changes."), 'info')
 
     def menu_about(self):
         appuifw.note(
-            _(u"Open source medical calculator v%s." % medcalc.__version__),
+            _(u"Open source medical calculator v%s.") % medcalc.__version__,
             'conf')
 
 

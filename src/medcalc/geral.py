@@ -32,7 +32,7 @@ class BMI(MedCalc):
     def show(self):
         W = self.getform()[0][2]
         H = self.getform()[1][2] / 100.0
-        self.notify(_(u"%.2f" % (W / H ** 2)))
+        self.notify(_(u"%.2f") % (W / H ** 2))
 
 
 class BSA(MedCalc):
@@ -53,7 +53,7 @@ class BSA(MedCalc):
         W = self.getform()[0][2]
         H = self.getform()[1][2]
         data = (W ** 0.425 * H ** 0.725) * 0.007184
-        self.notify(_(u"%.2f m2 (square meters)" % data))
+        self.notify(_(u"%.2f m2 (square meters)") % data)
 
 
 class BEE(MedCalc):
@@ -87,7 +87,7 @@ class BEE(MedCalc):
             bee = 66.5 + (13.75 * weight) + (5.003 * height) - (6.775 * age)
         else:
             bee = 655.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age)
-        self.notify(_(u"%.1f kcal" % bee))
+        self.notify(_(u"%.1f kcal") % bee)
 
 
 class CurrentAge(MedCalc):
@@ -105,7 +105,7 @@ class CurrentAge(MedCalc):
     def show(self):
         dob = datetime.datetime.utcfromtimestamp(self.getform()[0][2])
         delta = datetime.datetime.now() - dob
-        self.notify(_(u"%.2f years" % (delta.days / 365.2425)))
+        self.notify(_(u"%.2f years") % (delta.days / 365.2425))
 
 
 # class AnestesiaRisk(MedCalcList):

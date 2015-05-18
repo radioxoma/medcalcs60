@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: medcalc\n"
 "POT-Creation-Date: 2015-05-09 00:53+0300\n"
-"PO-Revision-Date: 2015-05-09 01:19+0300\n"
+"PO-Revision-Date: 2015-05-18 18:53+0300\n"
 "Last-Translator: Eugene Dvoretsky <radioxoma@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -279,20 +279,20 @@ msgstr "С начала приступа прошло"
 
 #: ../../../medcalc/neuro.py:137
 msgid "low"
-msgstr "низкий"
+msgstr "низкая"
 
 #: ../../../medcalc/neuro.py:139
 msgid "medium"
-msgstr "средний"
+msgstr "средняя"
 
 #: ../../../medcalc/neuro.py:140
 msgid "high"
-msgstr "высокий"
+msgstr "высокая"
 
 #: ../../../medcalc/neuro.py:146
 #, python-format
 msgid "%(ninds3)d points, recovery prob. %(pninds3)s"
-msgstr "%(ninds3)d баллов, восстановление в %(pninds3)s"
+msgstr "%(ninds3)d баллов, %(pninds3)s вероятность восстановления"
 
 #: ../../../medcalc/neuro.py:159
 msgid "Zung depression scale"

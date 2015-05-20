@@ -225,15 +225,15 @@ msgid "Localizes painful stimuli"
 msgstr "Localiza a dor"
 
 #: ../../../medcalc/neuro.py:76
-msgid "Flexion / Withdrawal to painful stimuli"
+msgid "Withdrawal to painful stimuli"
 msgstr "Flexão normal"
 
 #: ../../../medcalc/neuro.py:77
-msgid "Abnormal flexion to painful stimuli (decorticate response)"
+msgid "Flexion to pain (decorticate)"
 msgstr "Flexão anormal"
 
 #: ../../../medcalc/neuro.py:78
-msgid "Extension to painful stimuli (decerebrate response)"
+msgid "Extension to pain (decerebrate)"
 msgstr "Extensão"
 
 #: ../../../medcalc/neuro.py:81

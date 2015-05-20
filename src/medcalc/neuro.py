@@ -73,30 +73,51 @@ class GCS(MedCalc):
         self.Motor = [
             _(u'Obeys commands'),
             _(u'Localizes painful stimuli'),
-            _(u'Flexion / Withdrawal to painful stimuli'),
-            _(u'Abnormal flexion to painful stimuli (decorticate response)'),
-            _(u'Extension to painful stimuli (decerebrate response)'),
+            _(u'Withdrawal to painful stimuli'),
+            _(u'Flexion to pain (decorticate)'),
+            _(u'Extension to pain (decerebrate)'),
             _(u'No reaction')]
         self.data = [
             (_(u'Eye'), 'combo', (self.Eye, 0)),
             (_(u'Verbal'), 'combo', (self.Lang, 0)),
             (_(u'Motor'), 'combo', (self.Motor, 0))]
 
+    def prob(self, i):
+        """Recuperation probability.
+        """
+        if i > 10:
+            return 82
+        if i > 7:
+            return 68
+        if i > 4:
+            return 34
+        return 7
+
+    def conscience(self, points):
+        """Conscience level.
+        """
+        if points == 15:
+            return _(u'clear mind')  # Ясное сознание
+        elif 13 <= points <= 14:
+            return _(u'moderate lightheadedness')  # Оглушение умеренное
+        elif 10 <= points <= 12:
+            return _(u'deep lightheadedness')  # Оглушение глубокое
+        elif 8 <= points <= 9:
+            return _(u'sopor')  # Сопор
+        elif 6 <= points <= 7:
+            return _(u'moderate coma')  # Кома умеренная
+        elif 4 <= points <= 5:
+            return _(u'deep coma')  # Кома глубокая
+        elif points <= 3:
+            return _(u'terminal coma, brain death')  # Кома терминальная, смерть мозга
+
     def show(self):
-        def prob(i):
-            if i > 10:
-                return 82
-            if i > 7:
-                return 68
-            if i > 4:
-                return 34
-            return 7
         E = self.getform()[0][2][1]
         L = self.getform()[1][2][1]
         M = self.getform()[2][2][1]
         GCS = 4 - E + 5 - L + 6 - M
-        self.notify(_(u"%(GCS)d points, recovery prob. %(pGCS)d%%") % {
-            'GCS': GCS, 'pGCS': prob(GCS)})
+        self.notify(_(u"%(GCS)d points (%(conscience)s), recovery prob. %(pGCS)d%%") % {
+            'GCS': GCS, 'conscience': self.conscience(GCS), 'pGCS': self.prob(GCS)})
 
 
 class NINDS3(MedCalc):

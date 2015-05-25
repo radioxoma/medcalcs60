@@ -23,7 +23,7 @@ The source code was forked from https://code.google.com/p/medcalcs60/ for develo
         sh ./create_sis.sh
 
 
-## Installing
+## Installation
 
-* Install python 2.0 (actually it's [2.5.4](https://www.python.org/doc/2.5.4/)) runtime on device.
-* Install sis package. Binary installers are available at [releases page](https://github.com/radioxoma/medcalcs60/releases).
+* Install python 2.0 (actually it's [2.5.4](https://www.python.org/doc/2.5.4/)) runtime on device. You can download `python_2.0.0.sis` package from [maemo.org](https://garage.maemo.org/frs/?group_id=854&release_id=3264) (see `PyS60_binaries_certificate_error_fixed.zip` archive).
+* Install latest medcalc sis package. Binary installers are available at [releases page](https://github.com/radioxoma/medcalcs60/releases).

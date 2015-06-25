@@ -9,6 +9,7 @@ from __future__ import with_statement
 
 
 import datetime
+import random
 from medcalc.geralclass import *
 
 
@@ -107,6 +108,44 @@ class CurrentAge(MedCalc):
         delta = datetime.datetime.now() - dob
         self.notify(_(u"%.2f years") % (delta.days / 365.2425))
 
+
+class MagicEightBall(MedCalc):
+    """Get answer for an yes-no question from Magic 8 ball.
+
+    https://en.wikipedia.org/wiki/Magic_8-Ball
+    """
+    def __init__(self):
+#         super(MagicEightBall, self).__init__()
+        self.category = CATEGORY
+        self.name = _(u"Magic 8 ball")
+        self._choices = (
+            _(u"It is certain"),
+            _(u"It is decidedly so"),
+            _(u"Without a doubt"),
+            _(u"Yes definitely"),
+            _(u"You may rely on it"),
+            _(u"As I see it, yes"),
+            _(u"Most likely"),
+            _(u"Outlook good"),
+            _(u"Yes"),
+            _(u"Signs point to yes"),
+            _(u"Reply hazy try again"),
+            _(u"Ask again later"),
+            _(u"Better not tell you now"),
+            _(u"Cannot predict now"),
+            _(u"Concentrate and ask again"),
+            _(u"Don't count on it"),
+            _(u"My reply is no"),
+            _(u"My sources say no"),
+            _(u"Outlook not so good"),
+            _(u"Very doubtful"))
+
+    def run(self):
+        # Method overload: don't need any form, just show note.
+        self.notify(random.choice(self._choices))
+
+    def show(self):
+        pass
 
 # class AnestesiaRisk(MedCalcList):
 #     def __init__(self):

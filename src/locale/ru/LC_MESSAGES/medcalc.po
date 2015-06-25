@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: medcalc\n"
-"POT-Creation-Date: 2015-05-20 21:06+0300\n"
-"PO-Revision-Date: 2015-05-20 21:07+0300\n"
+"POT-Creation-Date: 2015-06-25 20:37+0300\n"
+"PO-Revision-Date: 2015-06-25 20:40+0300\n"
 "Last-Translator: Eugene Dvoretsky <radioxoma@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.6\n"
+"X-Generator: Poedit 1.8.1\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -42,76 +42,160 @@ msgstr ""
 "Медицинский калькулятор с открытым исходным кодом.\n"
 "Версия v%s"
 
-#: ../../../medcalc/geral.py:15
+#: ../../../medcalc/geral.py:16
 msgid "General"
 msgstr "Общие"
 
-#: ../../../medcalc/geral.py:27
+#: ../../../medcalc/geral.py:28
 msgid "Body mass index"
 msgstr "Индекс массы тела"
 
-#: ../../../medcalc/geral.py:29 ../../../medcalc/geral.py:49
-#: ../../../medcalc/geral.py:77
+#: ../../../medcalc/geral.py:30 ../../../medcalc/geral.py:50
+#: ../../../medcalc/geral.py:78
 msgid "Body mass (kg)"
 msgstr "Масса тела (кг)"
 
-#: ../../../medcalc/geral.py:30 ../../../medcalc/geral.py:50
-#: ../../../medcalc/geral.py:78
+#: ../../../medcalc/geral.py:31 ../../../medcalc/geral.py:51
+#: ../../../medcalc/geral.py:79
 msgid "Height (cm)"
 msgstr "Рост (см)"
 
-#: ../../../medcalc/geral.py:35 ../../../medcalc/uti.py:97
+#: ../../../medcalc/geral.py:36 ../../../medcalc/uti.py:97
 #: ../../../medcalc/uti.py:122
 #, python-format
 msgid "%.2f"
 msgstr ""
 
-#: ../../../medcalc/geral.py:47
+#: ../../../medcalc/geral.py:48
 msgid "Body surface area"
 msgstr "Площадь поверхности тела"
 
-#: ../../../medcalc/geral.py:56
+#: ../../../medcalc/geral.py:57
 #, python-format
 msgid "%.2f m2 (square meters)"
 msgstr "%.2f м2 (метров квадратных)"
 
-#: ../../../medcalc/geral.py:69
+#: ../../../medcalc/geral.py:70
 msgid "Basal energy expenditure"
 msgstr "Базальный метаболизм"
 
-#: ../../../medcalc/geral.py:74
+#: ../../../medcalc/geral.py:75
 msgid "Male"
 msgstr "Мужской"
 
-#: ../../../medcalc/geral.py:74
+#: ../../../medcalc/geral.py:75
 msgid "Female"
 msgstr "Женский"
 
-#: ../../../medcalc/geral.py:76
+#: ../../../medcalc/geral.py:77
 msgid "Sex"
 msgstr "Пол"
 
-#: ../../../medcalc/geral.py:79
+#: ../../../medcalc/geral.py:80
 msgid "Age"
 msgstr "Возраст"
 
-#: ../../../medcalc/geral.py:90
+#: ../../../medcalc/geral.py:91
 #, python-format
 msgid "%.1f kcal"
 msgstr "%.1f ккал"
 
-#: ../../../medcalc/geral.py:102 ../../../medcalc/neuro.py:31
+#: ../../../medcalc/geral.py:103 ../../../medcalc/neuro.py:31
 msgid "Current age"
 msgstr "Возраст"
 
-#: ../../../medcalc/geral.py:103 ../../../medcalc/neuro.py:32
+#: ../../../medcalc/geral.py:104 ../../../medcalc/neuro.py:32
 msgid "Date of birth"
 msgstr "Дата рождения"
 
-#: ../../../medcalc/geral.py:108
+#: ../../../medcalc/geral.py:109
 #, python-format
 msgid "%.2f years"
 msgstr "%.2f лет"
+
+#: ../../../medcalc/geral.py:120
+msgid "Magic 8 ball"
+msgstr ""
+
+#: ../../../medcalc/geral.py:122
+msgid "It is certain"
+msgstr "Бесспорно"
+
+#: ../../../medcalc/geral.py:123
+msgid "It is decidedly so"
+msgstr "Предрешено"
+
+#: ../../../medcalc/geral.py:124
+msgid "Without a doubt"
+msgstr "Никаких сомнений"
+
+#: ../../../medcalc/geral.py:125
+msgid "Yes definitely"
+msgstr "Определённо да"
+
+#: ../../../medcalc/geral.py:126
+msgid "You may rely on it"
+msgstr "Можешь быть уверен в этом"
+
+#: ../../../medcalc/geral.py:127
+msgid "As I see it, yes"
+msgstr "Мне кажется — «да»"
+
+#: ../../../medcalc/geral.py:128
+msgid "Most likely"
+msgstr "Вероятнее всего"
+
+#: ../../../medcalc/geral.py:129
+msgid "Outlook good"
+msgstr "Хорошие перспективы"
+
+#: ../../../medcalc/geral.py:130
+msgid "Yes"
+msgstr "Да"
+
+#: ../../../medcalc/geral.py:131
+msgid "Signs point to yes"
+msgstr "Знаки говорят — «да»"
+
+#: ../../../medcalc/geral.py:132
+msgid "Reply hazy try again"
+msgstr "Пока не ясно, попробуй снова"
+
+#: ../../../medcalc/geral.py:133
+msgid "Ask again later"
+msgstr "Спроси позже"
+
+#: ../../../medcalc/geral.py:134
+msgid "Better not tell you now"
+msgstr "Лучше не рассказывать"
+
+#: ../../../medcalc/geral.py:135
+msgid "Cannot predict now"
+msgstr "Сейчас нельзя предсказать"
+
+#: ../../../medcalc/geral.py:136
+msgid "Concentrate and ask again"
+msgstr "Сконцентрируйся и спроси опять"
+
+#: ../../../medcalc/geral.py:137
+msgid "Don't count on it"
+msgstr "Даже не думай"
+
+#: ../../../medcalc/geral.py:138
+msgid "My reply is no"
+msgstr "Мой ответ — «нет»"
+
+#: ../../../medcalc/geral.py:139
+msgid "My sources say no"
+msgstr "По моим данным — «нет»"
+
+#: ../../../medcalc/geral.py:140
+msgid "Outlook not so good"
+msgstr "Перспективы не очень хорошие"
+
+#: ../../../medcalc/geral.py:141
+msgid "Very doubtful"
+msgstr "Весьма сомнительно"
 
 #: ../../../medcalc/neuro.py:11
 msgid "Neurology"
